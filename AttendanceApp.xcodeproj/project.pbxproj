@@ -14,9 +14,13 @@
 		AD322820208F410E00BA179A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD32281E208F410E00BA179A /* LaunchScreen.storyboard */; };
 		AD322828208F42F700BA179A /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD322827208F42F700BA179A /* CustomCollectionViewCell.swift */; };
 		AD32282C208F5B5100BA179A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32282B208F5B5100BA179A /* SignInViewController.swift */; };
+		AF97984E089F2F474D0913D7 /* Pods_AttendanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A02AB12135B9E9B05D576BAD /* Pods_AttendanceApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2EC5ED7CA8306F772C276757 /* Pods-AttendanceApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-AttendanceApp/Pods-AttendanceApp.release.xcconfig"; sourceTree = "<group>"; };
+		A02AB12135B9E9B05D576BAD /* Pods_AttendanceApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AttendanceApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8BE6BE80B29CDF14C11D850 /* Pods-AttendanceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AttendanceApp/Pods-AttendanceApp.debug.xcconfig"; sourceTree = "<group>"; };
 		AD322812208F410500BA179A /* AttendanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AttendanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD322815208F410500BA179A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD322817208F410500BA179A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF97984E089F2F474D0913D7 /* Pods_AttendanceApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7ACCE3FB663AAA0ED1D0C0D3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A02AB12135B9E9B05D576BAD /* Pods_AttendanceApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AD322809208F410500BA179A = {
 			isa = PBXGroup;
 			children = (
 				AD322814208F410500BA179A /* AttendanceApp */,
 				AD322813208F410500BA179A /* Products */,
+				B61967F5CF3D2F82EA20C203 /* Pods */,
+				7ACCE3FB663AAA0ED1D0C0D3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +85,15 @@
 			path = AttendanceApp;
 			sourceTree = "<group>";
 		};
+		B61967F5CF3D2F82EA20C203 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A8BE6BE80B29CDF14C11D850 /* Pods-AttendanceApp.debug.xcconfig */,
+				2EC5ED7CA8306F772C276757 /* Pods-AttendanceApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD322824208F410E00BA179A /* Build configuration list for PBXNativeTarget "AttendanceApp" */;
 			buildPhases = (
+				160ADF307FCC40DE941C8962 /* [CP] Check Pods Manifest.lock */,
 				AD32280E208F410500BA179A /* Sources */,
 				AD32280F208F410500BA179A /* Frameworks */,
 				AD322810208F410500BA179A /* Resources */,
+				BA020DAA9E7458B498E643EE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,6 +161,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		160ADF307FCC40DE941C8962 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AttendanceApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA020DAA9E7458B498E643EE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AttendanceApp/Pods-AttendanceApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/TouchDraw/TouchDraw.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TouchDraw.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AttendanceApp/Pods-AttendanceApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AD32280E208F410500BA179A /* Sources */ = {
@@ -286,15 +351,13 @@
 		};
 		AD322825208F410E00BA179A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8BE6BE80B29CDF14C11D850 /* Pods-AttendanceApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y7324JV5ZF;
 				INFOPLIST_FILE = AttendanceApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ziyunhe.AttendanceApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -304,15 +367,13 @@
 		};
 		AD322826208F410E00BA179A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2EC5ED7CA8306F772C276757 /* Pods-AttendanceApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y7324JV5ZF;
 				INFOPLIST_FILE = AttendanceApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ziyunhe.AttendanceApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

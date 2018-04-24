@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TouchDraw
 
 class SignInViewController: UIViewController {
 
@@ -37,7 +38,44 @@ class SignInViewController: UIViewController {
             self.signInView.image = UIImage(data:imageData! as Data)
             }
     }
-
-   
+    
+    
+//    //GET THE SIGNITURE
+//    func createImage() -> UIImage {
+//
+//        if #available(iOS 10.0, *) {
+//            let renderer = UIGraphicsImageRenderer(bounds: bounds)
+//            return renderer.image { rendererContext in
+//                layer.render(in: rendererContext.cgContext)
+//            }
+//        } else {
+//            // Fallback on earlier versions
+//            let rect: CGRect = self.frame
+//
+//            UIGraphicsBeginImageContext(rect.size)
+//            let context: CGContext = UIGraphicsGetCurrentContext()!
+//            self.layer.render(in: context)
+//            let img = UIGraphicsGetImageFromCurrentImageContext()
+//            UIGraphicsEndImageContext()
+//
+//            return img!
+//        }
+//
+//    }
+    
+    let image = UIImage(signInView)
 
 }
+
+
+
+extension UIImage {
+    convenience init(view: UIView) {
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.render(in:UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.init(cgImage: image!.cgImage!)
+    }
+}
+

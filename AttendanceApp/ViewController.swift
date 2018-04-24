@@ -47,5 +47,12 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         
     }
 
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    @IBAction func calculateButton(_ sender: Any) {
+        let index = segmentedControl.selectedSegmentIndex
+        //...
+    }
+    
 }
 
