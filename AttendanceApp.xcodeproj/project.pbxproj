@@ -12,6 +12,8 @@
 		AD32281B208F410500BA179A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD322819208F410500BA179A /* Main.storyboard */; };
 		AD32281D208F410E00BA179A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD32281C208F410E00BA179A /* Assets.xcassets */; };
 		AD322820208F410E00BA179A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD32281E208F410E00BA179A /* LaunchScreen.storyboard */; };
+		AD322828208F42F700BA179A /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD322827208F42F700BA179A /* CustomCollectionViewCell.swift */; };
+		AD32282C208F5B5100BA179A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32282B208F5B5100BA179A /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		AD32281C208F410E00BA179A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD32281F208F410E00BA179A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD322821208F410E00BA179A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD322827208F42F700BA179A /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		AD32282B208F5B5100BA179A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +60,12 @@
 			children = (
 				AD322815208F410500BA179A /* AppDelegate.swift */,
 				AD322817208F410500BA179A /* ViewController.swift */,
+				AD322827208F42F700BA179A /* CustomCollectionViewCell.swift */,
 				AD322819208F410500BA179A /* Main.storyboard */,
 				AD32281C208F410E00BA179A /* Assets.xcassets */,
 				AD32281E208F410E00BA179A /* LaunchScreen.storyboard */,
 				AD322821208F410E00BA179A /* Info.plist */,
+				AD32282B208F5B5100BA179A /* SignInViewController.swift */,
 			);
 			path = AttendanceApp;
 			sourceTree = "<group>";
@@ -135,7 +141,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD32282C208F5B5100BA179A /* SignInViewController.swift in Sources */,
 				AD322818208F410500BA179A /* ViewController.swift in Sources */,
+				AD322828208F42F700BA179A /* CustomCollectionViewCell.swift in Sources */,
 				AD322816208F410500BA179A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
