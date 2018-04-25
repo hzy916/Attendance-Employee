@@ -10,17 +10,24 @@ import UIKit
 import TouchDraw
 
 class SignInViewController: UIViewController {
+    //create image related varibles
 
-    @IBOutlet weak var signInView: UIImageView!
+    var imagesDirectoryPath:String!
+    var signatureImages:[UIImage]!
+    var titles:[String]!
+
     
+    @IBOutlet weak var signInView: UIView!
     var selectedImage:String!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //create the folder for signature images
+        var signatureImages : [UIImage] = []
         
+
         
     }
 
@@ -31,40 +38,54 @@ class SignInViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        let imageurl = NSURL(string: self.selectedImage)
-        let imageData = NSData(contentsOf: imageurl! as URL)
-           if(imageData != nil)
-           {
-            self.signInView.image = UIImage(data:imageData! as Data)
-            }
+
     }
     
     
-//    //GET THE SIGNITURE
-//    func createImage() -> UIImage {
-//
-//        if #available(iOS 10.0, *) {
-//            let renderer = UIGraphicsImageRenderer(bounds: bounds)
-//            return renderer.image { rendererContext in
-//                layer.render(in: rendererContext.cgContext)
-//            }
-//        } else {
-//            // Fallback on earlier versions
-//            let rect: CGRect = self.frame
-//
-//            UIGraphicsBeginImageContext(rect.size)
-//            let context: CGContext = UIGraphicsGetCurrentContext()!
-//            self.layer.render(in: context)
-//            let img = UIGraphicsGetImageFromCurrentImageContext()
-//            UIGraphicsEndImageContext()
-//
-//            return img!
-//        }
-//
-//    }
-    
-    let image = UIImage(signInView)
 
+    
+    @IBAction func saveButtonPressed(_ sender: UIButton) {
+        //Encoding
+        let signImage = UIImage(view: signInView)
+        let path = saveImageToDocumentDirectory(signImage)
+        print(path)
+        
+    }
+    //save image to document directory (path)
+    func saveImageToDocumentDirectory(_ chosenImage: UIImage) -> String {
+        let directoryPath =  NSHomeDirectory().appending("/Documents/")
+        if !FileManager.default.fileExists(atPath: directoryPath) {
+            do {
+                try FileManager.default.createDirectory(at: NSURL.fileURL(withPath: directoryPath), withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                print(error)
+            }
+        }
+        
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        let result = formatter.string(from: date)
+        
+        let user = ""
+        
+        let fileName = "\(user)_\(result)"
+        
+        
+        let fullName = fileName.appending(".jpg")
+        let filepath = directoryPath.appending(fullName)
+        let url = NSURL.fileURL(withPath: filepath)
+        do {
+            try UIImageJPEGRepresentation(chosenImage, 1.0)?.write(to: url, options: .atomic)
+            return String.init("/Documents/\(fullName)")
+            
+        } catch {
+            print(error)
+            print("file cant not be save at path \(filepath), with error : \(error)");
+            return filepath
+        }
+    }
+    
 }
 
 

@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     let mainMenu = ["cow", "dog", "milk", "thank-you"]
     
@@ -24,7 +25,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return mainMenu.count
+            return mainMenu.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -47,7 +48,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         
     }
 
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
     
     @IBAction func calculateButton(_ sender: Any) {
         let index = segmentedControl.selectedSegmentIndex

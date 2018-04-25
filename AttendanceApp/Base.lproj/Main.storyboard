@@ -129,36 +129,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FF4-bG-v9n">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FF4-bG-v9n">
                                 <rect key="frame" x="25.5" y="188.5" width="324" height="290"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.51512239419999994" green="0.4097324832" blue="1" alpha="0.1193279109589041" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="290" id="dFg-Xg-xPl"/>
-                                    <constraint firstAttribute="width" constant="324" id="wHt-X3-u0m"/>
-                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fd7-Ob-OCW">
-                                <rect key="frame" x="291" y="571" width="45" height="36"/>
+                                <rect key="frame" x="253" y="571" width="83" height="39"/>
+                                <color key="backgroundColor" red="0.7545271952785747" green="0.92549019610000005" blue="0.16570831599500613" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="196-wS-CtA"/>
-                                    <constraint firstAttribute="width" constant="45" id="mim-vQ-AFY"/>
+                                    <constraint firstAttribute="height" constant="39" id="6UL-VH-tjz"/>
+                                    <constraint firstAttribute="width" constant="83" id="PWk-cb-51N"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="Save">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="0na-2W-2FE" eventType="touchUpInside" id="dfl-Af-aNg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="FF4-bG-v9n" firstAttribute="centerX" secondItem="f0d-9a-FPZ" secondAttribute="centerX" id="Mqg-yI-5CB"/>
-                            <constraint firstItem="HAy-sJ-rcQ" firstAttribute="bottom" secondItem="fd7-Ob-OCW" secondAttribute="bottom" constant="60" id="WNu-F8-UXi"/>
-                            <constraint firstItem="HAy-sJ-rcQ" firstAttribute="trailing" secondItem="fd7-Ob-OCW" secondAttribute="trailing" constant="39" id="auB-Od-ynp"/>
-                            <constraint firstItem="FF4-bG-v9n" firstAttribute="centerY" secondItem="f0d-9a-FPZ" secondAttribute="centerY" id="t0L-hW-FJ1"/>
+                            <constraint firstItem="HAy-sJ-rcQ" firstAttribute="bottom" secondItem="fd7-Ob-OCW" secondAttribute="bottom" constant="57" id="V1j-Iy-oSK"/>
+                            <constraint firstItem="HAy-sJ-rcQ" firstAttribute="trailing" secondItem="fd7-Ob-OCW" secondAttribute="trailing" constant="39" id="h8U-pf-w7G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HAy-sJ-rcQ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Sign In" id="3rv-0O-8PD"/>
+                    <connections>
+                        <outlet property="signInView" destination="FF4-bG-v9n" id="4rp-P7-soh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcb-pk-bHh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
