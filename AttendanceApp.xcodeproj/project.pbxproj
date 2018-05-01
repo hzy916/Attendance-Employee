@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD19438C2090AA5000C8F93E /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD19438B2090AA5000C8F93E /* Employee.swift */; };
 		AD322816208F410500BA179A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD322815208F410500BA179A /* AppDelegate.swift */; };
 		AD322818208F410500BA179A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD322817208F410500BA179A /* ViewController.swift */; };
 		AD32281B208F410500BA179A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD322819208F410500BA179A /* Main.storyboard */; };
@@ -14,6 +15,7 @@
 		AD322820208F410E00BA179A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD32281E208F410E00BA179A /* LaunchScreen.storyboard */; };
 		AD322828208F42F700BA179A /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD322827208F42F700BA179A /* CustomCollectionViewCell.swift */; };
 		AD32282C208F5B5100BA179A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32282B208F5B5100BA179A /* SignInViewController.swift */; };
+		AD8E97702091D08900417E24 /* Employees.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD8E976F2091D08900417E24 /* Employees.plist */; };
 		AF97984E089F2F474D0913D7 /* Pods_AttendanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A02AB12135B9E9B05D576BAD /* Pods_AttendanceApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,6 +23,7 @@
 		2EC5ED7CA8306F772C276757 /* Pods-AttendanceApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-AttendanceApp/Pods-AttendanceApp.release.xcconfig"; sourceTree = "<group>"; };
 		A02AB12135B9E9B05D576BAD /* Pods_AttendanceApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AttendanceApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8BE6BE80B29CDF14C11D850 /* Pods-AttendanceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AttendanceApp/Pods-AttendanceApp.debug.xcconfig"; sourceTree = "<group>"; };
+		AD19438B2090AA5000C8F93E /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		AD322812208F410500BA179A /* AttendanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AttendanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD322815208F410500BA179A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD322817208F410500BA179A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -30,6 +33,7 @@
 		AD322821208F410E00BA179A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD322827208F42F700BA179A /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		AD32282B208F5B5100BA179A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		AD8E976F2091D08900417E24 /* Employees.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Employees.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +59,29 @@
 		AD19438A209094FE00C8F93E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AD19438B2090AA5000C8F93E /* Employee.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		AD19438D2090AAFD00C8F93E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AD322817208F410500BA179A /* ViewController.swift */,
+				AD322827208F42F700BA179A /* CustomCollectionViewCell.swift */,
+				AD32282B208F5B5100BA179A /* SignInViewController.swift */,
+				AD322815208F410500BA179A /* AppDelegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AD19438E2090AB1C00C8F93E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AD32281C208F410E00BA179A /* Assets.xcassets */,
+				AD322819208F410500BA179A /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		AD322809208F410500BA179A = {
@@ -80,17 +105,22 @@
 		AD322814208F410500BA179A /* AttendanceApp */ = {
 			isa = PBXGroup;
 			children = (
+				AD8E976E2091D05B00417E24 /* Resources */,
+				AD19438E2090AB1C00C8F93E /* View */,
+				AD19438D2090AAFD00C8F93E /* Controller */,
 				AD19438A209094FE00C8F93E /* Model */,
-				AD322815208F410500BA179A /* AppDelegate.swift */,
-				AD322817208F410500BA179A /* ViewController.swift */,
-				AD322827208F42F700BA179A /* CustomCollectionViewCell.swift */,
-				AD322819208F410500BA179A /* Main.storyboard */,
-				AD32281C208F410E00BA179A /* Assets.xcassets */,
-				AD32281E208F410E00BA179A /* LaunchScreen.storyboard */,
 				AD322821208F410E00BA179A /* Info.plist */,
-				AD32282B208F5B5100BA179A /* SignInViewController.swift */,
+				AD32281E208F410E00BA179A /* LaunchScreen.storyboard */,
 			);
 			path = AttendanceApp;
+			sourceTree = "<group>";
+		};
+		AD8E976E2091D05B00417E24 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AD8E976F2091D08900417E24 /* Employees.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		B61967F5CF3D2F82EA20C203 /* Pods */ = {
@@ -162,6 +192,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD8E97702091D08900417E24 /* Employees.plist in Resources */,
 				AD322820208F410E00BA179A /* LaunchScreen.storyboard in Resources */,
 				AD32281D208F410E00BA179A /* Assets.xcassets in Resources */,
 				AD32281B208F410500BA179A /* Main.storyboard in Resources */,
@@ -217,6 +248,7 @@
 				AD32282C208F5B5100BA179A /* SignInViewController.swift in Sources */,
 				AD322818208F410500BA179A /* ViewController.swift in Sources */,
 				AD322828208F42F700BA179A /* CustomCollectionViewCell.swift in Sources */,
+				AD19438C2090AA5000C8F93E /* Employee.swift in Sources */,
 				AD322816208F410500BA179A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
