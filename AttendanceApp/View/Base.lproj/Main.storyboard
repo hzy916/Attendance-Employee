@@ -87,6 +87,7 @@
                                             </segments>
                                             <connections>
                                                 <action selector="calculateButton:" destination="BYZ-38-t0r" eventType="valueChanged" id="wXb-UL-gMD"/>
+                                                <action selector="changeView:" destination="BYZ-38-t0r" eventType="valueChanged" id="sjM-q8-Osv"/>
                                             </connections>
                                         </segmentedControl>
                                     </subviews>
