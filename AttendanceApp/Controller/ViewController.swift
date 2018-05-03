@@ -19,9 +19,11 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         switch segmentedControl.selectedSegmentIndex
         {
         case 0:
+           //  currentArray.removeAll()
              currentArray = checkinArray
              collectionView.reloadData()
         case 1:
+           //  currentArray.removeAll()
              currentArray = checkoutArray
              collectionView.reloadData()
         default:
@@ -61,27 +63,27 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         
         //Read from plist
         
-        var checkinArray: [Employee] = []
+        var currentArray: [Employee] = []
          if let path = Bundle.main.path(forResource: "Employees", ofType: "plist") {
             if let englishFromPlist = NSArray(contentsOfFile: path) as? [Dictionary<String, Any>] {
                 for item in englishFromPlist {
                     let employee = Employee(name: item["name"] as! String, department: item["deparment"] as! String, status: false, inTime: "", outTime: "")
-                    checkinArray.append(employee)
+                    currentArray.append(employee)
                 }
             }
         }
 
-       return checkinArray
+       return currentArray
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return checkinArray.count
+            return currentArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customCell", for: indexPath) as! CustomCollectionViewCell
         
-        let employee = checkinArray[indexPath.row] as Employee
+        let employee = currentArray[indexPath.row] as Employee
         cell.lblCell.text = employee.employeeName
         
         return cell
@@ -97,7 +99,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         self.navigationController?.pushViewController(mySignInViewPage, animated: true)
         
         //remove employee from check in view
-        checkinArray.remove(at: indexPath.row)
+        checkinArray.remove(at:indexPath.row)
         //add employee to checkout view
         checkoutArray.append(checkinArray[indexPath.row])
     }
