@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Employee" representedClassName=".Employee" syncable="YES" codeGenerationType="class">
+        <attribute name="checkInTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="checkOutTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="checkStatus" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="departmentName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="employeeName" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Employee" positionX="-63" positionY="-18" width="128" height="120"/>
+    </elements>
+</model>

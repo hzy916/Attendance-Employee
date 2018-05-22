@@ -47,7 +47,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         // Do any additional setup after loading the view, typically from a nib.
         
         checkinArray = loadEmployeeDetails()
-        
+        currentArray = checkinArray
         print(checkinArray)
         
         collectionView.reloadData()
@@ -98,17 +98,19 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         
         self.navigationController?.pushViewController(mySignInViewPage, animated: true)
         
+        checkoutArray.append(checkinArray[indexPath.row])
+        
         //remove employee from check in view
         checkinArray.remove(at:indexPath.row)
+        print(checkinArray)
         //add employee to checkout view
-        checkoutArray.append(checkinArray[indexPath.row])
+        
+        print(checkoutArray)
+        
+        //reload view
+        collectionView.reloadData()
     }
 
-    
-    
-    @IBAction func calculateButton(_ sender: Any) {
-        let index = segmentedControl.selectedSegmentIndex
-        //...
-    }
+
     
 }

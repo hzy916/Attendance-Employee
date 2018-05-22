@@ -16,6 +16,7 @@
 		AD322828208F42F700BA179A /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD322827208F42F700BA179A /* CustomCollectionViewCell.swift */; };
 		AD32282C208F5B5100BA179A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32282B208F5B5100BA179A /* SignInViewController.swift */; };
 		AD8E97702091D08900417E24 /* Employees.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD8E976F2091D08900417E24 /* Employees.plist */; };
+		ADA835BB20B40ABA00DF1CCE /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADA835B920B40ABA00DF1CCE /* DataModel.xcdatamodeld */; };
 		AF97984E089F2F474D0913D7 /* Pods_AttendanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A02AB12135B9E9B05D576BAD /* Pods_AttendanceApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		AD322827208F42F700BA179A /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		AD32282B208F5B5100BA179A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		AD8E976F2091D08900417E24 /* Employees.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Employees.plist; sourceTree = "<group>"; };
+		ADA835BA20B40ABA00DF1CCE /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		AD19438A209094FE00C8F93E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ADA835B920B40ABA00DF1CCE /* DataModel.xcdatamodeld */,
 				AD19438B2090AA5000C8F93E /* Employee.swift */,
 			);
 			path = Model;
@@ -248,6 +251,7 @@
 				AD32282C208F5B5100BA179A /* SignInViewController.swift in Sources */,
 				AD322818208F410500BA179A /* ViewController.swift in Sources */,
 				AD322828208F42F700BA179A /* CustomCollectionViewCell.swift in Sources */,
+				ADA835BB20B40ABA00DF1CCE /* DataModel.xcdatamodeld in Sources */,
 				AD19438C2090AA5000C8F93E /* Employee.swift in Sources */,
 				AD322816208F410500BA179A /* AppDelegate.swift in Sources */,
 			);
@@ -449,6 +453,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		ADA835B920B40ABA00DF1CCE /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				ADA835BA20B40ABA00DF1CCE /* DataModel.xcdatamodel */,
+			);
+			currentVersion = ADA835BA20B40ABA00DF1CCE /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AD32280A208F410500BA179A /* Project object */;
 }
