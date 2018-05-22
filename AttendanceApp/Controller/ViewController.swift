@@ -36,6 +36,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     var checkinArray: [Employee] = []
     var checkoutArray: [Employee] = []
     var currentArray: [Employee] = []
+  
     
     
     override func viewDidLoad() {
@@ -54,7 +55,6 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     }
     
 
-    
     
     
     //load employee details from array

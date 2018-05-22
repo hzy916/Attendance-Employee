@@ -27,7 +27,6 @@ class SignInViewController: UIViewController {
         //create the folder for signature images
         var signatureImages : [UIImage] = []
         
-
         
     }
 
@@ -42,7 +41,6 @@ class SignInViewController: UIViewController {
     }
     
     
-
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         //Encoding
