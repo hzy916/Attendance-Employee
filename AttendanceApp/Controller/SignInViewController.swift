@@ -15,6 +15,9 @@ class SignInViewController: UIViewController {
     var imagesDirectoryPath:String!
     var signatureImages:[UIImage]!
     var titles:[String]!
+    var alerttext = ""
+    
+    var isCheckOut = false
 
     
     @IBOutlet weak var signInView: UIView!
@@ -27,6 +30,12 @@ class SignInViewController: UIViewController {
         //create the folder for signature images
         var signatureImages : [UIImage] = []
         
+        if isCheckOut == true {
+            alerttext = "Checked out successfully"
+        }
+        else {
+            alerttext = "Checked in successfully"
+        }
         
     }
 
@@ -48,12 +57,13 @@ class SignInViewController: UIViewController {
         let path = saveImageToDocumentDirectory(signImage)
         print(path)
         
-        let alert = UIAlertController(title: "You have successfully checked in", message: "Message", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: alerttext, message: "Message", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
             switch action.style{
             case .default:
                 print("default")
-                
+                //go back to home screen after checked in
+                _ = self.navigationController?.popToRootViewController(animated: true)
             case .cancel:
                 print("cancel")
                 
@@ -64,6 +74,12 @@ class SignInViewController: UIViewController {
             }}))
         self.present(alert, animated: true, completion: nil)
         
+        if isCheckOut == true {
+            //remove from array
+        }
+        
+//        //reload the employee view after they signed
+//           collectionView.reloadData()
     }
     //save image to document directory (path)
     func saveImageToDocumentDirectory(_ chosenImage: UIImage) -> String {

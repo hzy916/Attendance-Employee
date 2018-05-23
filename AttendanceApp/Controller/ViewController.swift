@@ -36,7 +36,8 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     var checkinArray: [Employee] = []
     var checkoutArray: [Employee] = []
     var currentArray: [Employee] = []
-    
+   
+    var isCheckOut = false
     
     
     override func viewDidLoad() {
@@ -55,7 +56,22 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     }
     
 
-    
+    override func viewWillAppear(_ animated: Bool) {
+//        changeView(_ sender: UISegmentedControl)
+        switch segmentedControl.selectedSegmentIndex
+        {
+        case 0:
+            //  currentArray.removeAll()
+            currentArray = checkinArray
+            collectionView.reloadData()
+        case 1:
+            //  currentArray.removeAll()
+            currentArray = checkoutArray
+            collectionView.reloadData()
+        default:
+            break;
+        }
+    }
     
     //load employee details from array
     
@@ -95,7 +111,16 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("user tapped on image # \(checkinArray[indexPath.row])")
         
-        let mySignInViewPage: SignInViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+        var mySignInViewPage: SignInViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+        
+        // find out check in or check out view to display
+        if segmentedControl.selectedSegmentIndex == 1 {
+            mySignInViewPage.isCheckOut = true
+        } else if segmentedControl.selectedSegmentIndex == 0 {
+            mySignInViewPage.isCheckOut = false
+        }
+        
+        
         
        // mySignInViewPage.selectedImage = self.empArray[indexPath.row]
         
