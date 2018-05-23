@@ -36,7 +36,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     var checkinArray: [Employee] = []
     var checkoutArray: [Employee] = []
     var currentArray: [Employee] = []
-  
+    
     
     
     override func viewDidLoad() {
@@ -86,6 +86,9 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         let employee = currentArray[indexPath.row] as Employee
         cell.lblCell.text = employee.employeeName
         
+        cell.imageCell.image = UIImage(named: employee.employeeName)
+        cell.imageCell.layer.cornerRadius = 60
+        cell.imageCell.layer.masksToBounds = true
         return cell
     }
     

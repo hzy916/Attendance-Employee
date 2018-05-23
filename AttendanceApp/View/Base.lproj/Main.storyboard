@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1QL-ZI-j1L">
-    <device id="retina4_7" orientation="portrait">
+    <device id="ipad12_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,20 +16,20 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thank-you" translatesAutoresizingMaskIntoConstraints="NO" id="sRl-2W-kSz">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="thank-you" translatesAutoresizingMaskIntoConstraints="NO" id="sRl-2W-kSz">
+                                <rect key="frame" x="0.0" y="64" width="1366" height="960"/>
                             </imageView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehe-a0-027">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ehe-a0-027">
+                                <rect key="frame" x="0.0" y="64" width="1366" height="960"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="k2l-us-bZq">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="1366" height="960"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="h41-q8-QY2" customClass="Custom">
-                                            <rect key="frame" x="8" y="157" width="359" height="502"/>
+                                            <rect key="frame" x="8" y="157" width="1350" height="502"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="502" id="TOG-Uz-CgB"/>
@@ -78,9 +78,8 @@
                                                 </collectionViewCell>
                                             </cells>
                                         </collectionView>
-                                        <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="exb-9Q-fBP">
-                                            <rect key="frame" x="0.0" y="63" width="375" height="29"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="exb-9Q-fBP">
+                                            <rect key="frame" x="603.5" y="49" width="159" height="29"/>
                                             <segments>
                                                 <segment title="Check In"/>
                                                 <segment title="Check Out"/>
@@ -91,6 +90,8 @@
                                         </segmentedControl>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="exb-9Q-fBP" firstAttribute="top" secondItem="k2l-us-bZq" secondAttribute="top" constant="49" id="1gz-4s-hhC"/>
+                                        <constraint firstItem="exb-9Q-fBP" firstAttribute="centerX" secondItem="k2l-us-bZq" secondAttribute="centerX" id="Gwf-Sv-KiV"/>
                                         <constraint firstItem="h41-q8-QY2" firstAttribute="bottom" secondItem="k2l-us-bZq" secondAttribute="bottomMargin" id="diO-Wl-1Tk"/>
                                         <constraint firstItem="h41-q8-QY2" firstAttribute="trailing" secondItem="k2l-us-bZq" secondAttribute="trailingMargin" id="dnz-nM-Axj"/>
                                         <constraint firstItem="h41-q8-QY2" firstAttribute="leading" secondItem="k2l-us-bZq" secondAttribute="leadingMargin" id="v1D-jN-AOT"/>
@@ -119,14 +120,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="133.5832083958021"/>
+            <point key="canvasLocation" x="911.85944363103943" y="120.70312499999999"/>
         </scene>
         <!--Sign In-->
         <scene sceneID="BU8-l2-HVP">
             <objects>
                 <viewController storyboardIdentifier="SignInViewController" id="0na-2W-2FE" customClass="SignInViewController" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f0d-9a-FPZ" customClass="TouchDrawView" customModule="TouchDraw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FF4-bG-v9n">
@@ -135,7 +136,7 @@
                                 <color key="backgroundColor" red="0.51512239419999994" green="0.4097324832" blue="1" alpha="0.1193279109589041" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fd7-Ob-OCW">
-                                <rect key="frame" x="253" y="571" width="83" height="39"/>
+                                <rect key="frame" x="1244" y="928" width="83" height="39"/>
                                 <color key="backgroundColor" red="0.7545271952785747" green="0.92549019610000005" blue="0.16570831599500613" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="6UL-VH-tjz"/>
@@ -172,7 +173,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="E8T-Ig-toM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UbT-k4-NS9">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="1366" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -190,7 +191,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1QL-ZI-j1L" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3y6-Yl-1Pz">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="1366" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
