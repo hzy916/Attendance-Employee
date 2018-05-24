@@ -9,6 +9,8 @@
 import UIKit
 import TouchDraw
 
+
+
 class SignInViewController: UIViewController {
     //create image related varibles
 
@@ -16,9 +18,13 @@ class SignInViewController: UIViewController {
     var signatureImages:[UIImage]!
     var titles:[String]!
     var alerttext = ""
-    
+    var selectedEmployee : Employee?
     var isCheckOut = false
 
+////MARK: step 2 Create a delegate property here.
+    weak var delegate: ClassBVCDelegate?
+    
+    
     
     @IBOutlet weak var signInView: UIView!
     var selectedImage:String!
@@ -76,6 +82,8 @@ class SignInViewController: UIViewController {
         
         if isCheckOut == true {
             //remove from array
+            delegate?.removefromCheckout()
+         //   checkoutArray.remove(at:)
         }
         
 //        //reload the employee view after they signed
@@ -119,14 +127,23 @@ class SignInViewController: UIViewController {
 }
 
 
-
-extension UIImage {
-    convenience init(view: UIView) {
-        UIGraphicsBeginImageContext(view.frame.size)
-        view.layer.render(in:UIGraphicsGetCurrentContext()!)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        self.init(cgImage: image!.cgImage!)
+    // //MARK: step 1 Add Protocol here. to create delegate to pass data between signinview and main viewcontroller view
+    protocol ClassBVCDelegate: class {
+       
+        func removefromCheckout()
+       
+    
     }
-}
+
+
+   // get image from given view
+    extension UIImage {
+        convenience init(view: UIView) {
+            UIGraphicsBeginImageContext(view.frame.size)
+            view.layer.render(in:UIGraphicsGetCurrentContext()!)
+            let image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            self.init(cgImage: image!.cgImage!)
+        }
+    }
 

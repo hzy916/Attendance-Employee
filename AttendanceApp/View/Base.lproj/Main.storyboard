@@ -130,17 +130,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FF4-bG-v9n">
-                                <rect key="frame" x="25.5" y="188.5" width="324" height="290"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FF4-bG-v9n">
+                                <rect key="frame" x="50" y="114" width="1266" height="743"/>
                                 <color key="backgroundColor" red="0.51512239419999994" green="0.4097324832" blue="1" alpha="0.1193279109589041" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fd7-Ob-OCW">
-                                <rect key="frame" x="1164" y="886" width="163" height="81"/>
+                                <rect key="frame" x="1153" y="898" width="163" height="81"/>
                                 <color key="backgroundColor" red="0.7545271952785747" green="0.92549019610000005" blue="0.16570831599500613" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="163" id="D8T-pu-Q5S"/>
-                                    <constraint firstAttribute="height" constant="81" id="TRX-4V-Chs"/>
+                                    <constraint firstAttribute="height" constant="81" id="GKV-Bo-5ok"/>
+                                    <constraint firstAttribute="width" constant="163" id="J0u-wN-CDJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                 <state key="normal" title="Save">
@@ -153,8 +152,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="HAy-sJ-rcQ" firstAttribute="bottom" secondItem="fd7-Ob-OCW" secondAttribute="bottom" constant="57" id="ZfS-M7-vRd"/>
-                            <constraint firstItem="HAy-sJ-rcQ" firstAttribute="trailing" secondItem="fd7-Ob-OCW" secondAttribute="trailing" constant="39" id="zMN-Bx-TNK"/>
+                            <constraint firstItem="FF4-bG-v9n" firstAttribute="leading" secondItem="HAy-sJ-rcQ" secondAttribute="leading" constant="50" id="4j9-K1-Vdt"/>
+                            <constraint firstItem="HAy-sJ-rcQ" firstAttribute="trailing" secondItem="fd7-Ob-OCW" secondAttribute="trailing" constant="50" id="6eH-dM-UyH"/>
+                            <constraint firstItem="fd7-Ob-OCW" firstAttribute="top" secondItem="FF4-bG-v9n" secondAttribute="bottom" constant="41" id="85Q-Cm-kIc"/>
+                            <constraint firstItem="FF4-bG-v9n" firstAttribute="top" secondItem="HAy-sJ-rcQ" secondAttribute="top" constant="50" id="VIN-Oq-mYP"/>
+                            <constraint firstItem="HAy-sJ-rcQ" firstAttribute="trailing" secondItem="FF4-bG-v9n" secondAttribute="trailing" constant="50" id="b2Y-WA-UIn"/>
+                            <constraint firstItem="HAy-sJ-rcQ" firstAttribute="bottom" secondItem="fd7-Ob-OCW" secondAttribute="bottom" constant="45" id="ndG-f0-ZCm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HAy-sJ-rcQ"/>
                     </view>

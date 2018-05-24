@@ -10,35 +10,31 @@ import UIKit
 import Foundation
 
 
-class ViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource {
+class ViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource,ClassBVCDelegate {
+    
+    func removefromCheckout() {
+        
+        checkoutArray.remove(at: selectedIndex)
+        print(selectedIndex)
+        collectionView.reloadData()
+    }
+    
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    var selectedIndex = 0
+
     
     @IBAction func changeView(_ sender: UISegmentedControl) {
-        switch segmentedControl.selectedSegmentIndex
-        {
-        case 0:
-           //  currentArray.removeAll()
-             currentArray = checkinArray
-             collectionView.reloadData()
-        case 1:
-           //  currentArray.removeAll()
-             currentArray = checkoutArray
-             collectionView.reloadData()
-        default:
-            break;
-        }
-    
+        changeView()
     }
     
     
     var checkinArray: [Employee] = []
     var checkoutArray: [Employee] = []
     var currentArray: [Employee] = []
-   
     var isCheckOut = false
-    
+   
     
     override func viewDidLoad() {
         collectionView.delegate = self
@@ -55,9 +51,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         collectionView.reloadData()
     }
     
-
-    override func viewWillAppear(_ animated: Bool) {
-//        changeView(_ sender: UISegmentedControl)
+    func changeView(){
         switch segmentedControl.selectedSegmentIndex
         {
         case 0:
@@ -71,6 +65,11 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         default:
             break;
         }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+     changeView()
+     
     }
     
     //load employee details from array
@@ -110,7 +109,8 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("user tapped on image # \(checkinArray[indexPath.row])")
-        
+        selectedIndex = indexPath.row
+        print(selectedIndex)
         var mySignInViewPage: SignInViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
         
         // find out check in or check out view to display
