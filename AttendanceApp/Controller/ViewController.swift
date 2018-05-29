@@ -13,12 +13,22 @@ import Foundation
 class ViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource,ClassBVCDelegate {
     
     func removefromCheckout() {
-        
         checkoutArray.remove(at: selectedIndex)
         print(selectedIndex)
         collectionView.reloadData()
     }
     
+    func removefromCheckIn() {
+        //remove employee from check in view
+        checkoutArray.append(checkinArray[selectedIndex])
+                print(checkoutArray)
+        checkinArray.remove(at: selectedIndex)
+            print(checkinArray)
+
+        collectionView.reloadData()
+    }
+    
+
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -61,6 +71,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         case 1:
             //  currentArray.removeAll()
             currentArray = checkoutArray
+            print(checkoutArray)
             collectionView.reloadData()
         default:
             break;
@@ -119,22 +130,13 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         } else if segmentedControl.selectedSegmentIndex == 0 {
             mySignInViewPage.isCheckOut = false
         }
-        
+        mySignInViewPage.delegate = self
         
         
        // mySignInViewPage.selectedImage = self.empArray[indexPath.row]
         
         self.navigationController?.pushViewController(mySignInViewPage, animated: true)
-        
-        checkoutArray.append(checkinArray[indexPath.row])
-        
-        //remove employee from check in view
-        checkinArray.remove(at:indexPath.row)
-        print(checkinArray)
-        //add employee to checkout view
-        
-        print(checkoutArray)
-        
+   
         //reload view
         collectionView.reloadData()
     }

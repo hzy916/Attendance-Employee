@@ -38,9 +38,13 @@ class SignInViewController: UIViewController {
         
         if isCheckOut == true {
             alerttext = "Checked out successfully"
+            //change the navigation bar title to Check Out
+            self.title = "Check Out"
         }
         else {
             alerttext = "Checked in successfully"
+            //change the navigation bar title to Check In
+            self.title = "Check In"
         }
         
     }
@@ -81,9 +85,13 @@ class SignInViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
         
         if isCheckOut == true {
-            //remove from array
+            //remove from checkout array
             delegate?.removefromCheckout()
-         //   checkoutArray.remove(at:)
+        }else{
+            //remove from checkin array and add to checkout array
+            delegate?.removefromCheckIn()
+        //    delegate?.addtoCheckOut()
+           
         }
         
 //        //reload the employee view after they signed
@@ -131,7 +139,8 @@ class SignInViewController: UIViewController {
     protocol ClassBVCDelegate: class {
        
         func removefromCheckout()
-       
+        func removefromCheckIn()
+   //     func addtoCheckOut()
     
     }
 
