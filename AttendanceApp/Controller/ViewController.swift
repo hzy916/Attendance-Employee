@@ -15,21 +15,26 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     func removefromCheckout() {
         checkoutArray.remove(at: selectedIndex)
         print(selectedIndex)
+        
         collectionView.reloadData()
+        //change to default check in list view
+        segmentedControl.selectedSegmentIndex = 0
     }
     
     func removefromCheckIn() {
         //remove employee from check in view
         checkoutArray.append(checkinArray[selectedIndex])
-                print(checkoutArray)
+        print(checkoutArray)
         checkinArray.remove(at: selectedIndex)
-            print(checkinArray)
+        print(checkinArray)
 
         collectionView.reloadData()
+        //change to default check in list view
+        segmentedControl.selectedSegmentIndex = 0
     }
+
     
-
-
+    //segemented view
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     var selectedIndex = 0
@@ -130,8 +135,16 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         } else if segmentedControl.selectedSegmentIndex == 0 {
             mySignInViewPage.isCheckOut = false
         }
+       
+        //mark: to tell the signinview that the main view is calling the removefromcheckout function
         mySignInViewPage.delegate = self
-        
+        if segmentedControl.selectedSegmentIndex == 1 {
+            mySignInViewPage.selectedEmployee = checkoutArray[selectedIndex]
+            
+        } else if segmentedControl.selectedSegmentIndex == 0 {
+            mySignInViewPage.selectedEmployee = checkinArray[selectedIndex]
+            
+        }
         
        // mySignInViewPage.selectedImage = self.empArray[indexPath.row]
         
@@ -140,6 +153,25 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         //reload view
         collectionView.reloadData()
     }
+    
+    
+//    //pass the empolyee name to the signin view and display
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//
+//        if segue.identifier == "goToSigninView" {
+//            let vc = segue.destination as! SignInViewController
+//            //vc.EmployeeNameLabeltext = checkinArray[selectedIndex].employeeName
+//
+//            if segmentedControl.selectedSegmentIndex == 1 {
+//                vc.selectedEmployee = checkoutArray[selectedIndex]
+//
+//            } else if segmentedControl.selectedSegmentIndex == 0 {
+//                vc.selectedEmployee = checkinArray[selectedIndex]
+//
+//            }
+//        }
+//    }
 
 
     

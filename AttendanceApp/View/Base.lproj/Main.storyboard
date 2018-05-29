@@ -19,20 +19,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="thank-you" translatesAutoresizingMaskIntoConstraints="NO" id="sRl-2W-kSz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thank-you" translatesAutoresizingMaskIntoConstraints="NO" id="sRl-2W-kSz">
                                 <rect key="frame" x="0.0" y="64" width="1366" height="960"/>
                             </imageView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ehe-a0-027">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehe-a0-027">
                                 <rect key="frame" x="0.0" y="64" width="1366" height="960"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="k2l-us-bZq">
                                     <rect key="frame" x="0.0" y="0.0" width="1366" height="960"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="h41-q8-QY2" customClass="Custom">
-                                            <rect key="frame" x="8" y="157" width="1350" height="502"/>
+                                            <rect key="frame" x="8" y="139" width="1350" height="744"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="502" id="TOG-Uz-CgB"/>
+                                                <constraint firstAttribute="height" constant="744" id="CaF-oz-dDO"/>
                                             </constraints>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gEN-LJ-kRq">
                                                 <size key="itemSize" width="120" height="150"/>
@@ -79,7 +79,7 @@
                                             </cells>
                                         </collectionView>
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="exb-9Q-fBP">
-                                            <rect key="frame" x="603.5" y="49" width="159" height="29"/>
+                                            <rect key="frame" x="604" y="49" width="159" height="29"/>
                                             <segments>
                                                 <segment title="Check In"/>
                                                 <segment title="Check Out"/>
@@ -91,10 +91,11 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="exb-9Q-fBP" firstAttribute="top" secondItem="k2l-us-bZq" secondAttribute="top" constant="49" id="1gz-4s-hhC"/>
+                                        <constraint firstItem="h41-q8-QY2" firstAttribute="centerX" secondItem="exb-9Q-fBP" secondAttribute="centerX" id="D4n-CS-po5"/>
                                         <constraint firstItem="exb-9Q-fBP" firstAttribute="centerX" secondItem="k2l-us-bZq" secondAttribute="centerX" id="Gwf-Sv-KiV"/>
-                                        <constraint firstItem="h41-q8-QY2" firstAttribute="bottom" secondItem="k2l-us-bZq" secondAttribute="bottomMargin" id="diO-Wl-1Tk"/>
-                                        <constraint firstItem="h41-q8-QY2" firstAttribute="trailing" secondItem="k2l-us-bZq" secondAttribute="trailingMargin" id="dnz-nM-Axj"/>
-                                        <constraint firstItem="h41-q8-QY2" firstAttribute="leading" secondItem="k2l-us-bZq" secondAttribute="leadingMargin" id="v1D-jN-AOT"/>
+                                        <constraint firstAttribute="bottom" secondItem="h41-q8-QY2" secondAttribute="bottom" constant="77" id="bea-1j-IRR"/>
+                                        <constraint firstItem="h41-q8-QY2" firstAttribute="leading" secondItem="k2l-us-bZq" secondAttribute="leadingMargin" id="gsC-We-FDV"/>
+                                        <constraint firstItem="h41-q8-QY2" firstAttribute="top" secondItem="exb-9Q-fBP" secondAttribute="bottom" constant="62" id="ny6-Bi-KOz"/>
                                     </constraints>
                                 </view>
                                 <blurEffect style="light"/>
@@ -116,22 +117,23 @@
                     <connections>
                         <outlet property="collectionView" destination="h41-q8-QY2" id="zsN-tl-NVB"/>
                         <outlet property="segmentedControl" destination="exb-9Q-fBP" id="X9x-Xe-heg"/>
+                        <segue destination="0na-2W-2FE" kind="show" identifier="goToSigninView" id="UaA-ev-YB6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="911.85944363103943" y="120.70312499999999"/>
+            <point key="canvasLocation" x="902" y="105"/>
         </scene>
         <!--Sign In-->
         <scene sceneID="BU8-l2-HVP">
             <objects>
                 <viewController storyboardIdentifier="SignInViewController" id="0na-2W-2FE" customClass="SignInViewController" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="f0d-9a-FPZ" customClass="TouchDrawView" customModule="TouchDraw">
+                    <view key="view" contentMode="scaleToFill" id="f0d-9a-FPZ">
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FF4-bG-v9n">
-                                <rect key="frame" x="50" y="114" width="1266" height="743"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FF4-bG-v9n" customClass="TouchDrawView" customModule="TouchDraw">
+                                <rect key="frame" x="50" y="169" width="1266" height="688"/>
                                 <color key="backgroundColor" red="0.51512239419999994" green="0.4097324832" blue="1" alpha="0.1193279109589041" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fd7-Ob-OCW">
@@ -149,26 +151,39 @@
                                     <action selector="saveButtonPressed:" destination="0na-2W-2FE" eventType="touchUpInside" id="dfl-Af-aNg"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hello" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NB8-KO-NgE">
+                                <rect key="frame" x="600" y="91" width="167" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="167" id="AaE-r6-5NY"/>
+                                    <constraint firstAttribute="height" constant="54" id="gac-gM-bcQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="FF4-bG-v9n" firstAttribute="leading" secondItem="HAy-sJ-rcQ" secondAttribute="leading" constant="50" id="4j9-K1-Vdt"/>
                             <constraint firstItem="HAy-sJ-rcQ" firstAttribute="trailing" secondItem="fd7-Ob-OCW" secondAttribute="trailing" constant="50" id="6eH-dM-UyH"/>
+                            <constraint firstItem="NB8-KO-NgE" firstAttribute="top" secondItem="HAy-sJ-rcQ" secondAttribute="top" constant="27" id="774-0s-MGY"/>
                             <constraint firstItem="fd7-Ob-OCW" firstAttribute="top" secondItem="FF4-bG-v9n" secondAttribute="bottom" constant="41" id="85Q-Cm-kIc"/>
-                            <constraint firstItem="FF4-bG-v9n" firstAttribute="top" secondItem="HAy-sJ-rcQ" secondAttribute="top" constant="50" id="VIN-Oq-mYP"/>
+                            <constraint firstItem="FF4-bG-v9n" firstAttribute="top" secondItem="HAy-sJ-rcQ" secondAttribute="top" constant="105" id="VIN-Oq-mYP"/>
                             <constraint firstItem="HAy-sJ-rcQ" firstAttribute="trailing" secondItem="FF4-bG-v9n" secondAttribute="trailing" constant="50" id="b2Y-WA-UIn"/>
+                            <constraint firstItem="NB8-KO-NgE" firstAttribute="centerX" secondItem="f0d-9a-FPZ" secondAttribute="centerX" id="cKf-Wk-dP7"/>
                             <constraint firstItem="HAy-sJ-rcQ" firstAttribute="bottom" secondItem="fd7-Ob-OCW" secondAttribute="bottom" constant="45" id="ndG-f0-ZCm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HAy-sJ-rcQ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Sign In" id="3rv-0O-8PD"/>
                     <connections>
-                        <outlet property="signInView" destination="FF4-bG-v9n" id="4rp-P7-soh"/>
+                        <outlet property="EmployeeNameLabel" destination="NB8-KO-NgE" id="b3o-x5-GKa"/>
+                        <outlet property="signInView" destination="FF4-bG-v9n" id="q5u-ge-LgH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcb-pk-bHh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2592.3865300146413" y="133.0078125"/>
+            <point key="canvasLocation" x="1741.5812591508052" y="211.5234375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ybr-Ew-lRu">
@@ -186,7 +201,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JIW-a2-pEG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1860" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1742" y="-549"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ogn-Zf-rrA">
@@ -211,4 +226,7 @@
         <image name="milk" width="1500" height="1000"/>
         <image name="thank-you" width="1000" height="667"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="UaA-ev-YB6"/>
+    </inferredMetricsTieBreakers>
 </document>

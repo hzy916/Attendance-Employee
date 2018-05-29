@@ -20,33 +20,44 @@ class SignInViewController: UIViewController {
     var alerttext = ""
     var selectedEmployee : Employee?
     var isCheckOut = false
+    
+    //MARK: label outlet to display employee's name.
+    @IBOutlet weak var EmployeeNameLabel: UILabel!
+ 
 
-////MARK: step 2 Create a delegate property here.
+
+    ////MARK: step 2 Create a delegate property here.
     weak var delegate: ClassBVCDelegate?
+   
     
     
-    
-    @IBOutlet weak var signInView: UIView!
+    @IBOutlet weak var signInView: TouchDrawView!
     var selectedImage:String!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         //create the folder for signature images
         var signatureImages : [UIImage] = []
         
+//        var ename : String = (selectedEmployee?.employeeName)!
         if isCheckOut == true {
             alerttext = "Checked out successfully"
             //change the navigation bar title to Check Out
             self.title = "Check Out"
         }
+            
         else {
             alerttext = "Checked in successfully"
             //change the navigation bar title to Check In
             self.title = "Check In"
         }
         
+        //Mark: display the employee's name in the sign in/out view
+        
+        EmployeeNameLabel.text = selectedEmployee!.employeeName
+        print(EmployeeNameLabel.text)
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,7 +67,7 @@ class SignInViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-
+          EmployeeNameLabel.text = selectedEmployee?.employeeName
     }
     
     
@@ -80,8 +91,8 @@ class SignInViewController: UIViewController {
             case .destructive:
                 print("destructive")
                 
-                
             }}))
+        
         self.present(alert, animated: true, completion: nil)
         
         if isCheckOut == true {
@@ -90,12 +101,8 @@ class SignInViewController: UIViewController {
         }else{
             //remove from checkin array and add to checkout array
             delegate?.removefromCheckIn()
-        //    delegate?.addtoCheckOut()
-           
         }
-        
-//        //reload the employee view after they signed
-//           collectionView.reloadData()
+
     }
     //save image to document directory (path)
     func saveImageToDocumentDirectory(_ chosenImage: UIImage) -> String {
@@ -111,9 +118,9 @@ class SignInViewController: UIViewController {
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy"
-        let result = formatter.string(from: date)
         
-        let user = ""
+        let result = formatter.string(from: date)
+        let user = selectedEmployee!.employeeName
         
         let fileName = "\(user)_\(result)"
         
@@ -130,6 +137,7 @@ class SignInViewController: UIViewController {
             print("file cant not be save at path \(filepath), with error : \(error)");
             return filepath
         }
+        print(filepath)
     }
     
 }
@@ -140,8 +148,7 @@ class SignInViewController: UIViewController {
        
         func removefromCheckout()
         func removefromCheckIn()
-   //     func addtoCheckOut()
-    
+
     }
 
 
