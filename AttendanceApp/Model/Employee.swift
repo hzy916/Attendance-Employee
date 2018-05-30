@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Employee {
+class Employee: Codable {
     let employeeName : String
     let departmentName : String
     var checkStatus: Bool

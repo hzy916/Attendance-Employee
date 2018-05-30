@@ -12,9 +12,7 @@ import Foundation
 
 class ViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource,ClassBVCDelegate {
    
-//    //define the selectedEmployee
-//    var selectedEmployee : Employee?
-//
+
     func removefromCheckout() {
         checkoutArray.remove(at: selectedIndex)
         print(selectedIndex)
@@ -32,11 +30,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         checkoutArray.append(checkinArray[selectedIndex])
         print(checkoutArray)
         checkinArray.remove(at: selectedIndex)
-        
-//        selectedEmployee = checkinArray[selectedIndex]
-        
-  
-//        
+      
         print(checkinArray)
 
         collectionView.reloadData()
@@ -45,7 +39,8 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     }
 
     
- 
+
+    
     
     //segemented view
     @IBOutlet weak var collectionView: UICollectionView!
@@ -65,6 +60,8 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
    
     
     override func viewDidLoad() {
+
+        
         collectionView.delegate = self
         
         collectionView.dataSource = self
@@ -104,9 +101,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     //load employee details from array
     
     func loadEmployeeDetails() -> Array<Employee> {
-        
         //Read from plist
-        
         var currentArray: [Employee] = []
          if let path = Bundle.main.path(forResource: "Employees", ofType: "plist") {
             if let englishFromPlist = NSArray(contentsOfFile: path) as? [Dictionary<String, Any>] {
@@ -166,26 +161,6 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         //reload view
         collectionView.reloadData()
     }
-    
-    
-//    //pass the empolyee name to the signin view and display
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//
-//        if segue.identifier == "goToSigninView" {
-//            let vc = segue.destination as! SignInViewController
-//            //vc.EmployeeNameLabeltext = checkinArray[selectedIndex].employeeName
-//
-//            if segmentedControl.selectedSegmentIndex == 1 {
-//                vc.selectedEmployee = checkoutArray[selectedIndex]
-//
-//            } else if segmentedControl.selectedSegmentIndex == 0 {
-//                vc.selectedEmployee = checkinArray[selectedIndex]
-//
-//            }
-//        }
-//    }
-
 
     
 }

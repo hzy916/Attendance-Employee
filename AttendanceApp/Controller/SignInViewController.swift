@@ -12,8 +12,8 @@ import TouchDraw
 
 
 class SignInViewController: UIViewController {
-    //create image related varibles
 
+    //create image related varibles
     var imagesDirectoryPath:String!
     var signatureImages:[UIImage]!
     var titles:[String]!
@@ -21,16 +21,18 @@ class SignInViewController: UIViewController {
     var selectedEmployee : Employee?
     var isCheckOut = false
     
+    var employeeArray = [Employee]()
+    //create path to
+    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("time.plist")
+    
+    
     //MARK: label outlet to display employee's name.
     @IBOutlet weak var EmployeeNameLabel: UILabel!
  
 
-
     ////MARK: step 2 Create a delegate property here.
     weak var delegate: ClassBVCDelegate?
    
-    
-    
     @IBOutlet weak var signInView: TouchDrawView!
     var selectedImage:String!
     
@@ -46,25 +48,31 @@ class SignInViewController: UIViewController {
             alerttext = "Checked out successfully"
             //change the navigation bar title to Check Out
             self.title = "Check Out"
+//            loadItems()
+        
         }
             
         else {
             alerttext = "Checked in successfully"
             //change the navigation bar title to Check In
             self.title = "Check In"
+       
         }
         
         //Mark: display the employee's name in the sign in/out view
         
         EmployeeNameLabel.text = selectedEmployee!.employeeName
-        print(EmployeeNameLabel.text)
+     
+        //Write data to time.plist
+    
+        loadItems()
+        employeeArray.append(selectedEmployee!)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
           EmployeeNameLabel.text = selectedEmployee?.employeeName
@@ -105,8 +113,8 @@ class SignInViewController: UIViewController {
             formatter.dateFormat = "yyyy/MM/dd HH:mm"
             let checktime = formatter.string(from: date)
             selectedEmployee?.checkOutTime = checktime
-             print(selectedEmployee)
-            
+            saveItems()
+          
         }else{
             //remove from checkin array and add to checkout array
             delegate?.removefromCheckIn()
@@ -117,11 +125,41 @@ class SignInViewController: UIViewController {
             formatter.dateFormat = "yyyy/MM/dd HH:mm"
             let checktime = formatter.string(from: date)
             selectedEmployee?.checkInTime = checktime
-            print(selectedEmployee)
+            saveItems()
         }
+        
     }
   
-      //Mark:  update the employee object checkin time
+    
+    
+      //Mark:  save the employee object checkin time
+    func saveItems(){
+        let encoder = PropertyListEncoder()
+        do{
+            let data = try encoder.encode(employeeArray)
+            try data.write(to:dataFilePath!)
+        }catch{
+            print("Error encoding item array, \(error)")
+        }
+        
+    }
+    
+    func loadItems(){
+        if let data = try? Data(contentsOf: dataFilePath!){
+            let decoder = PropertyListDecoder()
+            do{
+                employeeArray = try decoder.decode([Employee].self, from: data)
+            }catch{
+                print("error decoding item array, \(error)")
+            }
+        }
+    }
+    
+//    //Mark:  update the employee object checkout time
+//    func updateItems(){
+//        //find the employee and update the checkouttime
+//        employeeArray.first({$0.checkOutTime == selectedEmployee!.checkOutTime})?.added = selectedEmployee.checkOutTime
+//    }
 
     //save image to document directory (path)
     func saveImageToDocumentDirectory(_ chosenImage: UIImage) -> String {
