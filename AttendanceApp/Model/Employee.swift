@@ -11,14 +11,14 @@ import Foundation
 class Employee: Codable {
     let employeeName : String
     let departmentName : String
-    var checkStatus: Bool
+    var isCheckout: Bool
     var checkInTime: String
     var checkOutTime: String
     
     init(name: String, department: String, status: Bool,inTime: String, outTime: String ){
         employeeName = name
         departmentName = department
-        checkStatus = status
+        isCheckout = status
         checkInTime = inTime
         checkOutTime = outTime
     }

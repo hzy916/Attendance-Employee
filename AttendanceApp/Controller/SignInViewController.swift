@@ -48,25 +48,24 @@ class SignInViewController: UIViewController {
             alerttext = "Checked out successfully"
             //change the navigation bar title to Check Out
             self.title = "Check Out"
-//            loadItems()
-        
+            //read and update time.plist
+            loadItems()
+            updateItems()
         }
             
         else {
             alerttext = "Checked in successfully"
             //change the navigation bar title to Check In
             self.title = "Check In"
-       
+            loadItems()
+            employeeArray.append(selectedEmployee!)
         }
         
         //Mark: display the employee's name in the sign in/out view
         
         EmployeeNameLabel.text = selectedEmployee!.employeeName
-     
-        //Write data to time.plist
-    
-        loadItems()
-        employeeArray.append(selectedEmployee!)
+
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -155,11 +154,17 @@ class SignInViewController: UIViewController {
         }
     }
     
-//    //Mark:  update the employee object checkout time
-//    func updateItems(){
-//        //find the employee and update the checkouttime
-//        employeeArray.first({$0.checkOutTime == selectedEmployee!.checkOutTime})?.added = selectedEmployee.checkOutTime
-//    }
+    //Mark:  update the employee object checkout time
+    func updateItems(){
+        //find the employee and update the checkouttime
+        if let i = employeeArray.index(where: {$0.employeeName == selectedEmployee!.employeeName}){
+            print(i)
+            print(selectedEmployee?.checkOutTime)
+            employeeArray.remove(at: i)
+            employeeArray.append(selectedEmployee!)
+            
+        }
+    }
 
     //save image to document directory (path)
     func saveImageToDocumentDirectory(_ chosenImage: UIImage) -> String {
