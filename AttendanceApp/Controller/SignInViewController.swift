@@ -98,12 +98,31 @@ class SignInViewController: UIViewController {
         if isCheckOut == true {
             //remove from checkout array
             delegate?.removefromCheckout()
+
+            //Mark:  update the employee object checkin time
+            let date = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy/MM/dd HH:mm"
+            let checktime = formatter.string(from: date)
+            selectedEmployee?.checkOutTime = checktime
+             print(selectedEmployee)
+            
         }else{
             //remove from checkin array and add to checkout array
             delegate?.removefromCheckIn()
+        
+            //Mark:  update the employee object checkin time
+            let date = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy/MM/dd HH:mm"
+            let checktime = formatter.string(from: date)
+            selectedEmployee?.checkInTime = checktime
+            print(selectedEmployee)
         }
-
     }
+  
+      //Mark:  update the employee object checkin time
+
     //save image to document directory (path)
     func saveImageToDocumentDirectory(_ chosenImage: UIImage) -> String {
         let directoryPath =  NSHomeDirectory().appending("/Documents/")
@@ -115,14 +134,17 @@ class SignInViewController: UIViewController {
             }
         }
         
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy"
-        
-        let result = formatter.string(from: date)
+        //Mark: CheckIn or CheckOut for file name
+       var checkstatusname = ""
+      //Give file name with checkin or checkout
+       if isCheckOut == true {
+        checkstatusname = "checkout"
+      } else {
+        checkstatusname = "checkin"
+       }
+
         let user = selectedEmployee!.employeeName
-        
-        let fileName = "\(user)_\(result)"
+        let fileName = "\(user)_\(checkstatusname)"
         
         
         let fullName = fileName.appending(".jpg")
@@ -137,7 +159,7 @@ class SignInViewController: UIViewController {
             print("file cant not be save at path \(filepath), with error : \(error)");
             return filepath
         }
-        print(filepath)
+//        print(filepath)
     }
     
 }

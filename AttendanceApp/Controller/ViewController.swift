@@ -11,10 +11,16 @@ import Foundation
 
 
 class ViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource,ClassBVCDelegate {
-    
+   
+//    //define the selectedEmployee
+//    var selectedEmployee : Employee?
+//
     func removefromCheckout() {
         checkoutArray.remove(at: selectedIndex)
         print(selectedIndex)
+        
+        //update the employee object checkout time
+        
         
         collectionView.reloadData()
         //change to default check in list view
@@ -26,6 +32,11 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         checkoutArray.append(checkinArray[selectedIndex])
         print(checkoutArray)
         checkinArray.remove(at: selectedIndex)
+        
+//        selectedEmployee = checkinArray[selectedIndex]
+        
+  
+//        
         print(checkinArray)
 
         collectionView.reloadData()
@@ -33,6 +44,8 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         segmentedControl.selectedSegmentIndex = 0
     }
 
+    
+ 
     
     //segemented view
     @IBOutlet weak var collectionView: UICollectionView!
@@ -138,12 +151,12 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
        
         //mark: to tell the signinview that the main view is calling the removefromcheckout function
         mySignInViewPage.delegate = self
+       
         if segmentedControl.selectedSegmentIndex == 1 {
             mySignInViewPage.selectedEmployee = checkoutArray[selectedIndex]
             
         } else if segmentedControl.selectedSegmentIndex == 0 {
             mySignInViewPage.selectedEmployee = checkinArray[selectedIndex]
-            
         }
         
        // mySignInViewPage.selectedImage = self.empArray[indexPath.row]
