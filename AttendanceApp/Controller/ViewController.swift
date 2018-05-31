@@ -12,7 +12,10 @@ import Foundation
 
 class ViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource,ClassBVCDelegate {
    
-
+    @IBAction func GotoReport(_ sender: Any) {
+        performSegue(withIdentifier: "viewReport", sender: self)
+    }
+    
     func removefromCheckout() {
         checkoutArray.remove(at: selectedIndex)
         print(selectedIndex)

@@ -162,7 +162,6 @@ class SignInViewController: UIViewController {
             print(selectedEmployee?.checkOutTime)
             employeeArray.remove(at: i)
             employeeArray.append(selectedEmployee!)
-            
         }
     }
 

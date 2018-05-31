@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1QL-ZI-j1L">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad12_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -88,9 +88,26 @@
                                                 <action selector="changeView:" destination="BYZ-38-t0r" eventType="valueChanged" id="sjM-q8-Osv"/>
                                             </connections>
                                         </segmentedControl>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TL0-NQ-4ny">
+                                            <rect key="frame" x="1132" y="845" width="163" height="65"/>
+                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="65" id="r0N-aA-IxR"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                            <state key="normal" title="View Report">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="GotoReport:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b3k-er-Ub4"/>
+                                                <segue destination="lPD-dl-E9j" kind="showDetail" id="E4s-Fq-Tye"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="exb-9Q-fBP" firstAttribute="top" secondItem="k2l-us-bZq" secondAttribute="top" constant="49" id="1gz-4s-hhC"/>
+                                        <constraint firstAttribute="bottom" secondItem="TL0-NQ-4ny" secondAttribute="bottom" constant="50" id="3Aw-28-LrI"/>
+                                        <constraint firstAttribute="trailing" secondItem="TL0-NQ-4ny" secondAttribute="trailing" constant="71" id="7xP-7X-2ad"/>
                                         <constraint firstItem="h41-q8-QY2" firstAttribute="centerX" secondItem="exb-9Q-fBP" secondAttribute="centerX" id="D4n-CS-po5"/>
                                         <constraint firstItem="exb-9Q-fBP" firstAttribute="centerX" secondItem="k2l-us-bZq" secondAttribute="centerX" id="Gwf-Sv-KiV"/>
                                         <constraint firstAttribute="bottom" secondItem="h41-q8-QY2" secondAttribute="bottom" constant="77" id="bea-1j-IRR"/>
@@ -122,7 +139,45 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="105"/>
+            <point key="canvasLocation" x="901.75695461200576" y="104.8828125"/>
+        </scene>
+        <!--Daily Report-->
+        <scene sceneID="b3N-d3-aPc">
+            <objects>
+                <viewController id="n3B-hu-m25" customClass="PreviewViewController" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iEJ-KD-24g">
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NRI-NB-Pz7">
+                                <rect key="frame" x="0.0" y="64" width="1366" height="960"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NRI-NB-Pz7" firstAttribute="leading" secondItem="xhe-Eu-Bps" secondAttribute="leading" id="Yab-zo-wBI"/>
+                            <constraint firstItem="NRI-NB-Pz7" firstAttribute="bottom" secondItem="xhe-Eu-Bps" secondAttribute="bottom" id="gKZ-lD-pbf"/>
+                            <constraint firstItem="NRI-NB-Pz7" firstAttribute="trailing" secondItem="xhe-Eu-Bps" secondAttribute="trailing" id="oj5-s7-qM2"/>
+                            <constraint firstItem="NRI-NB-Pz7" firstAttribute="top" secondItem="xhe-Eu-Bps" secondAttribute="top" id="tdu-v9-iOa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xhe-Eu-Bps"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Daily Report" id="Kiq-GJ-FZw">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="VBp-F7-zlh"/>
+                        <barButtonItem key="rightBarButtonItem" title="PDF" id="y85-cf-DzV">
+                            <connections>
+                                <action selector="exportToPDF:" destination="n3B-hu-m25" id="Tpq-rV-VCd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="webPreview" destination="NRI-NB-Pz7" id="wSK-bn-o9Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rZa-nV-d8z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2287.9941434846264" y="873.6328125"/>
         </scene>
         <!--Sign In-->
         <scene sceneID="BU8-l2-HVP">
@@ -220,6 +275,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gk7-Hb-v1u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Yn6-ow-rqp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lPD-dl-E9j" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ekh-dR-hXi">
+                        <rect key="frame" x="0.0" y="20" width="1366" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="n3B-hu-m25" kind="relationship" relationship="rootViewController" id="6DI-1x-yUg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Izs-If-Y4y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1594.8755490483161" y="873.6328125"/>
         </scene>
     </scenes>
     <resources>
