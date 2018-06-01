@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1QL-ZI-j1L">
     <device id="ipad12_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -100,7 +100,7 @@
                                             </state>
                                             <connections>
                                                 <action selector="GotoReport:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b3k-er-Ub4"/>
-                                                <segue destination="lPD-dl-E9j" kind="showDetail" id="E4s-Fq-Tye"/>
+                                                <segue destination="lPD-dl-E9j" kind="showDetail" identifier="viewReport" id="E4s-Fq-Tye"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -177,7 +177,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZa-nV-d8z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2287.9941434846264" y="873.6328125"/>
+            <point key="canvasLocation" x="1625" y="878"/>
         </scene>
         <!--Sign In-->
         <scene sceneID="BU8-l2-HVP">
@@ -292,7 +292,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Izs-If-Y4y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1594.8755490483161" y="873.6328125"/>
+            <point key="canvasLocation" x="831" y="887"/>
         </scene>
     </scenes>
     <resources>

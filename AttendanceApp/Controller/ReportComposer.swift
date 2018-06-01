@@ -24,31 +24,32 @@ class ReportComposer: NSObject {
     
     let pathToInvoiceHTMLTemplate = Bundle.main.path(forResource: "index", ofType: "html")
     
+    let pathToSingleItemHTMLTemplate = Bundle.main.path(forResource: "single_item", ofType: "html")
   
     
     let dueDate = ""
     
     let logoImageURL = "http://www.appcoda.com/wp-content/uploads/2015/12/blog-logo-dark-400.png"
 
-    var pdfFilename: String!
-    
-    
-    //Read report data from the time.plist in the end of the day
-//    func readReportdata(){
-//        if let data = try? Data(contentsOf: dataFilePath!){
-//            let decoder = PropertyListDecoder()
-//            do{
-//                employeeArray = try decoder.decode([Employee].self, from: data)
-//            }catch{
-//                print("error decoding item array, \(error)")
-//            }
-//        }
-//    }
-//
+//    let fileURL = Bundle.main.url(forResource: "AttitudeTech", withExtension: "png")
 
+
+    var pdfFilename: String!
+
+//    //Mark get current date
+//    func GetCurrentDate() -> String {
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateStyle = DateFormatter.Style.medium
+//        return dateFormatter.string(from: Date())
+//    }
+//    var reportDate = GetCurrentDate()
+//
+//    let path = NSHomeDirectory()+"/Documents/time.plist"
+//    var dictionary : NSMutableDictionary!
+//    let fileManager = FileManager.default
+//
     
     func renderReport(items:[[String: String]]) -> String!{
-        
         do {
             // Load the invoice HTML template code into a String variable.
             var HTMLContent = try String(contentsOfFile: pathToInvoiceHTMLTemplate!)
@@ -57,29 +58,31 @@ class ReportComposer: NSObject {
             // The logo image.
             HTMLContent = HTMLContent.replacingOccurrences(of: "#LOGO_IMAGE#", with: logoImageURL)
             
-//            //Employee Name
-//            HTMLContent = HTMLContent.replacingOccurrences(of: "#EMPLOYEE_NAME#", with: employeeName)
-//            
-//            // Invoice date.
+//            // Report date.
 //            HTMLContent = HTMLContent.replacingOccurrences(of: "#INVOICE_DATE#", with: reportDate)
-
-          
+   
             // The employee data will be added by using a loop.
             var allItems = ""
-            
-   
+
             for i in 0..<items.count {
                 var itemHTMLContent: String!
                 
+                itemHTMLContent = try String(contentsOfFile: pathToSingleItemHTMLTemplate!)
+                
+                print(items[i])
                 // Replace the employeename and check data placeholders with the actual values.
-                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#ITEM_NAME#", with: items[i]["name"]!)
+                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#ITEM_NAME#", with: items[i]["employeeName"]!)
                 
-                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#CHECKIN_TIME#", with: items[i]["checkinTime"]!)
+                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#CHECKIN_TIME#", with: items[i]["checkInTime"]!)
                 
-                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#CHECKOUT_TIME#", with: items[i]["checkoutTime"]!)
+                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#CHECKOUT_TIME#", with: items[i]["checkOutTime"]!)
+             
+                // Replace the employee signatire with the images.
+                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#IN_SIGNATURE#", with: items[i]["checkOutTime"]!)
                 
                 // Add the item's HTML code to the general items string.
                 allItems += itemHTMLContent
+                print(allItems)
             }
             
             // Set the items.
@@ -93,10 +96,10 @@ class ReportComposer: NSObject {
             print("Unable to open and use HTML template files.")
         }
         return nil
-        
     }
     
-    
+ 
+
 }
 
 

@@ -159,7 +159,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         
        // mySignInViewPage.selectedImage = self.empArray[indexPath.row]
         
-        self.navigationController?.pushViewController(mySignInViewPage, animated: true)
+        self.navigationController?.pushViewController(mySignInViewPage, animated: false)
    
         //reload view
         collectionView.reloadData()
