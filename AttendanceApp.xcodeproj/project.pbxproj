@@ -20,6 +20,7 @@
 		AD322828208F42F700BA179A /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD322827208F42F700BA179A /* CustomCollectionViewCell.swift */; };
 		AD32282C208F5B5100BA179A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32282B208F5B5100BA179A /* SignInViewController.swift */; };
 		AD8E97702091D08900417E24 /* Employees.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD8E976F2091D08900417E24 /* Employees.plist */; };
+		ADA62C4920C6C6910063F9E1 /* AttitudeTech.png in Resources */ = {isa = PBXBuildFile; fileRef = ADA62C4820C6C6910063F9E1 /* AttitudeTech.png */; };
 		AF97984E089F2F474D0913D7 /* Pods_AttendanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A02AB12135B9E9B05D576BAD /* Pods_AttendanceApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		AD322827208F42F700BA179A /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		AD32282B208F5B5100BA179A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		AD8E976F2091D08900417E24 /* Employees.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Employees.plist; sourceTree = "<group>"; };
+		ADA62C4820C6C6910063F9E1 /* AttitudeTech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AttitudeTech.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				AD2402B920C00976009E99F7 /* index.html */,
+				ADA62C4820C6C6910063F9E1 /* AttitudeTech.png */,
 				AD2402C120C0478E009E99F7 /* single_item.html */,
 			);
 			path = "XML Templates";
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD2402BA20C00976009E99F7 /* index.html in Resources */,
+				ADA62C4920C6C6910063F9E1 /* AttitudeTech.png in Resources */,
 				AD8E97702091D08900417E24 /* Employees.plist in Resources */,
 				AD322820208F410E00BA179A /* LaunchScreen.storyboard in Resources */,
 				AD32281D208F410E00BA179A /* Assets.xcassets in Resources */,
