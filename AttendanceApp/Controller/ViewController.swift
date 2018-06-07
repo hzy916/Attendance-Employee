@@ -109,7 +109,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
          if let path = Bundle.main.path(forResource: "Employees", ofType: "plist") {
             if let englishFromPlist = NSArray(contentsOfFile: path) as? [Dictionary<String, Any>] {
                 for item in englishFromPlist {
-                    let employee = Employee(name: item["name"] as! String, department: item["deparment"] as! String, status: false, inTime: "", outTime: "")
+                    let employee = Employee(name: item["name"] as! String, department: item["deparment"] as! String, inTime: "", outTime: "")
                     currentArray.append(employee)
                 }
             }

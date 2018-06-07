@@ -35,8 +35,9 @@ class ReportComposer: NSObject {
     let imagepath = NSHomeDirectory()+"/Documents/"
     var dictionary : NSMutableDictionary!
     let fileManager = FileManager.default
-//  let fileURL = Bundle.main.url(forResource: "AttitudeTech", withExtension: "png")
 
+    //Attitude Tech logo image
+    let imageHTMLContent = "<img src='/Users/ziyunhe/Documents/iOSStudy/AttendanceApp/AttendanceApp/XML Templates/AttitudeTech.png' alt='Abhijith_checkout'>"
 
     var pdfFilename: String!
 
@@ -60,19 +61,6 @@ class ReportComposer: NSObject {
                 //get the signature image path to display
                 final_inImagepath = imagepath + items[i]["employeeName"]! + "_checkin.jpg"
                 final_outImagepath = imagepath + items[i]["employeeName"]! + "_checkout.jpg"
-               
-                let sampleImage = Bundle.main.path(forResource: "AttitudeTech", ofType: "png")
-              
-             
-                
-//                let imageHTMLContent = "<img src='/Users/ziyunhe/Library/Developer/CoreSimulator/Devices/5B2CD93F-A1E7-4D12-9B1C-23FF848253F4/data/Containers/Data/Application/C6DF8797-F3DE-49D4-969E-BF2906838DF3/Documents/Abhijith_checkout.jpg' alt='Abhijith_checkout'>"
-                
-                let imageHTMLContent = "<img src='/Users/ziyunhe/Documents/iOSStudy/AttendanceApp/AttendanceApp/XML Templates/AttitudeTech.png' alt='Abhijith_checkout'>"
-                
-//                let inImageURL = NSURL(fileURLWithPath: final_inImagepath)
-//
-//                let inImage = try Data(contentsOf: inImageURL as URL)
-////                UIImage(data: inImage)
                 
                 itemHTMLContent = try String(contentsOfFile: pathToSingleItemHTMLTemplate!)
                 
