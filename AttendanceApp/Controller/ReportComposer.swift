@@ -30,15 +30,12 @@ class ReportComposer: NSObject {
     
     let dueDate = ""
     
-    let logoImageURL = "http://www.appcoda.com/wp-content/uploads/2015/12/blog-logo-dark-400.png"
-    
-    
     let imagepath = "/Users/ziyunhe/Documents/iOSStudy/AttendanceApp/AttendanceApp/XMLTemplates/Images/"
     var dictionary : NSMutableDictionary!
     let fileManager = FileManager.default
 
     //Attitude Tech logo image
-    let imageHTMLContent = "<img src='/Users/ziyunhe/Documents/iOSStudy/AttendanceApp/AttendanceApp/XMLTemplates/AttitudeTech.png' alt='Abhijith_checkout'>"
+    let logourl = "http://pawtrailstest.com/wp-content/uploads/2018/06/AttitudeTech.png"
 
     var pdfFilename: String!
 
@@ -49,7 +46,7 @@ class ReportComposer: NSObject {
     
             // Replace all the placeholders with real values except for the items.
             // The logo image.
-            HTMLContent = HTMLContent.replacingOccurrences(of: "#LOGO_IMAGE#", with: logoImageURL)
+            HTMLContent = HTMLContent.replacingOccurrences(of: "#LOGO_IMAGE#", with: logourl)
             
             // The employee data will be added by using a loop.
             var allItems = ""
@@ -66,12 +63,14 @@ class ReportComposer: NSObject {
                 let imageCss = "width=100px;"
                 
                 let in_imageContent = "<img src='" + final_inImagepath + "'" + imageCss + "alt='checkin'>"
-                let out_imageContent = "<img src='" + final_outImagepath + "'" + "alt='checkout'>"
+                let out_imageContent = "<img src='" + final_outImagepath + "'" + imageCss + "alt='checkout'>"
                 
                 itemHTMLContent = try String(contentsOfFile: pathToSingleItemHTMLTemplate!)
                 
-                print(items[i])
+//                print(items[i])
                 // Replace the employeename and check data placeholders with the actual values.
+//                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#INVOICE_DATE#", with: )
+                
                 itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#ITEM_NAME#", with: items[i]["employeeName"]!)
                 
                 itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#CHECKIN_TIME#", with: items[i]["checkInTime"]!)

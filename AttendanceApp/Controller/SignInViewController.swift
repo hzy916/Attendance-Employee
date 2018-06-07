@@ -29,7 +29,6 @@ class SignInViewController: UIViewController {
     //MARK: label outlet to display employee's name.
     @IBOutlet weak var EmployeeNameLabel: UILabel!
  
-
     ////MARK: step 2 Create a delegate property here.
     weak var delegate: ClassBVCDelegate?
    
@@ -180,7 +179,7 @@ class SignInViewController: UIViewController {
 //                print(error)
 //            }
 //        }
-//        
+//
 //        //Mark: CheckIn or CheckOut for file name
 //       var checkstatusname = ""
 //      //Give file name with checkin or checkout
@@ -192,15 +191,15 @@ class SignInViewController: UIViewController {
 //
 //        let user = selectedEmployee!.employeeName
 //        let fileName = "\(user)_\(checkstatusname)"
-//        
-//        
+//
+//
 //        let fullName = fileName.appending(".jpg")
 //        let filepath = directoryPath.appending(fullName)
 //        let url = NSURL.fileURL(withPath: filepath)
 //        do {
 //            try UIImageJPEGRepresentation(chosenImage, 1.0)?.write(to: url, options: .atomic)
 //            return String.init("/Documents/\(fullName)")
-//            
+//
 //        } catch {
 //            print(error)
 //            print("file cant not be save at path \(filepath), with error : \(error)");
