@@ -37,6 +37,7 @@ class PreviewViewController: UIViewController {
    
 
     let path = NSHomeDirectory()+"/Documents/time.plist"
+    
     var dictionary : NSMutableDictionary!
     let fileManager = FileManager.default
    
@@ -45,7 +46,6 @@ class PreviewViewController: UIViewController {
         //Read from plist
         
         if let reportFromPlist = NSArray(contentsOfFile: path) as? [[String: String]] {
-
                 reportArray = reportFromPlist
             }
         return reportArray

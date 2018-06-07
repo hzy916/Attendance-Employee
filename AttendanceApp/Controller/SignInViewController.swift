@@ -82,7 +82,11 @@ class SignInViewController: UIViewController {
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         //Encoding
         let signImage = UIImage(view: signInView)
-        let path = saveImageToDocumentDirectory(signImage)
+//        let path = saveImageToDocumentDirectory(signImage)
+        
+        //call save to xml folder
+         let path = saveImageToXML(signImage)
+        
         print(path)
         
         let alert = UIAlertController(title: alerttext, message: "Message", preferredStyle: UIAlertControllerStyle.alert)
@@ -165,46 +169,93 @@ class SignInViewController: UIViewController {
         }
     }
 
-    //save image to document directory (path)
-    func saveImageToDocumentDirectory(_ chosenImage: UIImage) -> String {
-        let directoryPath =  NSHomeDirectory().appending("/Documents/")
-        if !FileManager.default.fileExists(atPath: directoryPath) {
+//    //save image to document directory (path)
+//    func saveImageToDocumentDirectory(_ chosenImage: UIImage) -> String {
+//        let directoryPath =  NSHomeDirectory().appending("/Documents/")
+//        print(directoryPath)
+//        if !FileManager.default.fileExists(atPath: directoryPath) {
+//            do {
+//                try FileManager.default.createDirectory(at: NSURL.fileURL(withPath: directoryPath), withIntermediateDirectories: true, attributes: nil)
+//            } catch {
+//                print(error)
+//            }
+//        }
+//        
+//        //Mark: CheckIn or CheckOut for file name
+//       var checkstatusname = ""
+//      //Give file name with checkin or checkout
+//       if isCheckOut == true {
+//        checkstatusname = "checkout"
+//      } else {
+//        checkstatusname = "checkin"
+//       }
+//
+//        let user = selectedEmployee!.employeeName
+//        let fileName = "\(user)_\(checkstatusname)"
+//        
+//        
+//        let fullName = fileName.appending(".jpg")
+//        let filepath = directoryPath.appending(fullName)
+//        let url = NSURL.fileURL(withPath: filepath)
+//        do {
+//            try UIImageJPEGRepresentation(chosenImage, 1.0)?.write(to: url, options: .atomic)
+//            return String.init("/Documents/\(fullName)")
+//            
+//        } catch {
+//            print(error)
+//            print("file cant not be save at path \(filepath), with error : \(error)");
+//            return filepath
+//        }
+//    }
+    
+    //save image to XML templates
+    func saveImageToXML(_ chosenImage: UIImage) -> String {
+
+        let pathToInvoiceHTMLTemplate = "/Users/ziyunhe/Documents/iOSStudy/AttendanceApp/AttendanceApp/XMLTemplates"
+        
+        let XMLPath =  pathToInvoiceHTMLTemplate.appending("/Images/")
+        print(XMLPath)
+        
+        if !FileManager.default.fileExists(atPath: XMLPath) {
             do {
-                try FileManager.default.createDirectory(at: NSURL.fileURL(withPath: directoryPath), withIntermediateDirectories: true, attributes: nil)
+                try FileManager.default.createDirectory(at: NSURL.fileURL(withPath: XMLPath), withIntermediateDirectories: true, attributes: nil)
             } catch {
                 print(error)
             }
         }
-        
+
         //Mark: CheckIn or CheckOut for file name
-       var checkstatusname = ""
-      //Give file name with checkin or checkout
-       if isCheckOut == true {
-        checkstatusname = "checkout"
-      } else {
-        checkstatusname = "checkin"
-       }
+        var checkstatusname = ""
+        //Give file name with checkin or checkout
+        if isCheckOut == true {
+            checkstatusname = "checkout"
+        } else {
+            checkstatusname = "checkin"
+        }
 
         let user = selectedEmployee!.employeeName
         let fileName = "\(user)_\(checkstatusname)"
-        
-        
+
+
         let fullName = fileName.appending(".jpg")
-        let filepath = directoryPath.appending(fullName)
+        let filepath = XMLPath.appending(fullName)
         let url = NSURL.fileURL(withPath: filepath)
         do {
             try UIImageJPEGRepresentation(chosenImage, 1.0)?.write(to: url, options: .atomic)
-            return String.init("/Documents/\(fullName)")
-            
+            return String.init("/Images/\(fullName)")
+
         } catch {
             print(error)
             print("file cant not be save at path \(filepath), with error : \(error)");
             return filepath
         }
-//        print(filepath)
+        //        print(filepath)
     }
     
 }
+
+
+
 
 
     // //MARK: step 1 Add Protocol here. to create delegate to pass data between signinview and main viewcontroller view

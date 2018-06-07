@@ -96,14 +96,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		AD2402B820C007B2009E99F7 /* XML Templates */ = {
+		AD2402B820C007B2009E99F7 /* XMLTemplates */ = {
 			isa = PBXGroup;
 			children = (
 				AD2402B920C00976009E99F7 /* index.html */,
 				ADA62C4820C6C6910063F9E1 /* AttitudeTech.png */,
 				AD2402C120C0478E009E99F7 /* single_item.html */,
 			);
-			path = "XML Templates";
+			path = XMLTemplates;
 			sourceTree = "<group>";
 		};
 		AD322809208F410500BA179A = {
@@ -127,7 +127,7 @@
 		AD322814208F410500BA179A /* AttendanceApp */ = {
 			isa = PBXGroup;
 			children = (
-				AD2402B820C007B2009E99F7 /* XML Templates */,
+				AD2402B820C007B2009E99F7 /* XMLTemplates */,
 				AD8E976E2091D05B00417E24 /* Resources */,
 				AD19438E2090AB1C00C8F93E /* View */,
 				AD19438D2090AAFD00C8F93E /* Controller */,

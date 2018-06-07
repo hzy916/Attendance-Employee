@@ -23,6 +23,7 @@ class ReportComposer: NSObject {
     }
     
     let pathToInvoiceHTMLTemplate = Bundle.main.path(forResource: "index", ofType: "html")
+
     
     let pathToSingleItemHTMLTemplate = Bundle.main.path(forResource: "single_item", ofType: "html")
   
@@ -32,12 +33,12 @@ class ReportComposer: NSObject {
     let logoImageURL = "http://www.appcoda.com/wp-content/uploads/2015/12/blog-logo-dark-400.png"
     
     
-    let imagepath = NSHomeDirectory()+"/Documents/"
+    let imagepath = "/Users/ziyunhe/Documents/iOSStudy/AttendanceApp/AttendanceApp/XMLTemplates/Images/"
     var dictionary : NSMutableDictionary!
     let fileManager = FileManager.default
 
     //Attitude Tech logo image
-    let imageHTMLContent = "<img src='/Users/ziyunhe/Documents/iOSStudy/AttendanceApp/AttendanceApp/XML Templates/AttitudeTech.png' alt='Abhijith_checkout'>"
+    let imageHTMLContent = "<img src='/Users/ziyunhe/Documents/iOSStudy/AttendanceApp/AttendanceApp/XMLTemplates/AttitudeTech.png' alt='Abhijith_checkout'>"
 
     var pdfFilename: String!
 
@@ -62,6 +63,11 @@ class ReportComposer: NSObject {
                 final_inImagepath = imagepath + items[i]["employeeName"]! + "_checkin.jpg"
                 final_outImagepath = imagepath + items[i]["employeeName"]! + "_checkout.jpg"
                 
+                let imageCss = "width=100px;"
+                
+                let in_imageContent = "<img src='" + final_inImagepath + "'" + imageCss + "alt='checkin'>"
+                let out_imageContent = "<img src='" + final_outImagepath + "'" + "alt='checkout'>"
+                
                 itemHTMLContent = try String(contentsOfFile: pathToSingleItemHTMLTemplate!)
                 
                 print(items[i])
@@ -73,9 +79,9 @@ class ReportComposer: NSObject {
                 itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#CHECKOUT_TIME#", with: items[i]["checkOutTime"]!)
              
                 // Replace the employee signatire with the images.
-                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#IN_SIGNATURE#", with: imageHTMLContent)
+                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#IN_SIGNATURE#", with: in_imageContent)
                 
-                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#OUT_SIGNATURE#", with: final_outImagepath)
+                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#OUT_SIGNATURE#", with: out_imageContent)
 
                 // Add the item's HTML code to the general items string.
                 allItems += itemHTMLContent
