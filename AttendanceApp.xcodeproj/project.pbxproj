@@ -21,6 +21,7 @@
 		AD32282C208F5B5100BA179A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32282B208F5B5100BA179A /* SignInViewController.swift */; };
 		AD8E97702091D08900417E24 /* Employees.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD8E976F2091D08900417E24 /* Employees.plist */; };
 		ADA62C4920C6C6910063F9E1 /* AttitudeTech.png in Resources */ = {isa = PBXBuildFile; fileRef = ADA62C4820C6C6910063F9E1 /* AttitudeTech.png */; };
+		ADB523AF20CA9A1A00CE2F40 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADB523AE20CA9A1900CE2F40 /* Default-568h@2x.png */; };
 		ADB7050920C947C800606B30 /* CustomPrintPageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB7050820C947C800606B30 /* CustomPrintPageRenderer.swift */; };
 		AF97984E089F2F474D0913D7 /* Pods_AttendanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A02AB12135B9E9B05D576BAD /* Pods_AttendanceApp.framework */; };
 /* End PBXBuildFile section */
@@ -45,6 +46,7 @@
 		AD32282B208F5B5100BA179A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		AD8E976F2091D08900417E24 /* Employees.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Employees.plist; sourceTree = "<group>"; };
 		ADA62C4820C6C6910063F9E1 /* AttitudeTech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AttitudeTech.png; sourceTree = "<group>"; };
+		ADB523AE20CA9A1900CE2F40 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		ADB7050820C947C800606B30 /* CustomPrintPageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPrintPageRenderer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +114,7 @@
 		AD322809208F410500BA179A = {
 			isa = PBXGroup;
 			children = (
+				ADB523AE20CA9A1900CE2F40 /* Default-568h@2x.png */,
 				AD322814208F410500BA179A /* AttendanceApp */,
 				AD322813208F410500BA179A /* Products */,
 				B61967F5CF3D2F82EA20C203 /* Pods */,
@@ -223,6 +226,7 @@
 				AD8E97702091D08900417E24 /* Employees.plist in Resources */,
 				AD322820208F410E00BA179A /* LaunchScreen.storyboard in Resources */,
 				AD32281D208F410E00BA179A /* Assets.xcassets in Resources */,
+				ADB523AF20CA9A1A00CE2F40 /* Default-568h@2x.png in Resources */,
 				AD32281B208F410500BA179A /* Main.storyboard in Resources */,
 				AD2402C220C0478E009E99F7 /* single_item.html in Resources */,
 			);
@@ -433,7 +437,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y7324JV5ZF;
 				INFOPLIST_FILE = AttendanceApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ziyunhe.AttendanceApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -449,7 +456,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y7324JV5ZF;
 				INFOPLIST_FILE = AttendanceApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ziyunhe.AttendanceApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

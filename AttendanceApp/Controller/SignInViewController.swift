@@ -250,19 +250,12 @@ class SignInViewController: UIViewController {
         }
         //        print(filepath)
     }
-    
 }
-
-
-
-
 
     // //MARK: step 1 Add Protocol here. to create delegate to pass data between signinview and main viewcontroller view
     protocol ClassBVCDelegate: class {
-       
         func removefromCheckout()
         func removefromCheckIn()
-
     }
 
 

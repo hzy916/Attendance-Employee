@@ -9,6 +9,7 @@
 
 import UIKit
 import MessageUI
+import SwiftyDropbox
 
 class PreviewViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
@@ -19,44 +20,13 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBOutlet weak var webPreview: UIWebView!
     
     @IBAction func exportToPDF(_ sender: Any) {
-//        reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
-        //Check to see the device can send email.
-//        if( MFMailComposeViewController.canSendMail() )
-//        {
-//            print("Can send email.")
-//
-//            let mailComposer = MFMailComposeViewController()
-//            mailComposer.mailComposeDelegate = self
-//
-//            //Set to recipients
-//            mailComposer.setToRecipients(["your email address heres"])
-//
-//            //Set the subject
-//            mailComposer.setSubject("email with document pdf")
-//
-//            //set mail body
-//            mailComposer.setMessageBody("This is what they sound like.", isHTML: true)
-//
-//            if let filePath = Bundle.main.path(forResource: "report", ofType: "pdf")
-//            {
-//                print("File path loaded.")
-//
-//                if let fileData = NSData(contentsOfFile: filePath)
-//                {
-//                    print("File data loaded.")
-//                    mailComposer.addAttachmentData(fileData as Data, mimeType: "application/pdf", fileName: "report.pdf")
-//                }
-//            }
-//
-//            //this will compose and present mail to user
-//            self.navigationController?.present(mailComposer, animated: true, completion: nil)
-//        }
-//        else
-//        {
-//            print("email is not supported")
-//        }
-        
+       reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
     }
+    
+    @IBAction func DropboxButtonPressed(_ sender: Any) {
+        DropboxbuttonPressed()
+    }
+    
     var reportArray = [[String: String]]()
 
     override func viewDidLoad() {
@@ -107,13 +77,33 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
     }
     
     
-//    //send email
-//    func sendEmail() {
-//        if MFMailComposeViewController.canSendMail() {
-//            let mailComposeViewController = MFMailComposeViewController()
-//            mailComposeViewController.setSubject("Invoice")
-//            mailComposeViewController.addAttachmentData(NSData(contentsOfFile: reportComposer.pdfFilename)! as Data, mimeType: "application/pdf", fileName:"report")
-//            present(mailComposeViewController, animated: true, completion: nil)
+    func DropboxbuttonPressed() {
+        DropboxClientsManager.authorizeFromController(UIApplication.shared,
+                                                      controller: self,
+                                                      openURL: { (url: URL) -> Void in
+                                                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        })
+        
+        // Reference after programmatic auth flow
+        let client = DropboxClientsManager.authorizedClient
+        
+//        let fileData = "testing data example".data(using: String.Encoding.utf8, allowLossyConversion: false)!
+//        let reportPath = NSHomeDirectory()+"/Documents/report.plist"
+//        let request = client.files.upload(path: reportPath, input: report.fileData)
+//            .response { response, error in
+//                if let response = response {
+//                    print(response)
+//                } else if let error = error {
+//                    print(error)
+//                }
+//            }
+//            .progress { progressData in
+//                print(progressData)
+//        }
+//        
+//        // in case you want to cancel the request
+//        if someConditionIsSatisfied {
+//            request.cancel()
 //        }
 //    }
     

@@ -8,17 +8,16 @@
 
 import UIKit
 import CoreData
-
+import SwiftyDropbox
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-    
+        DropboxClientsManager.setupWithAppKey("gte4pufhoqhlq13")
         return true
     }
 
@@ -65,6 +64,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func getDocDir() -> String {
         return NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
     }
- 
+    
+    //handle redirect back into SDK
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        if let authResult = DropboxClientsManager.handleRedirectURL(url) {
+            switch authResult {
+            case .success:
+                print("Success! User is logged into Dropbox.")
+            case .cancel:
+                print("Authorization flow was manually canceled by user!")
+            case .error(_, let description):
+                print("Error: \(description)")
+            }
+        }
+        return true
+    }
+    
+   
+
 }
 

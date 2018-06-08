@@ -158,14 +158,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="NRI-NB-Pz7" firstAttribute="leading" secondItem="xhe-Eu-Bps" secondAttribute="leading" id="Yab-zo-wBI"/>
-                            <constraint firstItem="NRI-NB-Pz7" firstAttribute="bottom" secondItem="xhe-Eu-Bps" secondAttribute="bottom" id="gKZ-lD-pbf"/>
-                            <constraint firstItem="NRI-NB-Pz7" firstAttribute="trailing" secondItem="xhe-Eu-Bps" secondAttribute="trailing" id="oj5-s7-qM2"/>
-                            <constraint firstItem="NRI-NB-Pz7" firstAttribute="top" secondItem="xhe-Eu-Bps" secondAttribute="top" id="tdu-v9-iOa"/>
+                            <constraint firstItem="NRI-NB-Pz7" firstAttribute="bottom" secondItem="xhe-Eu-Bps" secondAttribute="bottom" id="Giz-O8-QdD"/>
+                            <constraint firstItem="NRI-NB-Pz7" firstAttribute="top" secondItem="xhe-Eu-Bps" secondAttribute="top" id="SbI-5S-Tjd"/>
+                            <constraint firstItem="NRI-NB-Pz7" firstAttribute="leading" secondItem="xhe-Eu-Bps" secondAttribute="leading" id="s8d-ak-bYY"/>
+                            <constraint firstItem="NRI-NB-Pz7" firstAttribute="trailing" secondItem="xhe-Eu-Bps" secondAttribute="trailing" id="xJz-mJ-aJY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xhe-Eu-Bps"/>
                     </view>
                     <navigationItem key="navigationItem" title="Daily Report" id="Kiq-GJ-FZw">
+                        <barButtonItem key="leftBarButtonItem" title="Dropbox" id="iFN-bG-14z">
+                            <connections>
+                                <action selector="DropboxButtonPressed:" destination="n3B-hu-m25" id="Ro9-FP-UIg"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="PDF" id="y85-cf-DzV">
                             <connections>
                                 <action selector="exportToPDF:" destination="n3B-hu-m25" id="qBd-Cu-sae"/>
@@ -178,7 +183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZa-nV-d8z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1590" y="1051"/>
+            <point key="canvasLocation" x="1589.6046852122986" y="1050.5859375"/>
         </scene>
         <!--Sign In-->
         <scene sceneID="BU8-l2-HVP">
