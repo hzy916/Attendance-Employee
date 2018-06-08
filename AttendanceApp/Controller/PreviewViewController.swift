@@ -6,25 +6,57 @@
 //  Copyright © 2018 Ziyun He. All rights reserved.
 //
 
-//
-//  PreviewViewController.swift
-//  Print2PDF
-//
-//  Created by Gabriel Theodoropoulos on 14/06/16.
-//  Copyright © 2016 Appcoda. All rights reserved.
-//
 
 import UIKit
+import MessageUI
 
-class PreviewViewController: UIViewController {
+class PreviewViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     var reportComposer: ReportComposer!
     
     var HTMLContent: String!
     
-
     @IBOutlet weak var webPreview: UIWebView!
     
+    @IBAction func exportToPDF(_ sender: Any) {
+//        reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
+        //Check to see the device can send email.
+//        if( MFMailComposeViewController.canSendMail() )
+//        {
+//            print("Can send email.")
+//
+//            let mailComposer = MFMailComposeViewController()
+//            mailComposer.mailComposeDelegate = self
+//
+//            //Set to recipients
+//            mailComposer.setToRecipients(["your email address heres"])
+//
+//            //Set the subject
+//            mailComposer.setSubject("email with document pdf")
+//
+//            //set mail body
+//            mailComposer.setMessageBody("This is what they sound like.", isHTML: true)
+//
+//            if let filePath = Bundle.main.path(forResource: "report", ofType: "pdf")
+//            {
+//                print("File path loaded.")
+//
+//                if let fileData = NSData(contentsOfFile: filePath)
+//                {
+//                    print("File data loaded.")
+//                    mailComposer.addAttachmentData(fileData as Data, mimeType: "application/pdf", fileName: "report.pdf")
+//                }
+//            }
+//
+//            //this will compose and present mail to user
+//            self.navigationController?.present(mailComposer, animated: true, completion: nil)
+//        }
+//        else
+//        {
+//            print("email is not supported")
+//        }
+        
+    }
     var reportArray = [[String: String]]()
 
     override func viewDidLoad() {
@@ -64,13 +96,7 @@ class PreviewViewController: UIViewController {
     
     
     // MARK: IBAction Methods
-    
-
-    @IBAction func exportToPDF(_ sender: Any) {
-        
-    }
-    
-    
+     
     func createReportAsHTML() {
         reportComposer = ReportComposer()
         if let reportHTML = reportComposer.renderReport(items: reportArray){
@@ -81,13 +107,15 @@ class PreviewViewController: UIViewController {
     }
     
     
-//    //MARK: FORMATE CURRENT DATE
-//    func formatAndGetCurrentDate() -> String {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateStyle = DateFormatter.Style.medium
-//        return dateFormatter.string(from: Date())
+//    //send email
+//    func sendEmail() {
+//        if MFMailComposeViewController.canSendMail() {
+//            let mailComposeViewController = MFMailComposeViewController()
+//            mailComposeViewController.setSubject("Invoice")
+//            mailComposeViewController.addAttachmentData(NSData(contentsOfFile: reportComposer.pdfFilename)! as Data, mimeType: "application/pdf", fileName:"report")
+//            present(mailComposeViewController, animated: true, completion: nil)
+//        }
 //    }
-
     
     
 }

@@ -14,6 +14,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
    
     @IBAction func GotoReport(_ sender: Any) {
         performSegue(withIdentifier: "viewReport", sender: self)
+//        sendEmail()
     }
     
     func removefromCheckout() {
@@ -41,9 +42,6 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         segmentedControl.selectedSegmentIndex = 0
     }
 
-    
-
-    
     
     //segemented view
     @IBOutlet weak var collectionView: UICollectionView!
@@ -165,5 +163,5 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         collectionView.reloadData()
     }
 
-    
+ 
 }

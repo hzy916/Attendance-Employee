@@ -38,7 +38,7 @@ class ReportComposer: NSObject {
     let logourl = "http://pawtrailstest.com/wp-content/uploads/2018/06/AttitudeTech.png"
 
     var pdfFilename: String!
-
+    
     func renderReport(items:[[String: String]]) -> String!{
         do {
             // Load the invoice HTML template code into a String variable.
@@ -66,10 +66,13 @@ class ReportComposer: NSObject {
                 let out_imageContent = "<img src='" + final_outImagepath + "'" + imageCss + "alt='checkout'>"
                 
                 itemHTMLContent = try String(contentsOfFile: pathToSingleItemHTMLTemplate!)
+              
+                let line = items[i]["checkInTime"]
+//                line!.split(separator: " ", maxSplits: 1))
                 
 //                print(items[i])
                 // Replace the employeename and check data placeholders with the actual values.
-//                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#INVOICE_DATE#", with: )
+//                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#INVOICE_DATE#", with: reportDate)
                 
                 itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#ITEM_NAME#", with: items[i]["employeeName"]!)
                 
@@ -100,8 +103,37 @@ class ReportComposer: NSObject {
         return nil
     }
     
- 
+    //function to export html to pdf
+    func exportHTMLContentToPDF(HTMLContent: String) {
+        let printPageRenderer = CustomPrintPageRenderer()
+        
+        let printFormatter = UIMarkupTextPrintFormatter(markupText: HTMLContent)
+        printPageRenderer.addPrintFormatter(printFormatter, startingAtPageAt: 0)
+        
+        let pdfData = drawPDFUsingPrintPageRenderer(printPageRenderer: printPageRenderer)
+        
+        pdfFilename = "\(AppDelegate.getAppDelegate().getDocDir())/report.pdf"
+        pdfData?.write(toFile: pdfFilename, atomically: true)
+        
+        print(pdfFilename)
+    }
+    
+    //custom method to draw pdf
+    func drawPDFUsingPrintPageRenderer(printPageRenderer: UIPrintPageRenderer) -> NSData! {
+        let data = NSMutableData()
+        
+        UIGraphicsBeginPDFContextToData(data, CGRect.zero, nil)
+        
+        UIGraphicsBeginPDFPage()
+        
+        printPageRenderer.drawPage(at: 0, in: UIGraphicsGetPDFContextBounds())
+        
+        UIGraphicsEndPDFContext()
+        
+        return data
+    }
 
+    
 }
 
 
