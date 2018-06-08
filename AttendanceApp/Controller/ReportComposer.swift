@@ -59,17 +59,15 @@ class ReportComposer: NSObject {
                 //get the signature image path to display
                 final_inImagepath = imagepath + items[i]["employeeName"]! + "_checkin.jpg"
                 final_outImagepath = imagepath + items[i]["employeeName"]! + "_checkout.jpg"
-                
+ 
                 let imageCss = "width=100px;"
                 
-                let in_imageContent = "<img src='" + final_inImagepath + "'" + imageCss + "alt='checkin'>"
-                let out_imageContent = "<img src='" + final_outImagepath + "'" + imageCss + "alt='checkout'>"
+                let in_imageContent = "<img src='file://" + final_inImagepath + "'" + imageCss + "alt='checkin'>"
+                let out_imageContent = "<img src='file://" + final_outImagepath + "'" + imageCss + "alt='checkout'>"
                 
                 itemHTMLContent = try String(contentsOfFile: pathToSingleItemHTMLTemplate!)
               
-                let line = items[i]["checkInTime"]
-//                line!.split(separator: " ", maxSplits: 1))
-                
+
 //                print(items[i])
                 // Replace the employeename and check data placeholders with the actual values.
 //                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#INVOICE_DATE#", with: reportDate)
@@ -103,21 +101,22 @@ class ReportComposer: NSObject {
         return nil
     }
     
-    //function to export html to pdf
+ //   function to export html to pdf
     func exportHTMLContentToPDF(HTMLContent: String) {
         let printPageRenderer = CustomPrintPageRenderer()
-        
+
         let printFormatter = UIMarkupTextPrintFormatter(markupText: HTMLContent)
         printPageRenderer.addPrintFormatter(printFormatter, startingAtPageAt: 0)
-        
+
         let pdfData = drawPDFUsingPrintPageRenderer(printPageRenderer: printPageRenderer)
-        
+
         pdfFilename = "\(AppDelegate.getAppDelegate().getDocDir())/report.pdf"
         pdfData?.write(toFile: pdfFilename, atomically: true)
-        
+
         print(pdfFilename)
     }
     
+
     //custom method to draw pdf
     func drawPDFUsingPrintPageRenderer(printPageRenderer: UIPrintPageRenderer) -> NSData! {
         let data = NSMutableData()

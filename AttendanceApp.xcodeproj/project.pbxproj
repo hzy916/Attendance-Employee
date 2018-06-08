@@ -22,6 +22,7 @@
 		AD8E97702091D08900417E24 /* Employees.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD8E976F2091D08900417E24 /* Employees.plist */; };
 		ADA62C4920C6C6910063F9E1 /* AttitudeTech.png in Resources */ = {isa = PBXBuildFile; fileRef = ADA62C4820C6C6910063F9E1 /* AttitudeTech.png */; };
 		ADB523AF20CA9A1A00CE2F40 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADB523AE20CA9A1900CE2F40 /* Default-568h@2x.png */; };
+		ADB523B120CAD5B500CE2F40 /* PDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB523B020CAD5B500CE2F40 /* PDF.swift */; };
 		ADB7050920C947C800606B30 /* CustomPrintPageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB7050820C947C800606B30 /* CustomPrintPageRenderer.swift */; };
 		AF97984E089F2F474D0913D7 /* Pods_AttendanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A02AB12135B9E9B05D576BAD /* Pods_AttendanceApp.framework */; };
 /* End PBXBuildFile section */
@@ -47,6 +48,7 @@
 		AD8E976F2091D08900417E24 /* Employees.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Employees.plist; sourceTree = "<group>"; };
 		ADA62C4820C6C6910063F9E1 /* AttitudeTech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AttitudeTech.png; sourceTree = "<group>"; };
 		ADB523AE20CA9A1900CE2F40 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		ADB523B020CAD5B500CE2F40 /* PDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDF.swift; sourceTree = "<group>"; };
 		ADB7050820C947C800606B30 /* CustomPrintPageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPrintPageRenderer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +88,7 @@
 				AD322827208F42F700BA179A /* CustomCollectionViewCell.swift */,
 				AD2402BB20C009AB009E99F7 /* ReportComposer.swift */,
 				AD2402BD20C00A53009E99F7 /* PreviewViewController.swift */,
+				ADB523B020CAD5B500CE2F40 /* PDF.swift */,
 				AD32282B208F5B5100BA179A /* SignInViewController.swift */,
 				AD322815208F410500BA179A /* AppDelegate.swift */,
 			);
@@ -283,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD32282C208F5B5100BA179A /* SignInViewController.swift in Sources */,
+				ADB523B120CAD5B500CE2F40 /* PDF.swift in Sources */,
 				AD322818208F410500BA179A /* ViewController.swift in Sources */,
 				AD2402BE20C00A53009E99F7 /* PreviewViewController.swift in Sources */,
 				AD322828208F42F700BA179A /* CustomCollectionViewCell.swift in Sources */,

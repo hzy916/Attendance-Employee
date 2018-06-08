@@ -20,12 +20,12 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBOutlet weak var webPreview: UIWebView!
     
     @IBAction func exportToPDF(_ sender: Any) {
-       reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
+        reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
+        
         DropboxbuttonPressed()
     }
     
-
-    
+ 
     var reportArray = [[String: String]]()
 
     override func viewDidLoad() {
@@ -105,5 +105,8 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
 //            request.cancel()
 //        }
     }
+    
+ 
+    
 }
 
