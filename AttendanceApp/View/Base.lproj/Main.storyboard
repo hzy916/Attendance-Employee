@@ -166,12 +166,7 @@
                         <viewLayoutGuide key="safeArea" id="xhe-Eu-Bps"/>
                     </view>
                     <navigationItem key="navigationItem" title="Daily Report" id="Kiq-GJ-FZw">
-                        <barButtonItem key="leftBarButtonItem" title="Dropbox" id="iFN-bG-14z">
-                            <connections>
-                                <action selector="DropboxButtonPressed:" destination="n3B-hu-m25" id="Ro9-FP-UIg"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="PDF" id="y85-cf-DzV">
+                        <barButtonItem key="rightBarButtonItem" title="Upload PDF" id="y85-cf-DzV">
                             <connections>
                                 <action selector="exportToPDF:" destination="n3B-hu-m25" id="qBd-Cu-sae"/>
                             </connections>

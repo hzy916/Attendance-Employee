@@ -21,11 +21,10 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
     
     @IBAction func exportToPDF(_ sender: Any) {
        reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
-    }
-    
-    @IBAction func DropboxButtonPressed(_ sender: Any) {
         DropboxbuttonPressed()
     }
+    
+
     
     var reportArray = [[String: String]]()
 
@@ -87,26 +86,24 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
         // Reference after programmatic auth flow
         let client = DropboxClientsManager.authorizedClient
         
-//        let fileData = "testing data example".data(using: String.Encoding.utf8, allowLossyConversion: false)!
-//        let reportPath = NSHomeDirectory()+"/Documents/report.plist"
-//        let request = client.files.upload(path: reportPath, input: report.fileData)
-//            .response { response, error in
-//                if let response = response {
-//                    print(response)
-//                } else if let error = error {
-//                    print(error)
-//                }
-//            }
-//            .progress { progressData in
-//                print(progressData)
-//        }
-//        
-//        // in case you want to cancel the request
+        let fileData = "report".data(using: String.Encoding.utf8, allowLossyConversion: false)!
+   
+        let request = client?.files.upload(path: "/DailyReport/report.pdf", input: fileData)
+            .response { response, error in
+                if let response = response {
+                    print(response)
+                } else if let error = error {
+                    print(error)
+                }
+            }
+            .progress { progressData in
+                print(progressData)
+        }
+        
+        // in case you want to cancel the request
 //        if someConditionIsSatisfied {
 //            request.cancel()
 //        }
-//    }
-    
-    
+    }
 }
 
