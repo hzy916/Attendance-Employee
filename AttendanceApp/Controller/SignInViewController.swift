@@ -10,7 +10,6 @@ import UIKit
 import TouchDraw
 
 
-
 class SignInViewController: UIViewController {
 
     //create image related varibles
@@ -58,6 +57,7 @@ class SignInViewController: UIViewController {
             self.title = "Check In"
             loadItems()
             employeeArray.append(selectedEmployee!)
+//            updateItems()
         }
         
         //Mark: display the employee's name in the sign in/out view
@@ -116,6 +116,7 @@ class SignInViewController: UIViewController {
             let checktime = formatter.string(from: date)
             selectedEmployee?.checkOutTime = checktime
             saveItems()
+//            updateItems()
           
         }else{
             //remove from checkin array and add to checkout array
@@ -128,6 +129,7 @@ class SignInViewController: UIViewController {
             let checktime = formatter.string(from: date)
             selectedEmployee?.checkInTime = checktime
             saveItems()
+//            updateItems()
         }
         
     }
@@ -167,6 +169,7 @@ class SignInViewController: UIViewController {
             employeeArray.append(selectedEmployee!)
         }
     }
+    
 
 //    //save image to document directory (path)
 //    func saveImageToDocumentDirectory(_ chosenImage: UIImage) -> String {

@@ -104,6 +104,16 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     func loadEmployeeDetails() -> Array<Employee> {
         //Read from plist
         var currentArray: [Employee] = []
+        var checkedInArray: [Employee] = []
+        
+        let checkDataPath = NSHomeDirectory()+"/Documents/time.plist"
+        if let datafromTimePlist = NSArray(contentsOfFile: checkDataPath) as? [Dictionary<String, Any>] {
+            for item in datafromTimePlist {
+                let employee = Employee(name: item["employeeName"] as! String, department: item["departmentName"] as! String, inTime: "", outTime: "")
+                checkedInArray.append(employee)
+            }
+        }
+        
          if let path = Bundle.main.path(forResource: "Employees", ofType: "plist") {
             if let englishFromPlist = NSArray(contentsOfFile: path) as? [Dictionary<String, Any>] {
                 for item in englishFromPlist {
@@ -112,9 +122,47 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
                 }
             }
         }
+        
+        print(checkedInArray)
+        print(currentArray)
+        
+        for item in checkedInArray {
 
+            let empCheck = item as Employee
+
+            var count = 0
+            for item1 in currentArray {
+
+                let emp1 = item1 as Employee
+
+                if (empCheck.employeeName == emp1.employeeName) {
+
+                    currentArray.remove(at: count)
+                     count -= 1
+                }
+                count += 1
+            }
+
+        }
+        
+//        arrayA = currentArray.filter { !checkedInArray.contains($0) }
+        
+        print(checkedInArray)
+        print(currentArray)
+
+//        //read from time.plist
+//            let path = NSHomeDirectory()+"/Documents/time.plist"
+    
        return currentArray
     }
+    
+    //filter the employee array
+    public func diff<T1, T2>(_ first: [T1], _ second: [T2], with compare:(T1,T2) -> Bool) -> Array<Any> {
+        let removed: [T1] = first.filter { firstElement in !second.contains { secondElement in compare(firstElement, secondElement) } }
+        return removed
+    }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
             return currentArray.count

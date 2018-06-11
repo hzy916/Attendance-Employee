@@ -86,6 +86,10 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
         // Reference after programmatic auth flow
         let client = DropboxClientsManager.authorizedClient
         
+//        var clienttest = DropboxClient.init(accessToken: DropboxAccessToken(accessToken:"NeN2J28HT2AAAAAAAAAAMhAMedJUgE2X-ns0degJFv4ekjvAN3PwBUdJ4bVwUZ5K", uid:"UID_NUMBER"))
+        
+    
+        
         let fileData = "report".data(using: String.Encoding.utf8, allowLossyConversion: false)!
    
         let request = client?.files.upload(path: "/DailyReport/report.pdf", input: fileData)
