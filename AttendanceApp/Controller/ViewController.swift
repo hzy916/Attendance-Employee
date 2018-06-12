@@ -14,7 +14,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
    
     @IBAction func GotoReport(_ sender: Any) {
         performSegue(withIdentifier: "viewReport", sender: self)
-//        sendEmail()
+
     }
     
     func removefromCheckout() {
@@ -61,16 +61,15 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
    
     
     override func viewDidLoad() {
-
-        
+  
         collectionView.delegate = self
         
         collectionView.dataSource = self
         
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
         checkinArray = loadEmployeeDetails()
+  
         currentArray = checkinArray
         print(checkinArray)
         
@@ -95,7 +94,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     }
 
     override func viewWillAppear(_ animated: Bool) {
-     changeView()
+        changeView()
      
     }
     
@@ -103,13 +102,14 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     
     func loadEmployeeDetails() -> Array<Employee> {
         //Read from plist
-        var currentArray: [Employee] = []
+        var mainviewArray: [Employee] = []
         var checkedInArray: [Employee] = []
+        var checkedOutArray: [Employee] = []
         
         let checkDataPath = NSHomeDirectory()+"/Documents/time.plist"
         if let datafromTimePlist = NSArray(contentsOfFile: checkDataPath) as? [Dictionary<String, Any>] {
             for item in datafromTimePlist {
-                let employee = Employee(name: item["employeeName"] as! String, department: item["departmentName"] as! String, inTime: "", outTime: "")
+                let employee = Employee(name: item["employeeName"] as! String, department: item["departmentName"] as! String, inTime: item["checkInTime"] as! String, outTime: item["checkOutTime"] as! String)
                 checkedInArray.append(employee)
             }
         }
@@ -118,52 +118,56 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
             if let englishFromPlist = NSArray(contentsOfFile: path) as? [Dictionary<String, Any>] {
                 for item in englishFromPlist {
                     let employee = Employee(name: item["name"] as! String, department: item["deparment"] as! String, inTime: "", outTime: "")
-                    currentArray.append(employee)
+                    mainviewArray.append(employee)
                 }
             }
         }
-        
-        print(checkedInArray)
-        print(currentArray)
-        
+
+        //filter the people who didn't check in
         for item in checkedInArray {
-
             let empCheck = item as Employee
-
             var count = 0
-            for item1 in currentArray {
-
+            for item1 in mainviewArray {
                 let emp1 = item1 as Employee
-
                 if (empCheck.employeeName == emp1.employeeName) {
-
-                    currentArray.remove(at: count)
+                    mainviewArray.remove(at: count)
                      count -= 1
                 }
                 count += 1
             }
-
         }
         
-//        arrayA = currentArray.filter { !checkedInArray.contains($0) }
+       //filter the employees who checked in and didn't check out
+        for item1 in checkedInArray {
+            var count = 0
+            let emp1 = item1 as Employee
+            if (emp1.checkOutTime.isEmpty == false) {
+                checkedOutArray.insert(emp1, at: count)
+            }
+            count += 1
+        }
+        print(checkedOutArray)
+        //return two different arrays in two views
+//        switch segmentedControl.selectedSegmentIndex
+//        {
+//        case 0:
+//            //  currentArray.removeAll()
+//            currentArray = mainviewArray
+//            collectionView.reloadData()
+//        case 1:
+//            //  currentArray.removeAll()
+//            currentArray = checkedOutArray
+//            print(checkedOutArray)
+//            collectionView.reloadData()
+//        default:
+//            break;
+//        }
         
-        print(checkedInArray)
-        print(currentArray)
+        return mainviewArray
+    }
+    
 
-//        //read from time.plist
-//            let path = NSHomeDirectory()+"/Documents/time.plist"
-    
-       return currentArray
-    }
-    
-    //filter the employee array
-    public func diff<T1, T2>(_ first: [T1], _ second: [T2], with compare:(T1,T2) -> Bool) -> Array<Any> {
-        let removed: [T1] = first.filter { firstElement in !second.contains { secondElement in compare(firstElement, secondElement) } }
-        return removed
-    }
-    
-    
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
             return currentArray.count
     }
