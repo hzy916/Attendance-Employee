@@ -8,13 +8,12 @@
 
 import UIKit
 import Foundation
-
+import UserNotifications
 
 class ViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource,ClassBVCDelegate {
    
     @IBAction func GotoReport(_ sender: Any) {
         performSegue(withIdentifier: "viewReport", sender: self)
-
     }
     
     func removefromCheckout() {
@@ -22,8 +21,6 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         print(selectedIndex)
         
         //update the employee object checkout time
-        
-        
         collectionView.reloadData()
         //change to default check in list view
         segmentedControl.selectedSegmentIndex = 0
@@ -67,8 +64,13 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         collectionView.dataSource = self
         
         super.viewDidLoad()
+        
+        //calling the schedule notification time function
+        UNUserNotificationCenter.current().delegate = self
+        scheduleNotifications()
+        
         // Do any additional setup after loading the view, typically from a nib.
-        checkinArray = loadEmployeeDetails()
+         loadEmployeeDetails()
   
         currentArray = checkinArray
         print(checkinArray)
@@ -81,10 +83,12 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         {
         case 0:
             //  currentArray.removeAll()
+            loadEmployeeDetails()
             currentArray = checkinArray
             collectionView.reloadData()
         case 1:
             //  currentArray.removeAll()
+            loadEmployeeDetails()
             currentArray = checkoutArray
             print(checkoutArray)
             collectionView.reloadData()
@@ -100,7 +104,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     
     //load employee details from array
     
-    func loadEmployeeDetails() -> Array<Employee> {
+    func loadEmployeeDetails() {  // -> Array<Employee>
         //Read from plist
         var mainviewArray: [Employee] = []
         var checkedInArray: [Employee] = []
@@ -137,6 +141,8 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
             }
         }
         
+        self.checkinArray = mainviewArray
+        
        //filter the employees who checked in and didn't check out
         for item1 in checkedInArray {
             var count = 0
@@ -147,6 +153,8 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
             count += 1
         }
         print(checkedOutArray)
+        
+        self.checkoutArray = checkedOutArray
         //return two different arrays in two views
 //        switch segmentedControl.selectedSegmentIndex
 //        {
@@ -163,7 +171,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
 //            break;
 //        }
         
-        return mainviewArray
+        //return mainviewArray
     }
     
 
@@ -214,6 +222,51 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         //reload view
         collectionView.reloadData()
     }
+    
+    
+    //schedule notification functions
+    func scheduleNotifications() {
+        let content = UNMutableNotificationContent()
+        let requestIdentifier = "rajanNotification"
+        
+        content.badge = 1
+        content.title = "Attendance notification"
+        content.subtitle = "Daily report is uploaded to Dropbox"
+        
+        content.categoryIdentifier = "actionCategory"
+        content.sound = UNNotificationSound.default()
+        
+        // If you want to attach any image to show in local notification
 
- 
+        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 60, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request) { (error:Error?) in
+            
+            if error != nil {
+                print(error?.localizedDescription)
+            }
+            print("Notification Register Success")
+        }
+    }
+    
+    func jiayou(){
+    print("123")
+    }
+    
 }
+
+extension ViewController: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // some other way of handling notification
+        completionHandler([.alert, .sound])
+    }
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+
+        //create the report after notification?
+        jiayou()
+        //createReportAsHTML()
+        completionHandler()
+    }
+}
+
