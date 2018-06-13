@@ -6,13 +6,6 @@
 //  Copyright © 2018 Ziyun He. All rights reserved.
 //
 
-//
-//  ReportComposer.swift
-//  Print2PDF
-//
-//  Created by Ziyun He on 31/05/2018.
-//  Copyright © 2018 Appcoda. All rights reserved.
-//
 
 import UIKit
 
@@ -31,6 +24,8 @@ class ReportComposer: NSObject {
     let dueDate = ""
     
     let imagepath = "/Users/ziyunhe/Documents/iOSStudy/AttendanceApp/AttendanceApp/XMLTemplates/Images/"
+  
+    
     var dictionary : NSMutableDictionary!
     let fileManager = FileManager.default
 

@@ -19,11 +19,11 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
     
     @IBOutlet weak var webPreview: UIWebView!
     
-    @IBAction func exportToPDF(_ sender: Any) {
-        reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
-        
-        DropboxbuttonPressed()
-    }
+//    @IBAction func exportToPDF(_ sender: Any) {
+//        reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
+//        
+//        DropboxbuttonPressed()
+//    }
     
  
     var reportArray = [[String: String]]()
@@ -59,7 +59,6 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         createReportAsHTML()
     }
     

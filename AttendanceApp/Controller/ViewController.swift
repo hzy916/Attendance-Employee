@@ -76,6 +76,9 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         print(checkinArray)
         
         collectionView.reloadData()
+        
+        //calling function to get report array
+        reportArray  = readReportdata()
     }
     
     func changeView(){
@@ -222,7 +225,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
 
 //        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 60, repeats: false)
         let calendar = Calendar.current
-        let components = DateComponents(hour: 18, minute: 30, second: 00) // Set the date here when you want Notification
+        let components = DateComponents(hour: 14, minute: 42, second: 30) // Set the date here when you want Notification
         let date = calendar.date(from: components)
         
         let triggerDaily = Calendar.current.dateComponents([.hour, .minute, .second], from: date!)
@@ -238,8 +241,41 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         }
     }
     
-    func jiayou(){
-    print("123")
+    
+   // declare variables for report
+
+    var reportComposer: ReportComposer!
+
+    var HTMLContent: String!
+    var reportArray = [[String: String]]()
+
+
+
+    //read from time.plist to get report data
+    let path = NSHomeDirectory()+"/Documents/time.plist"
+
+    var dictionary : NSMutableDictionary!
+    let fileManager = FileManager.default
+
+    //load employee details from array
+    func readReportdata() -> Array<[String: String]> {
+        //Read from plist
+
+        if let reportFromPlist = NSArray(contentsOfFile: path) as? [[String: String]] {
+            reportArray = reportFromPlist
+        }
+        return reportArray
+    }
+
+    //create report function
+    func createReportAsHTML() {
+        reportComposer = ReportComposer()
+        if let reportHTML = reportComposer.renderReport(items: reportArray){
+
+//            webPreview.loadHTMLString(reportHTML, baseURL: NSURL(string: reportComposer.pathToInvoiceHTMLTemplate!)! as URL)
+            HTMLContent = reportHTML
+        }
+        reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
     }
     
 }
@@ -248,12 +284,13 @@ extension ViewController: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         // some other way of handling notification
         completionHandler([.alert, .sound])
+        createReportAsHTML()
     }
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
 
         //create the report after notification?
-        jiayou()
-        //createReportAsHTML()
+        createReportAsHTML()
+        
         completionHandler()
     }
 }
