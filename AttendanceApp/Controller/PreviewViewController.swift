@@ -33,8 +33,6 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
         
      // Do any additional setup after loading the view.
        reportArray  = readReportdata()
-        //set 6pm to create report
-//        scheduledTimerWithTimeInterval()
         
     }
    
@@ -65,18 +63,7 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
         createReportAsHTML()
     }
     
-    
-    //call create report function at 6pm everyday
-//    var reoprtTimer: Timer!
-//    func scheduledTimerWithTimeInterval(){
-//        // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
-//        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: Selector(("createReportAsHTML")), userInfo: nil, repeats: true)
-//    }
-//
-    
- 
-    
-    
+
     // MARK: IBAction Methods
      
     func createReportAsHTML() {

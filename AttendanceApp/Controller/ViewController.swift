@@ -155,26 +155,8 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         print(checkedOutArray)
         
         self.checkoutArray = checkedOutArray
-        //return two different arrays in two views
-//        switch segmentedControl.selectedSegmentIndex
-//        {
-//        case 0:
-//            //  currentArray.removeAll()
-//            currentArray = mainviewArray
-//            collectionView.reloadData()
-//        case 1:
-//            //  currentArray.removeAll()
-//            currentArray = checkedOutArray
-//            print(checkedOutArray)
-//            collectionView.reloadData()
-//        default:
-//            break;
-//        }
-        
-        //return mainviewArray
     }
     
-
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
             return currentArray.count
@@ -236,9 +218,15 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         content.categoryIdentifier = "actionCategory"
         content.sound = UNNotificationSound.default()
         
-        // If you want to attach any image to show in local notification
+        // set fixed time to repeat daily
 
-        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 60, repeats: false)
+//        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 60, repeats: false)
+        let calendar = Calendar.current
+        let components = DateComponents(hour: 18, minute: 30, second: 00) // Set the date here when you want Notification
+        let date = calendar.date(from: components)
+        
+        let triggerDaily = Calendar.current.dateComponents([.hour, .minute, .second], from: date!)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
         
         let request = UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request) { (error:Error?) in
