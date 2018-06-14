@@ -234,7 +234,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
 
 //        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 60, repeats: false)
         let calendar = Calendar.current
-        let components = DateComponents(hour: 15, minute:39, second: 40) // Set the date here when you want Notification
+        let components = DateComponents(hour: 18, minute:13, second: 10) // Set the date here when you want Notification
         let date = calendar.date(from: components)
         
         let triggerDaily = Calendar.current.dateComponents([.hour, .minute, .second], from: date!)
@@ -319,19 +319,14 @@ extension ViewController: UNUserNotificationCenterDelegate {
          performSegue(withIdentifier: "viewReport", sender: self)
         
         //create the report after notification?
-//         createReportAsHTML()
-       
-        //upload to dropbox
-         DropboxbuttonPressed()
-    }
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        
-       
-        
 //        createReportAsHTML()
 //        reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
-//
         
+        //upload to dropbox
+//         DropboxbuttonPressed()
+    }
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+
         completionHandler()
     }
 }

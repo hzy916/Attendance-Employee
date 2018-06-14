@@ -11,7 +11,7 @@ import UIKit
 import MessageUI
 import SwiftyDropbox
 
-class PreviewViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class PreviewViewController: UIViewController, MFMailComposeViewControllerDelegate, UIWebViewDelegate {
     
     var reportComposer: ReportComposer!
     
@@ -19,10 +19,11 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
     
     @IBOutlet weak var webPreview: UIWebView!
     
+    
     @IBAction func exportToPDF(_ sender: Any) {
         reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
         
-        DropboxbuttonPressed()
+     //   DropboxbuttonPressed()
     }
     
  
@@ -31,12 +32,17 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //set the delegate for webView
+        webPreview.delegate = self
+        
      // Do any additional setup after loading the view.
        reportArray  = readReportdata()
+        //create the report and save to pdf format and upload to dropbox
+        createReportAsHTML()
         
+//        DropboxbuttonPressed()
     }
    
-
     let path = NSHomeDirectory()+"/Documents/time.plist"
     
     var dictionary : NSMutableDictionary!
@@ -59,10 +65,19 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        createReportAsHTML()
+//      createReportAsHTML()
     }
     
-
+    
+    // Mark:  set function after webview fully loaded
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
+        //after saving the pdf upload to dropbox
+        DropboxbuttonPressed()
+    }
+    
+    
+    
     // MARK: IBAction Methods
      
     func createReportAsHTML() {
@@ -71,6 +86,8 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
             webPreview.loadHTMLString(reportHTML, baseURL: NSURL(string: reportComposer.pathToInvoiceHTMLTemplate!)! as URL)
             HTMLContent = reportHTML
         }
+        //load the html content to pdf 
+//         reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
     }
     
     

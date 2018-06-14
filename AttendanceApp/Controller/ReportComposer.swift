@@ -107,9 +107,9 @@ class ReportComposer: NSObject {
 
         pdfFilename = "\(AppDelegate.getAppDelegate().getDocDir())/report.pdf"
         pdfData?.write(toFile: pdfFilename, atomically: true)
-
         print(pdfFilename)
     }
+    
     
 
     //custom method to draw pdf
