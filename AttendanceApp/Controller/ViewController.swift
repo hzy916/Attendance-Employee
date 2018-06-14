@@ -166,7 +166,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         }
         print(checkedOutArray)
         
-        self.checkoutArray = checkedOutArray
+        self.checkoutArray = checkedInArray
     }
     
 
@@ -234,7 +234,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
 
 //        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 60, repeats: false)
         let calendar = Calendar.current
-        let components = DateComponents(hour: 14, minute: 42, second: 30) // Set the date here when you want Notification
+        let components = DateComponents(hour: 12, minute: 01, second: 30) // Set the date here when you want Notification
         let date = calendar.date(from: components)
         
         let triggerDaily = Calendar.current.dateComponents([.hour, .minute, .second], from: date!)
@@ -287,6 +287,26 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
     }
     
+    
+   //upload to dropbox function
+    func DropboxbuttonPressed() {
+        // Reference after programmatic auth flow
+        let client = DropboxClientsManager.authorizedClient
+        let fileData = "report".data(using: String.Encoding.utf8, allowLossyConversion: false)!
+        
+        let request = client?.files.upload(path: "/DailyReport/report.pdf", input: fileData)
+            .response { response, error in
+                if let response = response {
+                    print(response)
+                } else if let error = error {
+                    print(error)
+                }
+            }
+            .progress { progressData in
+                print(progressData)
+        }
+    }
+    
 }
 
 extension ViewController: UNUserNotificationCenterDelegate {
@@ -299,7 +319,8 @@ extension ViewController: UNUserNotificationCenterDelegate {
 
         //create the report after notification?
         createReportAsHTML()
-//        exportToPDF()
+        reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
+        DropboxbuttonPressed()
         
         completionHandler()
     }

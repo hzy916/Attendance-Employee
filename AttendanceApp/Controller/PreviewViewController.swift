@@ -101,10 +101,6 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
                 print(progressData)
         }
         
-        // in case you want to cancel the request
-//        if someConditionIsSatisfied {
-//            request.cancel()
-//        }
     }
     
 
