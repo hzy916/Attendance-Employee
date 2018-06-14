@@ -166,6 +166,17 @@
                         <viewLayoutGuide key="safeArea" id="xhe-Eu-Bps"/>
                     </view>
                     <navigationItem key="navigationItem" title="Daily Report" id="Kiq-GJ-FZw">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="zcD-6u-eAD">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="s32-Lc-GhV">
+                                <rect key="frame" x="20" y="0.0" width="149" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Link to Dropbox"/>
+                                <connections>
+                                    <action selector="didTaplinkButton:" destination="n3B-hu-m25" eventType="touchUpInside" id="S80-Dq-RhS"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Upload PDF" id="y85-cf-DzV">
                             <connections>
                                 <action selector="exportToPDF:" destination="n3B-hu-m25" id="qBd-Cu-sae"/>

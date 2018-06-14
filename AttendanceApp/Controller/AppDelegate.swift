@@ -18,7 +18,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        DropboxClientsManager.setupWithAppKey("gte4pufhoqhlq13")
+        let transportClient = DropboxTransportClient(accessToken: "NeN2J28HT2AAAAAAAAAAMhAMedJUgE2X-ns0degJFv4ekjvAN3PwBUdJ4bVwUZ5K",
+                                                     baseHosts: nil,
+                                                     userAgent: "CustomUserAgent",
+                                                     selectUser: nil)
+        
+        DropboxClientsManager.setupWithAppKey("gte4pufhoqhlq13", transportClient: transportClient)
+        
+        
+        
+        
+//        DropboxClientsManager.setupWithAppKey("gte4pufhoqhlq13")
        
         //register in appdelegate
         registerForRichNotifications()
@@ -98,14 +108,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         if let authResult = DropboxClientsManager.handleRedirectURL(url) {
             switch authResult {
-            case .success:
-                print("Success! User is logged into Dropbox.")
+            case .success(let token):
+                print("Success! User is logged into Dropbox with token: \(token)")
             case .cancel:
-                print("Authorization flow was manually canceled by user!")
-            case .error(_, let description):
-                print("Error: \(description)")
+                print("User canceld OAuth flow.")
+            case .error(let error, let description):
+                print("Error \(error): \(description)")
             }
         }
+        
         return true
     }
     

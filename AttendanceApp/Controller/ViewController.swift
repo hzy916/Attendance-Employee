@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 import UserNotifications
+import SwiftyDropbox
 
 class ViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource,ClassBVCDelegate {
    
@@ -58,6 +59,14 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
    
     
     override func viewDidLoad() {
+        
+        //when app launches, check if user logged in or not. if not, open the browser to allow user to log in
+        
+//        DropboxClientsManager.authorizeFromController(UIApplication.shared,
+//                                                          controller: self,
+//                                                          openURL: { (url: URL) -> Void in
+//                                                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//        })
   
         collectionView.delegate = self
         
@@ -290,6 +299,7 @@ extension ViewController: UNUserNotificationCenterDelegate {
 
         //create the report after notification?
         createReportAsHTML()
+//        exportToPDF()
         
         completionHandler()
     }

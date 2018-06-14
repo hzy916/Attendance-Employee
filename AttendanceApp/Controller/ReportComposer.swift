@@ -127,7 +127,6 @@ class ReportComposer: NSObject {
         return data
     }
 
-    
 }
 
 

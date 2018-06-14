@@ -19,11 +19,11 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
     
     @IBOutlet weak var webPreview: UIWebView!
     
-//    @IBAction func exportToPDF(_ sender: Any) {
-//        reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
-//        
-//        DropboxbuttonPressed()
-//    }
+    @IBAction func exportToPDF(_ sender: Any) {
+        reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
+        
+        DropboxbuttonPressed()
+    }
     
  
     var reportArray = [[String: String]]()
@@ -76,16 +76,14 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
     
     
     func DropboxbuttonPressed() {
-        DropboxClientsManager.authorizeFromController(UIApplication.shared,
-                                                      controller: self,
-                                                      openURL: { (url: URL) -> Void in
-                                                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        })
         
         // Reference after programmatic auth flow
-        let client = DropboxClientsManager.authorizedClient
+       let client = DropboxClientsManager.authorizedClient
         
 //        var clienttest = DropboxClient.init(accessToken: DropboxAccessToken(accessToken:"NeN2J28HT2AAAAAAAAAAMhAMedJUgE2X-ns0degJFv4ekjvAN3PwBUdJ4bVwUZ5K", uid:"UID_NUMBER"))
+        
+        // Initialize with manually retrieved auth token
+//        let client = DropboxClient(accessToken: "NeN2J28HT2AAAAAAAAAAMhAMedJUgE2X-ns0degJFv4ekjvAN3PwBUdJ4bVwUZ5K")
         
     
         
@@ -107,6 +105,17 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
 //        if someConditionIsSatisfied {
 //            request.cancel()
 //        }
+    }
+    
+
+    //button to link to dropbox
+    @IBAction func didTaplinkButton(_ sender: Any) {
+        DropboxClientsManager.authorizeFromController(UIApplication.shared,
+                                                      controller: self,
+                                                      openURL: { (url: URL) -> Void in
+                                                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        })
+        
     }
     
  
