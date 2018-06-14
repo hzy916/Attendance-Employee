@@ -68,7 +68,6 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
     func createReportAsHTML() {
         reportComposer = ReportComposer()
         if let reportHTML = reportComposer.renderReport(items: reportArray){
-
             webPreview.loadHTMLString(reportHTML, baseURL: NSURL(string: reportComposer.pathToInvoiceHTMLTemplate!)! as URL)
             HTMLContent = reportHTML
         }
@@ -84,8 +83,6 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
         
         // Initialize with manually retrieved auth token
 //        let client = DropboxClient(accessToken: "NeN2J28HT2AAAAAAAAAAMhAMedJUgE2X-ns0degJFv4ekjvAN3PwBUdJ4bVwUZ5K")
-        
-    
         
         let fileData = "report".data(using: String.Encoding.utf8, allowLossyConversion: false)!
    

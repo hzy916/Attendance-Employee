@@ -16,7 +16,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     @IBAction func GotoReport(_ sender: Any) {
         performSegue(withIdentifier: "viewReport", sender: self)
     }
-    
+
     func removefromCheckout() {
         checkoutArray.remove(at: selectedIndex)
         print(selectedIndex)
@@ -234,7 +234,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
 
 //        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 60, repeats: false)
         let calendar = Calendar.current
-        let components = DateComponents(hour: 12, minute: 01, second: 30) // Set the date here when you want Notification
+        let components = DateComponents(hour: 15, minute:39, second: 40) // Set the date here when you want Notification
         let date = calendar.date(from: components)
         
         let triggerDaily = Calendar.current.dateComponents([.hour, .minute, .second], from: date!)
@@ -306,21 +306,31 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
                 print(progressData)
         }
     }
-    
 }
+
+
 
 extension ViewController: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         // some other way of handling notification
         completionHandler([.alert, .sound])
-        createReportAsHTML()
+        
+        //go to web preview to create html and pdf
+         performSegue(withIdentifier: "viewReport", sender: self)
+        
+        //create the report after notification?
+//         createReportAsHTML()
+       
+        //upload to dropbox
+         DropboxbuttonPressed()
     }
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-
-        //create the report after notification?
-        createReportAsHTML()
-        reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
-        DropboxbuttonPressed()
+        
+       
+        
+//        createReportAsHTML()
+//        reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
+//
         
         completionHandler()
     }
