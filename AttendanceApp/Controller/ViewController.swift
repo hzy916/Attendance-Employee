@@ -159,14 +159,14 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         for item1 in checkedInArray {
             var count = 0
             let emp1 = item1 as Employee
-            if (emp1.checkOutTime.isEmpty == false) {
+            if (emp1.checkOutTime.isEmpty == true) {
                 checkedOutArray.insert(emp1, at: count)
             }
             count += 1
         }
         print(checkedOutArray)
         
-        self.checkoutArray = checkedInArray
+        self.checkoutArray = checkedOutArray
     }
     
 
@@ -234,7 +234,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
 
 //        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 60, repeats: false)
         let calendar = Calendar.current
-        let components = DateComponents(hour: 18, minute:13, second: 10) // Set the date here when you want Notification
+        let components = DateComponents(hour: 11, minute:26, second: 20) // Set the date here when you want Notification
         let date = calendar.date(from: components)
         
         let triggerDaily = Calendar.current.dateComponents([.hour, .minute, .second], from: date!)
