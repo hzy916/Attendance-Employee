@@ -51,7 +51,6 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
     //load employee details from array
     func readReportdata() -> Array<[String: String]> {
         //Read from plist
-        
         if let reportFromPlist = NSArray(contentsOfFile: path) as? [[String: String]] {
                 reportArray = reportFromPlist
             }
@@ -74,6 +73,7 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
         reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
         //after saving the pdf upload to dropbox
         DropboxbuttonPressed()
+        _ = self.navigationController?.popToRootViewController(animated: true)
     }
     
     
@@ -101,7 +101,7 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
         // Initialize with manually retrieved auth token
 //        let client = DropboxClient(accessToken: "NeN2J28HT2AAAAAAAAAAMhAMedJUgE2X-ns0degJFv4ekjvAN3PwBUdJ4bVwUZ5K")
         
-        let fileData = "report".data(using: String.Encoding.utf8, allowLossyConversion: false)!
+        let fileData = "report.pdf".data(using: String.Encoding.utf8, allowLossyConversion: false)!
    
         let request = client?.files.upload(path: "/DailyReport/report.pdf", input: fileData)
             .response { response, error in

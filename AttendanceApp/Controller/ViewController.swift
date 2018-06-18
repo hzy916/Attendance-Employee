@@ -4,7 +4,7 @@
 //
 //  Created by Ziyun He on 24/04/2018.
 //  Copyright © 2018 Ziyun He. All rights reserved.
-//
+
 
 import UIKit
 import Foundation
@@ -234,7 +234,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
 
 //        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 60, repeats: false)
         let calendar = Calendar.current
-        let components = DateComponents(hour: 11, minute:26, second: 20) // Set the date here when you want Notification
+        let components = DateComponents(hour: 10, minute:18, second: 30) // Set the date here when you want Notification
         let date = calendar.date(from: components)
         
         let triggerDaily = Calendar.current.dateComponents([.hour, .minute, .second], from: date!)
@@ -293,8 +293,10 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         // Reference after programmatic auth flow
         let client = DropboxClientsManager.authorizedClient
         let fileData = "report".data(using: String.Encoding.utf8, allowLossyConversion: false)!
+       
+//        let pathforReport = NSHomeDirectory()+"/Documents/report.pdf"
         
-        let request = client?.files.upload(path: "/DailyReport/report.pdf", input: fileData)
+        _ = client?.files.upload(path: "/DailyReport/report.pdf", input: fileData)
             .response { response, error in
                 if let response = response {
                     print(response)

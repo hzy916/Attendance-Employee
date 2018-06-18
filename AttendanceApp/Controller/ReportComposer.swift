@@ -13,25 +13,23 @@ class ReportComposer: NSObject {
     
     override init() {
         super.init()
+        
     }
     
     let pathToInvoiceHTMLTemplate = Bundle.main.path(forResource: "index", ofType: "html")
 
-    
     let pathToSingleItemHTMLTemplate = Bundle.main.path(forResource: "single_item", ofType: "html")
-  
-    
-    let dueDate = ""
     
     let imagepath = "/Users/ziyunhe/Documents/iOSStudy/AttendanceApp/AttendanceApp/XMLTemplates/Images/"
   
-    
     var dictionary : NSMutableDictionary!
     let fileManager = FileManager.default
 
     //Attitude Tech logo image
     let logourl = "http://pawtrailstest.com/wp-content/uploads/2018/06/AttitudeTech.png"
-
+    
+    let reportDate = Utility.formatAndgetCurrentData()
+    
     var pdfFilename: String!
     
     func renderReport(items:[[String: String]]) -> String!{
@@ -62,10 +60,8 @@ class ReportComposer: NSObject {
                 
                 itemHTMLContent = try String(contentsOfFile: pathToSingleItemHTMLTemplate!)
               
-
-//                print(items[i])
                 // Replace the employeename and check data placeholders with the actual values.
-//                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#INVOICE_DATE#", with: reportDate)
+                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#INVOICE_DATE#", with: reportDate)
                 
                 itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#ITEM_NAME#", with: items[i]["employeeName"]!)
                 
@@ -126,7 +122,6 @@ class ReportComposer: NSObject {
         
         return data
     }
-
+    
 }
-
 
