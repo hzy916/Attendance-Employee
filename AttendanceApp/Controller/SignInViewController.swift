@@ -216,6 +216,11 @@ class SignInViewController: UIViewController {
         let pathToInvoiceHTMLTemplate = "/Users/ziyunhe/Documents/iOSStudy/AttendanceApp/AttendanceApp/XMLTemplates"
         
         let XMLPath =  pathToInvoiceHTMLTemplate.appending("/Images/")
+        
+        //create a date folder for signature images everyday
+//         let reportDate = Utility.formatAndGetCurrentDate()
+//        let XMLPath =  pathToInvoiceHTMLTemplate.appending("/Images/" + reportDate)
+        
         print(XMLPath)
         
         if !FileManager.default.fileExists(atPath: XMLPath) {

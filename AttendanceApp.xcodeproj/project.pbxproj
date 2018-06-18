@@ -19,7 +19,7 @@
 		AD322820208F410E00BA179A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD32281E208F410E00BA179A /* LaunchScreen.storyboard */; };
 		AD322828208F42F700BA179A /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD322827208F42F700BA179A /* CustomCollectionViewCell.swift */; };
 		AD32282C208F5B5100BA179A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32282B208F5B5100BA179A /* SignInViewController.swift */; };
-		AD529F4F20D7B841003782C8 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD529F4E20D7B841003782C8 /* Utility.swift */; };
+		AD529F5120D7BA6F003782C8 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD529F5020D7BA6F003782C8 /* Utility.swift */; };
 		AD8E97702091D08900417E24 /* Employees.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD8E976F2091D08900417E24 /* Employees.plist */; };
 		ADA62C4920C6C6910063F9E1 /* AttitudeTech.png in Resources */ = {isa = PBXBuildFile; fileRef = ADA62C4820C6C6910063F9E1 /* AttitudeTech.png */; };
 		ADB523AF20CA9A1A00CE2F40 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADB523AE20CA9A1900CE2F40 /* Default-568h@2x.png */; };
@@ -46,7 +46,7 @@
 		AD322821208F410E00BA179A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD322827208F42F700BA179A /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		AD32282B208F5B5100BA179A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		AD529F4E20D7B841003782C8 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Utility.swift; path = /Users/ziyunhe/Documents/iOSStudy/AttendanceApp/AttendanceApp/Controller/Utility.swift; sourceTree = "<absolute>"; };
+		AD529F5020D7BA6F003782C8 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		AD8E976F2091D08900417E24 /* Employees.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Employees.plist; sourceTree = "<group>"; };
 		ADA62C4820C6C6910063F9E1 /* AttitudeTech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AttitudeTech.png; sourceTree = "<group>"; };
 		ADB523AE20CA9A1900CE2F40 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -85,9 +85,9 @@
 		AD19438D2090AAFD00C8F93E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				AD529F4E20D7B841003782C8 /* Utility.swift */,
 				AD322817208F410500BA179A /* ViewController.swift */,
 				ADB7050820C947C800606B30 /* CustomPrintPageRenderer.swift */,
+				AD529F5020D7BA6F003782C8 /* Utility.swift */,
 				AD322827208F42F700BA179A /* CustomCollectionViewCell.swift */,
 				AD2402BB20C009AB009E99F7 /* ReportComposer.swift */,
 				AD2402BD20C00A53009E99F7 /* PreviewViewController.swift */,
@@ -288,7 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD529F4F20D7B841003782C8 /* Utility.swift in Sources */,
+				AD529F5120D7BA6F003782C8 /* Utility.swift in Sources */,
 				AD32282C208F5B5100BA179A /* SignInViewController.swift in Sources */,
 				ADB523B120CAD5B500CE2F40 /* PDF.swift in Sources */,
 				AD322818208F410500BA179A /* ViewController.swift in Sources */,

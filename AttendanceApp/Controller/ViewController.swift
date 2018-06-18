@@ -234,7 +234,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
 
 //        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 60, repeats: false)
         let calendar = Calendar.current
-        let components = DateComponents(hour: 10, minute:18, second: 30) // Set the date here when you want Notification
+        let components = DateComponents(hour: 14, minute:35, second: 30) // Set the date here when you want Notification
         let date = calendar.date(from: components)
         
         let triggerDaily = Calendar.current.dateComponents([.hour, .minute, .second], from: date!)
@@ -261,7 +261,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
 
 
     //read from time.plist to get report data
-    let path = NSHomeDirectory()+"/Documents/time.plist"
+    let pathToPlist = NSHomeDirectory()+"/Documents/time.plist"
 
     var dictionary : NSMutableDictionary!
     let fileManager = FileManager.default
@@ -270,7 +270,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     func readReportdata() -> Array<[String: String]> {
         //Read from plist
 
-        if let reportFromPlist = NSArray(contentsOfFile: path) as? [[String: String]] {
+        if let reportFromPlist = NSArray(contentsOfFile: pathToPlist) as? [[String: String]] {
             reportArray = reportFromPlist
         }
         return reportArray
@@ -289,25 +289,38 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     
     
    //upload to dropbox function
-    func DropboxbuttonPressed() {
-        // Reference after programmatic auth flow
-        let client = DropboxClientsManager.authorizedClient
-        let fileData = "report".data(using: String.Encoding.utf8, allowLossyConversion: false)!
-       
+//    func DropboxbuttonPressed() {
+//        // Reference after programmatic auth flow
+//        let client = DropboxClientsManager.authorizedClient
+//
 //        let pathforReport = NSHomeDirectory()+"/Documents/report.pdf"
-        
-        _ = client?.files.upload(path: "/DailyReport/report.pdf", input: fileData)
-            .response { response, error in
-                if let response = response {
-                    print(response)
-                } else if let error = error {
-                    print(error)
-                }
+//        let fileData = pathforReport.data(using: String.Encoding.utf8, allowLossyConversion: false)!
+//
+//        _ = client?.files.upload(path: "/DailyReport/report.pdf", input: fileData)
+//            .response { response, error in
+//                if let response = response {
+//                    print(response)
+//                } else if let error = error {
+//                    print(error)
+//                }
+//            }
+//            .progress { progressData in
+//                print(progressData)
+//        }
+//    }
+    
+    //Mark: schedule delete plist daily after upload to dropbox. and delete signature images weekly
+    func deleteFile(){
+        //delete time.plist everyday
+        do {
+            if FileManager.default.fileExists(atPath: pathToPlist) {
+                try FileManager.default.removeItem(atPath: pathToPlist)
             }
-            .progress { progressData in
-                print(progressData)
+        } catch {
+            print(error)
         }
     }
+    
 }
 
 

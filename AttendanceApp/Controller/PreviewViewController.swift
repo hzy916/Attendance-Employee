@@ -100,20 +100,30 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
         
         // Initialize with manually retrieved auth token
 //        let client = DropboxClient(accessToken: "NeN2J28HT2AAAAAAAAAAMhAMedJUgE2X-ns0degJFv4ekjvAN3PwBUdJ4bVwUZ5K")
-        
-        let fileData = "report.pdf".data(using: String.Encoding.utf8, allowLossyConversion: false)!
-   
-        let request = client?.files.upload(path: "/DailyReport/report.pdf", input: fileData)
-            .response { response, error in
-                if let response = response {
-                    print(response)
-                } else if let error = error {
-                    print(error)
+        let pathforReport = "file://"+NSHomeDirectory()+"/Documents/report.pdf"
+        //let fileData = pathforReport.data(using: String.Encoding.utf8, allowLossyConversion: false)!
+        //let data = Data(contentsOf: URL(string: pathforReport)!)
+        do {
+            let data = try Data(contentsOf: URL(string: pathforReport)!)
+            // do something with data
+            // if the call fails, the catch block is executed
+            _ = client?.files.upload(path: "/DailyReport/report12-12-2012.pdf", input: data)
+                .response { response, error in
+                    if let response = response {
+                        print(response)
+                    } else if let error = error {
+                        print(error)
+                    }
                 }
+                .progress { progressData in
+                    print(progressData)
             }
-            .progress { progressData in
-                print(progressData)
+        } catch {
+            print(error.localizedDescription)
         }
+
+
+
         
     }
     

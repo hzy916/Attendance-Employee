@@ -28,8 +28,8 @@ class ReportComposer: NSObject {
     //Attitude Tech logo image
     let logourl = "http://pawtrailstest.com/wp-content/uploads/2018/06/AttitudeTech.png"
     
-    let reportDate = Utility.formatAndgetCurrentData()
-    
+    let reportDate = Utility.formatAndGetCurrentDate()
+   
     var pdfFilename: String!
     
     func renderReport(items:[[String: String]]) -> String!{
@@ -61,7 +61,7 @@ class ReportComposer: NSObject {
                 itemHTMLContent = try String(contentsOfFile: pathToSingleItemHTMLTemplate!)
               
                 // Replace the employeename and check data placeholders with the actual values.
-                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#INVOICE_DATE#", with: reportDate)
+              itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#INVOICE_DATE#", with: reportDate)
                 
                 itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#ITEM_NAME#", with: items[i]["employeeName"]!)
                 
