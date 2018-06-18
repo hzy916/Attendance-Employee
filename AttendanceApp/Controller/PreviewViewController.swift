@@ -40,7 +40,6 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
         //create the report and save to pdf format and upload to dropbox
         createReportAsHTML()
         
-//        DropboxbuttonPressed()
     }
    
     let path = NSHomeDirectory()+"/Documents/time.plist"
@@ -64,7 +63,6 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//      createReportAsHTML()
     }
     
     
@@ -95,19 +93,14 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
         
         // Reference after programmatic auth flow
        let client = DropboxClientsManager.authorizedClient
-        
-//        var clienttest = DropboxClient.init(accessToken: DropboxAccessToken(accessToken:"NeN2J28HT2AAAAAAAAAAMhAMedJUgE2X-ns0degJFv4ekjvAN3PwBUdJ4bVwUZ5K", uid:"UID_NUMBER"))
-        
-        // Initialize with manually retrieved auth token
-//        let client = DropboxClient(accessToken: "NeN2J28HT2AAAAAAAAAAMhAMedJUgE2X-ns0degJFv4ekjvAN3PwBUdJ4bVwUZ5K")
+
         let pathforReport = "file://"+NSHomeDirectory()+"/Documents/report.pdf"
-        //let fileData = pathforReport.data(using: String.Encoding.utf8, allowLossyConversion: false)!
-        //let data = Data(contentsOf: URL(string: pathforReport)!)
+
         do {
             let data = try Data(contentsOf: URL(string: pathforReport)!)
             // do something with data
             // if the call fails, the catch block is executed
-            _ = client?.files.upload(path: "/DailyReport/report12-12-2012.pdf", input: data)
+            _ = client?.files.upload(path: "/DailyReport/report.pdf", input: data)
                 .response { response, error in
                     if let response = response {
                         print(response)
@@ -121,10 +114,7 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
         } catch {
             print(error.localizedDescription)
         }
-
-
-
-        
+     
     }
     
 

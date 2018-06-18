@@ -215,11 +215,11 @@ class SignInViewController: UIViewController {
 
         let pathToInvoiceHTMLTemplate = "/Users/ziyunhe/Documents/iOSStudy/AttendanceApp/AttendanceApp/XMLTemplates"
         
-        let XMLPath =  pathToInvoiceHTMLTemplate.appending("/Images/")
+//        let XMLPath =  pathToInvoiceHTMLTemplate.appending("/Images/")
         
         //create a date folder for signature images everyday
-//         let reportDate = Utility.formatAndGetCurrentDate()
-//        let XMLPath =  pathToInvoiceHTMLTemplate.appending("/Images/" + reportDate)
+        let reportDate = Utility.formatAndGetCurrentDate()
+        let XMLPath =  pathToInvoiceHTMLTemplate.appending("/Images/" + reportDate + "/")
         
         print(XMLPath)
         
@@ -256,7 +256,7 @@ class SignInViewController: UIViewController {
             print("file cant not be save at path \(filepath), with error : \(error)");
             return filepath
         }
-        //        print(filepath)
+  
     }
 }
 

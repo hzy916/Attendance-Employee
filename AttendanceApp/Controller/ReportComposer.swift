@@ -15,12 +15,15 @@ class ReportComposer: NSObject {
         super.init()
         
     }
+    //Declare the current date
+    let reportDate = Utility.formatAndGetCurrentDate()
     
     let pathToInvoiceHTMLTemplate = Bundle.main.path(forResource: "index", ofType: "html")
 
     let pathToSingleItemHTMLTemplate = Bundle.main.path(forResource: "single_item", ofType: "html")
     
     let imagepath = "/Users/ziyunhe/Documents/iOSStudy/AttendanceApp/AttendanceApp/XMLTemplates/Images/"
+    
   
     var dictionary : NSMutableDictionary!
     let fileManager = FileManager.default
@@ -28,7 +31,7 @@ class ReportComposer: NSObject {
     //Attitude Tech logo image
     let logourl = "http://pawtrailstest.com/wp-content/uploads/2018/06/AttitudeTech.png"
     
-    let reportDate = Utility.formatAndGetCurrentDate()
+   
    
     var pdfFilename: String!
     
@@ -40,6 +43,8 @@ class ReportComposer: NSObject {
             // Replace all the placeholders with real values except for the items.
             // The logo image.
             HTMLContent = HTMLContent.replacingOccurrences(of: "#LOGO_IMAGE#", with: logourl)
+            //add the date
+            HTMLContent = HTMLContent.replacingOccurrences(of: "#INVOICE_DATE#", with: reportDate)
             
             // The employee data will be added by using a loop.
             var allItems = ""
@@ -50,8 +55,8 @@ class ReportComposer: NSObject {
                 var final_outImagepath: String!
                 
                 //get the signature image path to display
-                final_inImagepath = imagepath + items[i]["employeeName"]! + "_checkin.jpg"
-                final_outImagepath = imagepath + items[i]["employeeName"]! + "_checkout.jpg"
+                final_inImagepath = imagepath + reportDate + "/" + items[i]["employeeName"]! + "_checkin.jpg"
+                final_outImagepath = imagepath + reportDate + "/" + items[i]["employeeName"]! + "_checkout.jpg"
  
                 let imageCss = "width=100px;"
                 
@@ -61,7 +66,7 @@ class ReportComposer: NSObject {
                 itemHTMLContent = try String(contentsOfFile: pathToSingleItemHTMLTemplate!)
               
                 // Replace the employeename and check data placeholders with the actual values.
-              itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#INVOICE_DATE#", with: reportDate)
+//                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#INVOICE_DATE#", with: reportDate)
                 
                 itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#ITEM_NAME#", with: items[i]["employeeName"]!)
                 
