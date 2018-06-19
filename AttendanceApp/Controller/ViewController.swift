@@ -230,11 +230,9 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         content.categoryIdentifier = "actionCategory"
         content.sound = UNNotificationSound.default()
         
-        // set fixed time to repeat daily
 
-//        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 60, repeats: false)
         let calendar = Calendar.current
-        let components = DateComponents(hour: 14, minute:35, second: 30) // Set the date here when you want Notification
+        let components = DateComponents(hour: 18, minute:30, second: 30) // Set the date here when you want Notification
         let date = calendar.date(from: components)
         
         let triggerDaily = Calendar.current.dateComponents([.hour, .minute, .second], from: date!)
@@ -281,7 +279,6 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         reportComposer = ReportComposer()
         if let reportHTML = reportComposer.renderReport(items: reportArray){
 
-//            webPreview.loadHTMLString(reportHTML, baseURL: NSURL(string: reportComposer.pathToInvoiceHTMLTemplate!)! as URL)
             HTMLContent = reportHTML
         }
         reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
@@ -333,12 +330,6 @@ extension ViewController: UNUserNotificationCenterDelegate {
         //go to web preview to create html and pdf
          performSegue(withIdentifier: "viewReport", sender: self)
         
-        //create the report after notification?
-//        createReportAsHTML()
-//        reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
-        
-        //upload to dropbox
-//         DropboxbuttonPressed()
     }
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
 

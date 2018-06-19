@@ -35,7 +35,7 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
         //set the delegate for webView
         webPreview.delegate = self
         
-     // Do any additional setup after loading the view.
+       // Do any additional setup after loading the view.
        reportArray  = readReportdata()
         //create the report and save to pdf format and upload to dropbox
         createReportAsHTML()
@@ -71,7 +71,7 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
         reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
         //after saving the pdf upload to dropbox
         DropboxbuttonPressed()
-        _ = self.navigationController?.popToRootViewController(animated: true)
+
     }
     
     
@@ -103,6 +103,11 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
                 .response { response, error in
                     if let response = response {
                         print(response)
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            
+                            self.dismiss(animated: true, completion: nil)
+                        }
                     } else if let error = error {
                         print(error)
                     }
