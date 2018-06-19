@@ -105,8 +105,11 @@ class ReportComposer: NSObject {
         printPageRenderer.addPrintFormatter(printFormatter, startingAtPageAt: 0)
 
         let pdfData = drawPDFUsingPrintPageRenderer(printPageRenderer: printPageRenderer)
-
-        pdfFilename = "\(AppDelegate.getAppDelegate().getDocDir())/report.pdf"
+        
+        let reportDate = Utility.getDate()
+//        pdfFilename = "\(AppDelegate.getAppDelegate().getDocDir())/report.pdf"
+        pdfFilename = "\(AppDelegate.getAppDelegate().getDocDir())/report" + reportDate + ".pdf"
+        
         pdfData?.write(toFile: pdfFilename, atomically: true)
         print(pdfFilename)
     }

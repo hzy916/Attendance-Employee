@@ -75,7 +75,6 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
     }
     
     
-    
     // MARK: IBAction Methods
      
     func createReportAsHTML() {
@@ -84,8 +83,7 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
             webPreview.loadHTMLString(reportHTML, baseURL: NSURL(string: reportComposer.pathToInvoiceHTMLTemplate!)! as URL)
             HTMLContent = reportHTML
         }
-        //load the html content to pdf 
-//         reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
+
     }
     
     
@@ -93,14 +91,15 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
         
         // Reference after programmatic auth flow
        let client = DropboxClientsManager.authorizedClient
-
-        let pathforReport = "file://"+NSHomeDirectory()+"/Documents/report.pdf"
-
+        
+        let reportDate = Utility.getDate()
+//        let pathforReport = "file://"+NSHomeDirectory()+"/Documents/report.pdf"
+        let pathforReport = "file://"+NSHomeDirectory()+"/Documents/report" + reportDate + ".pdf"
         do {
             let data = try Data(contentsOf: URL(string: pathforReport)!)
             // do something with data
             // if the call fails, the catch block is executed
-            _ = client?.files.upload(path: "/DailyReport/report.pdf", input: data)
+            _ = client?.files.upload(path: "/DailyReport/report" + reportDate + ".pdf", input: data)
                 .response { response, error in
                     if let response = response {
                         print(response)
@@ -114,7 +113,6 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
         } catch {
             print(error.localizedDescription)
         }
-     
     }
     
 

@@ -218,7 +218,7 @@ class SignInViewController: UIViewController {
 //        let XMLPath =  pathToInvoiceHTMLTemplate.appending("/Images/")
         
         //create a date folder for signature images everyday
-        let reportDate = Utility.formatAndGetCurrentDate()
+        let reportDate = Utility.getDate()
         let XMLPath =  pathToInvoiceHTMLTemplate.appending("/Images/" + reportDate + "/")
         
         print(XMLPath)
