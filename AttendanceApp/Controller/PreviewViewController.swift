@@ -42,7 +42,7 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
         
     }
    
-    let path = NSHomeDirectory()+"/Documents/time.plist"
+    let pathToPlist = NSHomeDirectory()+"/Documents/time.plist"
     
     var dictionary : NSMutableDictionary!
     let fileManager = FileManager.default
@@ -50,7 +50,7 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
     //load employee details from array
     func readReportdata() -> Array<[String: String]> {
         //Read from plist
-        if let reportFromPlist = NSArray(contentsOfFile: path) as? [[String: String]] {
+        if let reportFromPlist = NSArray(contentsOfFile: pathToPlist) as? [[String: String]] {
                 reportArray = reportFromPlist
             }
         return reportArray
@@ -92,7 +92,7 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
        let client = DropboxClientsManager.authorizedClient
         
         let reportDate = Utility.getDate()
-//        let pathforReport = "file://"+NSHomeDirectory()+"/Documents/report.pdf"
+
         let pathforReport = "file://"+NSHomeDirectory()+"/Documents/report" + reportDate + ".pdf"
         do {
             let data = try Data(contentsOf: URL(string: pathforReport)!)
@@ -107,6 +107,15 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
                             
                             self.dismiss(animated: true, completion: nil)
                         }
+                        //Mark: after upload successfully, clear the data in time.plist
+                        do {
+                            if FileManager.default.fileExists(atPath: self.pathToPlist) {
+                                try FileManager.default.removeItem(atPath: self.pathToPlist)
+                            }
+                        } catch {
+                            print(error)
+                        }
+                        
                     } else if let error = error {
                         print(error)
                     }

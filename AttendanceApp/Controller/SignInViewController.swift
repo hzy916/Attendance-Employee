@@ -23,6 +23,8 @@ class SignInViewController: UIViewController,  UIGestureRecognizerDelegate {
     var isCheckOut = false
     
     var employeeArray = [Employee]()
+    
+//    let reportDate = Utility.getDate()
     //create path to
     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("time.plist")
     
