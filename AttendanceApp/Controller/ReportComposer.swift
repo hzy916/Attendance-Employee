@@ -70,12 +70,18 @@ class ReportComposer: NSObject {
                 
                 itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#CHECKIN_TIME#", with: items[i]["checkInTime"]!)
                 
-                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#CHECKOUT_TIME#", with: items[i]["checkOutTime"]!)
-             
+                //Check if employee check out or not, if not, display not check out text in the report
+                if items[i]["checkOutTime"]!.isEmpty{
+                    itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#CHECKOUT_TIME#", with: "no check out")
+                    //replace the checkout image with no check out text as well
+                    itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#OUT_SIGNATURE#", with: "no check out")
+                } else{
+                    itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#CHECKOUT_TIME#", with: items[i]["checkOutTime"]!)
+                    
+                    itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#OUT_SIGNATURE#", with: out_imageContent)
+                }
                 // Replace the employee signatire with the images.
                 itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#IN_SIGNATURE#", with: in_imageContent)
-                
-                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#OUT_SIGNATURE#", with: out_imageContent)
 
                 // Add the item's HTML code to the general items string.
                 allItems += itemHTMLContent

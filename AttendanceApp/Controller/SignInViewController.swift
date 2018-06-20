@@ -31,13 +31,16 @@ class SignInViewController: UIViewController {
     ////MARK: step 2 Create a delegate property here.
     weak var delegate: ClassBVCDelegate?
    
+    // make a variable to hold the recognizer
+    var tapGestureRecognizer: UITapGestureRecognizer!
+    
     @IBOutlet weak var signInView: TouchDrawView!
+
     var selectedImage:String!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //create the folder for signature images
         var signatureImages : [UIImage] = []
         
@@ -50,7 +53,6 @@ class SignInViewController: UIViewController {
             loadItems()
             updateItems()
         }
-            
         else {
             alerttext = "Checked in successfully"
             //change the navigation bar title to Check In
@@ -59,14 +61,35 @@ class SignInViewController: UIViewController {
             employeeArray.append(selectedEmployee!)
 //            updateItems()
         }
-        
+
         //Mark: display the employee's name in the sign in/out view
-        
         EmployeeNameLabel.text = selectedEmployee!.employeeName
-
+        //mark: detect users' touch draw in touchdraw view
         
+//        let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector(("mysignInViewTapped:")))
+//        singleTap.numberOfTapsRequired = 1
+//        singleTap.numberOfTouchesRequired = 1
+//        self.signInView.addGestureRecognizer(singleTap)
+//        self.signInView.isUserInteractionEnabled = true
+//
+//        func mysignInViewTapped(recognizer: UITapGestureRecognizer) {
+//            if(recognizer.state == UIGestureRecognizerState.ended){
+//                print("mysignInView has been tapped by the user.")
+//            }
+//        }
+//        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "signInViewTapped")
+//
+//        // add your recognizer to your image
+//        signInView.addGestureRecognizer(tapGestureRecognizer)
+//
+//        // enable user interactions or it won't work!
+//        signInView.isUserInteractionEnabled = true
     }
-
+    
+//    func signInViewTapped(sender: AnyObject) {
+//        print("It works from code too!")
+//    }
+ 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -75,8 +98,7 @@ class SignInViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
           EmployeeNameLabel.text = selectedEmployee?.employeeName
     }
-    
-    
+ 
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         //Encoding
@@ -211,6 +233,10 @@ class SignInViewController: UIViewController {
 //            return filepath
 //        }
 //    }
+    
+    //Mark: Detect users' touch draw in touchdraw View
+    
+    
     
     //save image to XML templates
     func saveImageToXML(_ chosenImage: UIImage) -> String {
