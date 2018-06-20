@@ -88,7 +88,6 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
     
     
     func DropboxbuttonPressed() {
-        
         // Reference after programmatic auth flow
        let client = DropboxClientsManager.authorizedClient
         
@@ -104,7 +103,7 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
                     if let response = response {
                         print(response)
                         
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
                             
                             self.dismiss(animated: true, completion: nil)
                         }

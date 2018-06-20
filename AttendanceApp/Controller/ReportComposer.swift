@@ -18,6 +18,8 @@ class ReportComposer: NSObject {
     //Declare the current date
     let reportDate = Utility.formatAndGetCurrentDate()
     
+    let reportDateFormat = Utility.getDate()
+    
     let pathToInvoiceHTMLTemplate = Bundle.main.path(forResource: "index", ofType: "html")
 
     let pathToSingleItemHTMLTemplate = Bundle.main.path(forResource: "single_item", ofType: "html")
@@ -31,8 +33,7 @@ class ReportComposer: NSObject {
     //Attitude Tech logo image
     let logourl = "http://pawtrailstest.com/wp-content/uploads/2018/06/AttitudeTech.png"
     
-   
-   
+
     var pdfFilename: String!
     
     func renderReport(items:[[String: String]]) -> String!{
@@ -55,8 +56,8 @@ class ReportComposer: NSObject {
                 var final_outImagepath: String!
                 
                 //get the signature image path to display
-                final_inImagepath = imagepath + reportDate + "/" + items[i]["employeeName"]! + "_checkin.jpg"
-                final_outImagepath = imagepath + reportDate + "/" + items[i]["employeeName"]! + "_checkout.jpg"
+                final_inImagepath = imagepath + reportDateFormat + "/" + items[i]["employeeName"]! + "_checkin.jpg"
+                final_outImagepath = imagepath + reportDateFormat + "/" + items[i]["employeeName"]! + "_checkout.jpg"
  
                 let imageCss = "width=100px;"
                 
@@ -64,9 +65,6 @@ class ReportComposer: NSObject {
                 let out_imageContent = "<img src='file://" + final_outImagepath + "'" + imageCss + "alt='checkout'>"
                 
                 itemHTMLContent = try String(contentsOfFile: pathToSingleItemHTMLTemplate!)
-              
-                // Replace the employeename and check data placeholders with the actual values.
-//                itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#INVOICE_DATE#", with: reportDate)
                 
                 itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#ITEM_NAME#", with: items[i]["employeeName"]!)
                 
@@ -107,7 +105,7 @@ class ReportComposer: NSObject {
         let pdfData = drawPDFUsingPrintPageRenderer(printPageRenderer: printPageRenderer)
         
         let reportDate = Utility.getDate()
-//        pdfFilename = "\(AppDelegate.getAppDelegate().getDocDir())/report.pdf"
+        
         pdfFilename = "\(AppDelegate.getAppDelegate().getDocDir())/report" + reportDate + ".pdf"
         
         pdfData?.write(toFile: pdfFilename, atomically: true)

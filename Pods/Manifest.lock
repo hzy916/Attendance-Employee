@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.5.1)
+  - SwiftyDropbox (4.6.0):
+    - Alamofire (~> 4.5.0)
+  - TouchDraw (2.1.1)
+
+DEPENDENCIES:
+  - SwiftyDropbox
+  - TouchDraw (~> 2.1)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - SwiftyDropbox
+    - TouchDraw
+
+SPEC CHECKSUMS:
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  SwiftyDropbox: 8af645e744de6f17b4e9fdeba21365b8dc55a542
+  TouchDraw: 6539c7bffc6edfccde9245ef6ddadef0024e70a2
+
+PODFILE CHECKSUM: 405dab99145ef25f925684ea9f95d00deb79f397
+
+COCOAPODS: 1.5.3

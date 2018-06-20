@@ -187,7 +187,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("user tapped on image # \(checkinArray[indexPath.row])")
+//        print("user tapped on image # \(checkinArray[indexPath.row])")
         selectedIndex = indexPath.row
         print(selectedIndex)
         var mySignInViewPage: SignInViewController = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
@@ -232,7 +232,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         
 
         let calendar = Calendar.current
-        let components = DateComponents(hour: 18, minute:30, second: 30) // Set the date here when you want Notification
+        let components = DateComponents(hour: 23, minute:00, second: 30) // Set the date here when you want Notification
         let date = calendar.date(from: components)
         
         let triggerDaily = Calendar.current.dateComponents([.hour, .minute, .second], from: date!)

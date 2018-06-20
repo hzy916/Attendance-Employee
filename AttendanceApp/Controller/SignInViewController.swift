@@ -112,7 +112,8 @@ class SignInViewController: UIViewController {
             //Mark:  update the employee object checkin time
             let date = Date()
             let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy/MM/dd HH:mm"
+//            formatter.dateFormat = "yyyy/MM/dd HH:mm"
+            formatter.dateFormat = "HH:mm"
             let checktime = formatter.string(from: date)
             selectedEmployee?.checkOutTime = checktime
             saveItems()
@@ -125,7 +126,8 @@ class SignInViewController: UIViewController {
             //Mark:  update the employee object checkin time
             let date = Date()
             let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy/MM/dd HH:mm"
+//            formatter.dateFormat = "yyyy/MM/dd HH:mm"
+            formatter.dateFormat = "HH:mm"
             let checktime = formatter.string(from: date)
             selectedEmployee?.checkInTime = checktime
             saveItems()
