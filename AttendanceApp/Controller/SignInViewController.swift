@@ -10,20 +10,21 @@ import UIKit
 import TouchDraw
 
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController,  UIGestureRecognizerDelegate {
 
     //create image related varibles
     var imagesDirectoryPath:String!
     var signatureImages:[UIImage]!
     var titles:[String]!
     var alerttext = ""
+   // create remind text to users to sign
+    let remindText = "Please sign before you submit"
     var selectedEmployee : Employee?
     var isCheckOut = false
     
     var employeeArray = [Employee]()
     //create path to
     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("time.plist")
-    
     
     //MARK: label outlet to display employee's name.
     @IBOutlet weak var EmployeeNameLabel: UILabel!
@@ -32,12 +33,11 @@ class SignInViewController: UIViewController {
     weak var delegate: ClassBVCDelegate?
    
     // make a variable to hold the recognizer
-    var tapGestureRecognizer: UITapGestureRecognizer!
+     var tapGesture = UITapGestureRecognizer()
     
     @IBOutlet weak var signInView: TouchDrawView!
 
     var selectedImage:String!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,30 +66,20 @@ class SignInViewController: UIViewController {
         EmployeeNameLabel.text = selectedEmployee!.employeeName
         //mark: detect users' touch draw in touchdraw view
         
-//        let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector(("mysignInViewTapped:")))
-//        singleTap.numberOfTapsRequired = 1
-//        singleTap.numberOfTouchesRequired = 1
-//        self.signInView.addGestureRecognizer(singleTap)
-//        self.signInView.isUserInteractionEnabled = true
-//
-//        func mysignInViewTapped(recognizer: UITapGestureRecognizer) {
-//            if(recognizer.state == UIGestureRecognizerState.ended){
-//                print("mysignInView has been tapped by the user.")
-//            }
-//        }
-//        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "signInViewTapped")
-//
-//        // add your recognizer to your image
-//        signInView.addGestureRecognizer(tapGestureRecognizer)
-//
-//        // enable user interactions or it won't work!
-//        signInView.isUserInteractionEnabled = true
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignInViewController.myviewTapped(_:)))
+        tapGesture.numberOfTapsRequired = 1
+        tapGesture.numberOfTouchesRequired = 1
+        signInView.addGestureRecognizer(tapGesture)
+        signInView.isUserInteractionEnabled = true
     }
     
-//    func signInViewTapped(sender: AnyObject) {
-//        print("It works from code too!")
-//    }
- 
+    var isDrawed : Bool = false
+    @objc func myviewTapped(_ sender: UITapGestureRecognizer) {
+        print("yes,tapped")
+        isDrawed = true
+    }
+    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -99,16 +89,22 @@ class SignInViewController: UIViewController {
           EmployeeNameLabel.text = selectedEmployee?.employeeName
     }
  
+ 
+ 
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
+        if isDrawed == false{
+            let buttonAlert = UIAlertController(title: remindText, message: "Message", preferredStyle: UIAlertControllerStyle.alert)
+            buttonAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(buttonAlert, animated: true)
+        }else{
+        
         //Encoding
         let signImage = UIImage(view: signInView)
-//        let path = saveImageToDocumentDirectory(signImage)
         
         //call save to xml folder
-         let path = saveImageToXML(signImage)
-        
-        print(path)
+        let path = saveImageToXML(signImage)
+//        print(path)
         
         let alert = UIAlertController(title: alerttext, message: "Message", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
@@ -155,10 +151,9 @@ class SignInViewController: UIViewController {
             saveItems()
 //            updateItems()
         }
-        
-    }
-  
-    
+    }//end of else mytappedview == true
+}
+
     
       //Mark:  save the employee object checkin time
     func saveItems(){
