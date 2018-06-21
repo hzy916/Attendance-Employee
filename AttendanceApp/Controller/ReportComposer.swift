@@ -20,12 +20,28 @@ class ReportComposer: NSObject {
     
     let reportDateFormat = Utility.getDate()
     
+
+    
+    //Mark: create index.html and single.html in document directory
+    
+    
+    //create index.html and single.html in document directory
+    let pathToIndexItemHTML = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("index.html")
+    let pathToSingleItemHTML = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("single.html")
+  
+    //read from html
     let pathToInvoiceHTMLTemplate = Bundle.main.path(forResource: "index", ofType: "html")
 
     let pathToSingleItemHTMLTemplate = Bundle.main.path(forResource: "single_item", ofType: "html")
+//
+//    let pathToInvoiceHTMLTemplate = "file://"+NSHomeDirectory()+"/Documents/index.html"
+//
+//    let pathToSingleItemHTMLTemplate = "file://"+NSHomeDirectory()+"/Documents/single.html"
+//
     
-    let imagepath = "/Users/ziyunhe/Documents/iOSStudy/AttendanceApp/AttendanceApp/XMLTemplates/Images/"
+//    let imagepath = "/Users/ziyunhe/Documents/iOSStudy/AttendanceApp/AttendanceApp/XMLTemplates/Images/"
     
+    let imagepath = NSHomeDirectory()+"/Documents/Images/"
   
     var dictionary : NSMutableDictionary!
     let fileManager = FileManager.default

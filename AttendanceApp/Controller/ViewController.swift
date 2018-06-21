@@ -57,6 +57,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     var currentArray: [Employee] = []
     var isCheckOut = false
    
+
     
     override func viewDidLoad() {
         
