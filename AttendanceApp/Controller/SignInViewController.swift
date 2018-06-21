@@ -10,7 +10,7 @@ import UIKit
 import TouchDraw
 
 
-class SignInViewController: UIViewController, UIGestureRecognizerDelegate {
+class SignInViewController: UIViewController, UIGestureRecognizerDelegate, TouchDrawViewDelegate {
 
     //create image related varibles
     var imagesDirectoryPath:String!
@@ -174,6 +174,11 @@ class SignInViewController: UIViewController, UIGestureRecognizerDelegate {
     }//end of else mytappedview == true
 }
 
+    //Mark: Clear the sign if user wants
+    @IBAction func ClearButtonPressed(_ sender: Any) {
+        signInView.clearDrawing()
+    }
+    
     
       //Mark:  save the employee object checkin time
     func saveItems(){
