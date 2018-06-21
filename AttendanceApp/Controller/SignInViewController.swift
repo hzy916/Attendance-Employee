@@ -10,7 +10,7 @@ import UIKit
 import TouchDraw
 
 
-class SignInViewController: UIViewController,  UIGestureRecognizerDelegate {
+class SignInViewController: UIViewController, UIGestureRecognizerDelegate {
 
     //create image related varibles
     var imagesDirectoryPath:String!
@@ -36,6 +36,9 @@ class SignInViewController: UIViewController,  UIGestureRecognizerDelegate {
    
     // make a variable to hold the recognizer
      var tapGesture = UITapGestureRecognizer()
+  
+    // make a swipe variable to hold the recognizer
+    var swipeGesture  = UISwipeGestureRecognizer()
     
     @IBOutlet weak var signInView: TouchDrawView!
 
@@ -65,22 +68,38 @@ class SignInViewController: UIViewController,  UIGestureRecognizerDelegate {
         }
 
         //Mark: display the employee's name in the sign in/out view
-        EmployeeNameLabel.text = selectedEmployee!.employeeName
-        //mark: detect users' touch draw in touchdraw view
+//        EmployeeNameLabel.text = selectedEmployee!.employeeName
+//        //mark: detect users' touch draw in touchdraw view
+//
+//        tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignInViewController.myviewTapped(_:)))
+//        tapGesture.numberOfTapsRequired = 1
+//        tapGesture.numberOfTouchesRequired = 1
+//        signInView.addGestureRecognizer(tapGesture)
+//        signInView.isUserInteractionEnabled = true
         
-        tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignInViewController.myviewTapped(_:)))
-        tapGesture.numberOfTapsRequired = 1
-        tapGesture.numberOfTouchesRequired = 1
-        signInView.addGestureRecognizer(tapGesture)
-        signInView.isUserInteractionEnabled = true
+        
+        //Mark: for swipe gesture
+        let directions: [UISwipeGestureRecognizerDirection] = [.up, .down, .right, .left]
+        for direction in directions {
+            swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(SignInViewController.myviewDrawed(_:)))
+            signInView.addGestureRecognizer(swipeGesture)
+            swipeGesture.direction = direction
+            signInView.isUserInteractionEnabled = true
+            signInView.isMultipleTouchEnabled = true
+        }
     }
     
-    var isDrawed : Bool = false
-    @objc func myviewTapped(_ sender: UITapGestureRecognizer) {
-        print("yes,tapped")
+   var isDrawed : Bool = false
+//    @objc func myviewTapped(_ sender: UITapGestureRecognizer) {
+//        print("yes,tapped")
+//        isDrawed = true
+//    }
+    
+    //mark: myviewdrawed function
+    @objc func myviewDrawed(_ sender : UISwipeGestureRecognizer){
+        print("yes,drawed")
         isDrawed = true
     }
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

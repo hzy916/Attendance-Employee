@@ -285,27 +285,6 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     }
     
     
-   //upload to dropbox function
-//    func DropboxbuttonPressed() {
-//        // Reference after programmatic auth flow
-//        let client = DropboxClientsManager.authorizedClient
-//
-//        let pathforReport = NSHomeDirectory()+"/Documents/report.pdf"
-//        let fileData = pathforReport.data(using: String.Encoding.utf8, allowLossyConversion: false)!
-//
-//        _ = client?.files.upload(path: "/DailyReport/report.pdf", input: fileData)
-//            .response { response, error in
-//                if let response = response {
-//                    print(response)
-//                } else if let error = error {
-//                    print(error)
-//                }
-//            }
-//            .progress { progressData in
-//                print(progressData)
-//        }
-//    }
-    
     //Mark: schedule delete plist daily after upload to dropbox. and delete signature images weekly
     func deleteFile(){
         //delete time.plist everyday
