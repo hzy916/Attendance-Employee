@@ -33,12 +33,6 @@ class SignInViewController: UIViewController, UIGestureRecognizerDelegate, Touch
  
     ////MARK: step 2 Create a delegate property here.
     weak var delegate: ClassBVCDelegate?
-   
-    // make a variable to hold the recognizer
-     var tapGesture = UITapGestureRecognizer()
-  
-    // make a swipe variable to hold the recognizer
-    var swipeGesture  = UISwipeGestureRecognizer()
     
     @IBOutlet weak var signInView: TouchDrawView!
 
@@ -67,39 +61,8 @@ class SignInViewController: UIViewController, UIGestureRecognizerDelegate, Touch
 //            updateItems()
         }
 
-        //Mark: display the employee's name in the sign in/out view
-//        EmployeeNameLabel.text = selectedEmployee!.employeeName
-//        //mark: detect users' touch draw in touchdraw view
-//
-//        tapGesture = UITapGestureRecognizer(target: self, action: #selector(SignInViewController.myviewTapped(_:)))
-//        tapGesture.numberOfTapsRequired = 1
-//        tapGesture.numberOfTouchesRequired = 1
-//        signInView.addGestureRecognizer(tapGesture)
-//        signInView.isUserInteractionEnabled = true
-        
-        
-        //Mark: for swipe gesture
-        let directions: [UISwipeGestureRecognizerDirection] = [.up, .down, .right, .left]
-        for direction in directions {
-            swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(SignInViewController.myviewDrawed(_:)))
-            signInView.addGestureRecognizer(swipeGesture)
-            swipeGesture.direction = direction
-            signInView.isUserInteractionEnabled = true
-            signInView.isMultipleTouchEnabled = true
-        }
     }
-    
-   var isDrawed : Bool = false
-//    @objc func myviewTapped(_ sender: UITapGestureRecognizer) {
-//        print("yes,tapped")
-//        isDrawed = true
-//    }
-    
-    //mark: myviewdrawed function
-    @objc func myviewDrawed(_ sender : UISwipeGestureRecognizer){
-        print("yes,drawed")
-        isDrawed = true
-    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -109,17 +72,9 @@ class SignInViewController: UIViewController, UIGestureRecognizerDelegate, Touch
     override func viewWillAppear(_ animated: Bool) {
           EmployeeNameLabel.text = selectedEmployee?.employeeName
     }
- 
- 
- 
-    
+
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        if isDrawed == false{
-            let buttonAlert = UIAlertController(title: remindText, message: "Message", preferredStyle: UIAlertControllerStyle.alert)
-            buttonAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(buttonAlert, animated: true)
-        }else{
-        
+       
         //Encoding
         let signImage = UIImage(view: signInView)
         
@@ -171,7 +126,6 @@ class SignInViewController: UIViewController, UIGestureRecognizerDelegate, Touch
             saveItems()
 //            updateItems()
         }
-    }//end of else mytappedview == true
 }
 
     //Mark: Clear the sign if user wants
