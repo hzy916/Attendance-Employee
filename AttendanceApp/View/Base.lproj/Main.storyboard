@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1QL-ZI-j1L">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8cd-jr-ctc">
     <device id="ipad12_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -40,7 +40,6 @@
                                             </state>
                                             <connections>
                                                 <action selector="GotoReport:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b3k-er-Ub4"/>
-                                                <segue destination="lPD-dl-E9j" kind="showDetail" identifier="viewReport" id="E4s-Fq-Tye"/>
                                             </connections>
                                         </button>
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="exb-9Q-fBP">
@@ -136,12 +135,14 @@
                     <connections>
                         <outlet property="collectionView" destination="h41-q8-QY2" id="zsN-tl-NVB"/>
                         <outlet property="segmentedControl" destination="exb-9Q-fBP" id="X9x-Xe-heg"/>
+                        <outlet property="viewReportButton" destination="TL0-NQ-4ny" id="yJg-GI-kd0"/>
                         <segue destination="0na-2W-2FE" kind="show" identifier="goToSigninView" id="UaA-ev-YB6"/>
+                        <segue destination="n3B-hu-m25" kind="show" identifier="viewReport" id="USP-dK-xgH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="901.75695461200576" y="104.8828125"/>
+            <point key="canvasLocation" x="1590" y="193"/>
         </scene>
         <!--Daily Report-->
         <scene sceneID="b3N-d3-aPc">
@@ -152,31 +153,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NRI-NB-Pz7">
-                                <rect key="frame" x="0.0" y="64" width="1366" height="960"/>
+                                <rect key="frame" x="0.0" y="64" width="1346" height="816"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2r2-NE-pJx">
+                                <rect key="frame" x="1100" y="935" width="228" height="69"/>
+                                <color key="backgroundColor" red="0.51512239419999994" green="0.4097324832" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="228" id="Vzx-1G-Iht"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                <state key="normal" title="Link to Dropbox">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTaplinkButton:" destination="n3B-hu-m25" eventType="touchUpInside" id="J9d-bZ-mPN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="NRI-NB-Pz7" firstAttribute="bottom" secondItem="xhe-Eu-Bps" secondAttribute="bottom" id="Giz-O8-QdD"/>
-                            <constraint firstItem="NRI-NB-Pz7" firstAttribute="top" secondItem="xhe-Eu-Bps" secondAttribute="top" id="SbI-5S-Tjd"/>
-                            <constraint firstItem="NRI-NB-Pz7" firstAttribute="leading" secondItem="xhe-Eu-Bps" secondAttribute="leading" id="s8d-ak-bYY"/>
-                            <constraint firstItem="NRI-NB-Pz7" firstAttribute="trailing" secondItem="xhe-Eu-Bps" secondAttribute="trailing" id="xJz-mJ-aJY"/>
+                            <constraint firstItem="xhe-Eu-Bps" firstAttribute="trailing" secondItem="2r2-NE-pJx" secondAttribute="trailing" constant="38" id="Bfc-5r-KbS"/>
+                            <constraint firstItem="NRI-NB-Pz7" firstAttribute="leading" secondItem="xhe-Eu-Bps" secondAttribute="leading" id="Hjg-eq-BtA"/>
+                            <constraint firstItem="NRI-NB-Pz7" firstAttribute="top" secondItem="xhe-Eu-Bps" secondAttribute="top" id="O0M-7c-XKu"/>
+                            <constraint firstItem="xhe-Eu-Bps" firstAttribute="bottom" secondItem="NRI-NB-Pz7" secondAttribute="bottom" constant="144" id="ThV-Jq-yJf"/>
+                            <constraint firstItem="xhe-Eu-Bps" firstAttribute="trailing" secondItem="NRI-NB-Pz7" secondAttribute="trailing" constant="20" id="X4p-Xo-tZk"/>
+                            <constraint firstItem="xhe-Eu-Bps" firstAttribute="bottom" secondItem="2r2-NE-pJx" secondAttribute="bottom" constant="20" id="d9I-Ep-Jda"/>
+                            <constraint firstItem="2r2-NE-pJx" firstAttribute="top" secondItem="NRI-NB-Pz7" secondAttribute="bottom" constant="55" id="xhY-gp-Cjw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xhe-Eu-Bps"/>
                     </view>
                     <navigationItem key="navigationItem" title="Daily Report" id="Kiq-GJ-FZw">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="zcD-6u-eAD">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="s32-Lc-GhV">
-                                <rect key="frame" x="20" y="0.0" width="149" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Link to Dropbox"/>
-                                <connections>
-                                    <action selector="didTaplinkButton:" destination="n3B-hu-m25" eventType="touchUpInside" id="S80-Dq-RhS"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Upload PDF" id="y85-cf-DzV">
                             <connections>
                                 <action selector="exportToPDF:" destination="n3B-hu-m25" id="qBd-Cu-sae"/>
@@ -189,7 +196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rZa-nV-d8z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1589.6046852122986" y="1050.5859375"/>
+            <point key="canvasLocation" x="2282.7232796486087" y="1050.5859375"/>
         </scene>
         <!--Sign In-->
         <scene sceneID="BU8-l2-HVP">
@@ -267,7 +274,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcb-pk-bHh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1741.5812591508052" y="211.5234375"/>
+            <point key="canvasLocation" x="2434.6998535871153" y="211.5234375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ybr-Ew-lRu">
@@ -288,40 +295,41 @@
             <point key="canvasLocation" x="1742" y="-549"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="Ogn-Zf-rrA">
+        <scene sceneID="qzn-Fx-nda">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1QL-ZI-j1L" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8cd-jr-ctc" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3y6-Yl-1Pz">
+                    <navigationItem key="navigationItem" id="CmN-Hl-3al"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="epB-gz-2Q2">
                         <rect key="frame" x="0.0" y="20" width="1366" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="lDz-q6-L0Q"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="EgH-d7-9GO"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gk7-Hb-v1u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mYT-gf-gQU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="901.75695461200576" y="104.8828125"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="Yn6-ow-rqp">
+        <scene sceneID="q3M-CN-FUI">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lPD-dl-E9j" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Yg3-Ad-w9v" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ekh-dR-hXi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ccx-te-hrq">
                         <rect key="frame" x="0.0" y="20" width="1366" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="n3B-hu-m25" kind="relationship" relationship="rootViewController" id="6DI-1x-yUg"/>
+                        <segue destination="n3B-hu-m25" kind="relationship" relationship="rootViewController" id="YN1-qH-Ruw"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Izs-If-Y4y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UQo-vF-e4r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="831" y="887"/>
+            <point key="canvasLocation" x="1589.6046852122986" y="1050.5859375"/>
         </scene>
     </scenes>
     <resources>
@@ -329,5 +337,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="UaA-ev-YB6"/>
+        <segue reference="USP-dK-xgH"/>
     </inferredMetricsTieBreakers>
 </document>

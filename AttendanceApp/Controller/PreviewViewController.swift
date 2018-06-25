@@ -23,7 +23,7 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
     @IBAction func exportToPDF(_ sender: Any) {
         reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
         
-     //   DropboxbuttonPressed()
+        DropboxbuttonPressed()
     }
     
  
@@ -102,12 +102,12 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
                 .response { response, error in
                     if let response = response {
                         print(response)
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-                            
-                            self.dismiss(animated: true, completion: nil)
+                        //mark: go back to main view controneller
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 20) {
+                            self.navigationController?.popToRootViewController(animated: true)
                         }
-                        //Mark: after upload successfully, clear the data in time.plist
+                        
+                       // Mark: after upload successfully, clear the data in time.plist
                         do {
                             if FileManager.default.fileExists(atPath: self.pathToPlist) {
                                 try FileManager.default.removeItem(atPath: self.pathToPlist)
@@ -115,6 +115,18 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
                         } catch {
                             print(error)
                         }
+                        
+                        //mark: after upload clear all the signatures images
+                        let tempFolderPath = NSHomeDirectory()+"/Documents/Images"
+                        do {
+                            if FileManager.default.fileExists(atPath: tempFolderPath) {
+                                try FileManager.default.removeItem(atPath: tempFolderPath)
+                            }
+                        } catch {
+                            print(error)
+                        }
+                    
+
                         
                     } else if let error = error {
                         print(error)
@@ -130,13 +142,22 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
     
 
     //button to link to dropbox
+//    @IBAction func didTaplinkButton(_ sender: Any) {
+//        DropboxClientsManager.authorizeFromController(UIApplication.shared,
+//                                                      controller: self,
+//                                                      openURL: { (url: URL) -> Void in
+//                                                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//        })
+//
+//    }
+//    
+    
     @IBAction func didTaplinkButton(_ sender: Any) {
         DropboxClientsManager.authorizeFromController(UIApplication.shared,
                                                       controller: self,
                                                       openURL: { (url: URL) -> Void in
                                                         UIApplication.shared.open(url, options: [:], completionHandler: nil)
         })
-        
     }
     
  

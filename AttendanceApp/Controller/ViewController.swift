@@ -12,7 +12,11 @@ import UserNotifications
 import SwiftyDropbox
 
 class ViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource,ClassBVCDelegate {
-   
+
+    
+    @IBOutlet weak var viewReportButton: UIButton!
+    
+    
     @IBAction func GotoReport(_ sender: Any) {
         performSegue(withIdentifier: "viewReport", sender: self)
     }
@@ -57,18 +61,11 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     var currentArray: [Employee] = []
     var isCheckOut = false
    
-
-    
+ 
     override func viewDidLoad() {
+        //hide the view report button when the app launch
+         viewReportButton.isHidden = true
         
-        //when app launches, check if user logged in or not. if not, open the browser to allow user to log in
-        
-//        DropboxClientsManager.authorizeFromController(UIApplication.shared,
-//                                                          controller: self,
-//                                                          openURL: { (url: URL) -> Void in
-//                                                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-//        })
-  
         collectionView.delegate = self
         
         collectionView.dataSource = self
@@ -233,7 +230,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         
 
         let calendar = Calendar.current
-        let components = DateComponents(hour: 23, minute:00, second: 30) // Set the date here when you want Notification
+        let components = DateComponents(hour: 16, minute:34, second: 30) // Set the date here when you want Notification
         let date = calendar.date(from: components)
         
         let triggerDaily = Calendar.current.dateComponents([.hour, .minute, .second], from: date!)
@@ -249,19 +246,18 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         }
     }
     
-    
    // declare variables for report
 
+    
     var reportComposer: ReportComposer!
 
     var HTMLContent: String!
     var reportArray = [[String: String]]()
 
-
-
     //read from time.plist to get report data
     let pathToPlist = NSHomeDirectory()+"/Documents/time.plist"
-
+    
+ 
     var dictionary : NSMutableDictionary!
     let fileManager = FileManager.default
 
@@ -287,16 +283,16 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     
     
     //Mark: schedule delete plist daily after upload to dropbox. and delete signature images weekly
-    func deleteFile(){
-        //delete time.plist everyday
-        do {
-            if FileManager.default.fileExists(atPath: pathToPlist) {
-                try FileManager.default.removeItem(atPath: pathToPlist)
-            }
-        } catch {
-            print(error)
-        }
-    }
+//    func deleteFile(){
+//        //delete time.plist everyday
+//        do {
+//            if FileManager.default.fileExists(atPath: pathToPlist) {
+//                try FileManager.default.removeItem(atPath: pathToPlist)
+//            }
+//        } catch {
+//            print(error)
+//        }
+//    }
     
 }
 
@@ -309,6 +305,7 @@ extension ViewController: UNUserNotificationCenterDelegate {
         
         //go to web preview to create html and pdf
          performSegue(withIdentifier: "viewReport", sender: self)
+        
         
     }
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
