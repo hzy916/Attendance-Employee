@@ -8,7 +8,7 @@
 
 import UIKit
 import TouchDraw
-
+import Foundation
 
 class SignInViewController: UIViewController, UIGestureRecognizerDelegate, TouchDrawViewDelegate {
 
@@ -58,7 +58,7 @@ class SignInViewController: UIViewController, UIGestureRecognizerDelegate, Touch
             self.title = "Check In"
             loadItems()
             employeeArray.append(selectedEmployee!)
-//            updateItems()
+
         }
 
     }
@@ -107,8 +107,29 @@ class SignInViewController: UIViewController, UIGestureRecognizerDelegate, Touch
             let formatter = DateFormatter()
 //            formatter.dateFormat = "yyyy/MM/dd HH:mm"
             formatter.dateFormat = "HH:mm"
-            let checktime = formatter.string(from: date)
-            selectedEmployee?.checkOutTime = checktime
+            let checkouttime = formatter.string(from: date)
+            selectedEmployee?.checkOutTime = checkouttime
+            
+//
+//            let dateComponentsFormatter = DateComponentsFormatter()
+//            dateComponentsFormatter.unitsStyle = DateComponentsFormatter.UnitsStyle.full
+//
+//            //change date string to date format
+//
+//            let checkIntimeDate = formatter.date(from: (selectedEmployee?.checkInTime)!)
+//
+//            let timeinterval = NSDate().timeIntervalSince(checkIntimeDate!)
+//            print(timeinterval)
+//
+//            let formatterForWorkingTime = DateComponentsFormatter()
+//            formatterForWorkingTime.unitsStyle = .abbreviated
+//            formatterForWorkingTime.string(from: timeinterval)
+//
+//            let workinghours = dateComponentsFormatter.string(from: timeinterval)
+//            print(workinghours)
+            
+        
+            
             saveItems()
 //            updateItems()
           
@@ -119,15 +140,17 @@ class SignInViewController: UIViewController, UIGestureRecognizerDelegate, Touch
             //Mark:  update the employee object checkin time
             let date = Date()
             let formatter = DateFormatter()
-//            formatter.dateFormat = "yyyy/MM/dd HH:mm"
+//          formatter.dateFormat = "yyyy/MM/dd HH:mm"
             formatter.dateFormat = "HH:mm"
-            let checktime = formatter.string(from: date)
-            selectedEmployee?.checkInTime = checktime
+            let checkintime = formatter.string(from: date)
+            selectedEmployee?.checkInTime = checkintime
             saveItems()
 //            updateItems()
         }
 }
 
+    
+    
     //Mark: Clear the sign if user wants
     @IBAction func ClearButtonPressed(_ sender: Any) {
         signInView.clearDrawing()

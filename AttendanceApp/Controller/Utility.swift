@@ -24,4 +24,25 @@ class Utility {
         let todayString:String = dateFormatter.string(from: todaysDate as Date)
         return todayString
     }
+//    
+//    struct Formatters {
+//        
+//        static let dateComponentsFormatter: DateComponentsFormatter = {
+//            let dateComponentsFormatter = DateComponentsFormatter()
+//            dateComponentsFormatter.allowedUnits = [NSCalendar.Unit.year, .month, .day, .hour, .minute]
+//            dateComponentsFormatter.maximumUnitCount = 1
+//            dateComponentsFormatter.unitsStyle = DateComponentsFormatter.UnitsStyle.full
+//            return dateComponentsFormatter
+//        }()
+//        
+//    }
+//    
+//    let oldDate = Date(timeIntervalSinceReferenceDate: -16200)
+//    let newDate = Date(timeIntervalSinceReferenceDate: 0)
+//    //get time interval
+//    class func offset(from: Date) -> String? {
+//        return Formatters.dateComponentsFormatter.string(from: oldDate, to: self)
+//    }
+
+    
 }

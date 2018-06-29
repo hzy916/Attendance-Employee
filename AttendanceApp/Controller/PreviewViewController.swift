@@ -71,7 +71,10 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
         reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
         //after saving the pdf upload to dropbox
         DropboxbuttonPressed()
-
+       
+        DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
+           self.navigationController?.popToRootViewController(animated: true)
+        }
     }
     
     
@@ -141,17 +144,8 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
     }
     
 
-    //button to link to dropbox
-//    @IBAction func didTaplinkButton(_ sender: Any) {
-//        DropboxClientsManager.authorizeFromController(UIApplication.shared,
-//                                                      controller: self,
-//                                                      openURL: { (url: URL) -> Void in
-//                                                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-//        })
-//
-//    }
-//    
-    
+
+    //Mark: button to connect to Dropbox
     @IBAction func didTaplinkButton(_ sender: Any) {
         DropboxClientsManager.authorizeFromController(UIApplication.shared,
                                                       controller: self,
