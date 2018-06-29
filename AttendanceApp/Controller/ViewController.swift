@@ -63,8 +63,9 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
    
  
     override func viewDidLoad() {
+  
         //hide the view report button when the app launch
-         viewReportButton.isHidden = true
+        viewReportButton.isHidden = true
         
         collectionView.delegate = self
         
@@ -87,6 +88,21 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         //calling function to get report array
         reportArray  = readReportdata()
     }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        // Check if the user is logged in
+        // If so, display main employee list view controller
+        if DropboxClientsManager.authorizedClient == nil {
+            DropboxClientsManager.authorizeFromController(UIApplication.shared,
+                                                          controller: self,
+                                                          openURL: { (url: URL) -> Void in
+                                                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            })
+        }
+    }
+    
     
     func changeView(){
         switch segmentedControl.selectedSegmentIndex
@@ -230,7 +246,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         
 
         let calendar = Calendar.current
-        let components = DateComponents(hour: 13, minute:20, second: 30) // Set the date here when you want Notification
+        let components = DateComponents(hour: 22, minute:00, second: 30) // Set the date here when you want Notification
         let date = calendar.date(from: components)
         
         let triggerDaily = Calendar.current.dateComponents([.hour, .minute, .second], from: date!)
@@ -238,7 +254,6 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         
         let request = UNNotificationRequest(identifier: requestIdentifier, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request) { (error:Error?) in
-            
             if error != nil {
                 print(error?.localizedDescription)
             }
@@ -247,8 +262,6 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
     }
     
    // declare variables for report
-
-    
     var reportComposer: ReportComposer!
 
     var HTMLContent: String!

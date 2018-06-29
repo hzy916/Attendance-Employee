@@ -25,6 +25,7 @@
 		ADB523AF20CA9A1A00CE2F40 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADB523AE20CA9A1900CE2F40 /* Default-568h@2x.png */; };
 		ADB523B120CAD5B500CE2F40 /* PDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB523B020CAD5B500CE2F40 /* PDF.swift */; };
 		ADB7050920C947C800606B30 /* CustomPrintPageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB7050820C947C800606B30 /* CustomPrintPageRenderer.swift */; };
+		ADF7768520E6779400EEE3BD /* DropboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF7768420E6779400EEE3BD /* DropboxViewController.swift */; };
 		AF97984E089F2F474D0913D7 /* Pods_AttendanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A02AB12135B9E9B05D576BAD /* Pods_AttendanceApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		ADB523AE20CA9A1900CE2F40 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		ADB523B020CAD5B500CE2F40 /* PDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDF.swift; sourceTree = "<group>"; };
 		ADB7050820C947C800606B30 /* CustomPrintPageRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPrintPageRenderer.swift; sourceTree = "<group>"; };
+		ADF7768420E6779400EEE3BD /* DropboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropboxViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				AD322817208F410500BA179A /* ViewController.swift */,
+				ADF7768420E6779400EEE3BD /* DropboxViewController.swift */,
 				ADB7050820C947C800606B30 /* CustomPrintPageRenderer.swift */,
 				AD529F5020D7BA6F003782C8 /* Utility.swift */,
 				AD322827208F42F700BA179A /* CustomCollectionViewCell.swift */,
@@ -293,6 +296,7 @@
 				ADB523B120CAD5B500CE2F40 /* PDF.swift in Sources */,
 				AD322818208F410500BA179A /* ViewController.swift in Sources */,
 				AD2402BE20C00A53009E99F7 /* PreviewViewController.swift in Sources */,
+				ADF7768520E6779400EEE3BD /* DropboxViewController.swift in Sources */,
 				AD322828208F42F700BA179A /* CustomCollectionViewCell.swift in Sources */,
 				ADB7050920C947C800606B30 /* CustomPrintPageRenderer.swift in Sources */,
 				AD19438C2090AA5000C8F93E /* Employee.swift in Sources */,

@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/ViewController.swift"
-            timestampString = "551967467.815995"
+            timestampString = "551978331.370919"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
             landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/ViewController.swift"
-            timestampString = "551967467.816375"
+            timestampString = "551978331.371518"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "changeView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/ViewController.swift"
-            timestampString = "551967467.8166161"
+            timestampString = "551978331.3719651"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "changeView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/SignInViewController.swift"
-            timestampString = "551967467.816902"
+            timestampString = "551978331.372418"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "97"
@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/ViewController.swift"
-            timestampString = "551967467.816959"
+            timestampString = "551978331.3725359"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/ViewController.swift"
-            timestampString = "551967467.817181"
+            timestampString = "551978331.372883"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "37"
@@ -154,7 +154,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/ViewController.swift"
-            timestampString = "551967467.8174"
+            timestampString = "551978331.373234"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "41"
@@ -170,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/ViewController.swift"
-            timestampString = "551967467.817618"
+            timestampString = "551978331.373576"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
@@ -186,7 +186,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/SignInViewController.swift"
-            timestampString = "551967467.817849"
+            timestampString = "551978331.373986"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "105"
@@ -202,7 +202,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/SignInViewController.swift"
-            timestampString = "551967467.817898"
+            timestampString = "551978331.374056"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "51"
@@ -218,13 +218,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/SignInViewController.swift"
-            timestampString = "551967467.817942"
+            timestampString = "551978331.374122"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "180"
             endingLineNumber = "180"
-            landmarkName = "SignInViewController"
-            landmarkType = "3">
+            landmarkName = "loadItems()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -234,27 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/SignInViewController.swift"
-            timestampString = "551967467.817995"
+            timestampString = "551978331.374205"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "231"
             endingLineNumber = "231"
-            landmarkName = "SignInViewController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AttendanceApp/Controller/SignInViewController.swift"
-            timestampString = "551967467.818045"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
             landmarkName = "saveImageToDocumentDirectory(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -265,12 +249,28 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AttendanceApp/Controller/ViewController.swift"
-            timestampString = "551967467.818087"
+            filePath = "AttendanceApp/Controller/SignInViewController.swift"
+            timestampString = "551978331.374279"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
+            landmarkName = "updateItems()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AttendanceApp/Controller/ViewController.swift"
+            timestampString = "551978331.374338"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
             landmarkName = "ViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -282,7 +282,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/PreviewViewController.swift"
-            timestampString = "551967467.818315"
+            timestampString = "551978331.3747261"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "65"
@@ -298,7 +298,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/PreviewViewController.swift"
-            timestampString = "551967467.818364"
+            timestampString = "551978331.374831"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
@@ -376,7 +376,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/PreviewViewController.swift"
-            timestampString = "551967467.818404"
+            timestampString = "551978331.374912"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "33"
@@ -454,7 +454,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/PreviewViewController.swift"
-            timestampString = "551967467.818442"
+            timestampString = "551978331.374989"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
@@ -502,7 +502,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/PreviewViewController.swift"
-            timestampString = "551967467.818507"
+            timestampString = "551978331.375121"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
@@ -596,7 +596,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/SignInViewController.swift"
-            timestampString = "551967467.818562"
+            timestampString = "551978331.375235"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
@@ -612,11 +612,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/ViewController.swift"
-            timestampString = "551967467.818606"
+            timestampString = "551978331.375326"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "loadEmployeeDetails()"
             landmarkType = "7">
          </BreakpointContent>
@@ -628,11 +628,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/ViewController.swift"
-            timestampString = "551967467.818831"
+            timestampString = "551978331.375711"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
             landmarkName = "loadEmployeeDetails()"
             landmarkType = "7">
          </BreakpointContent>
@@ -644,7 +644,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/SignInViewController.swift"
-            timestampString = "551967467.81905"
+            timestampString = "551978331.376087"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "29"
@@ -722,11 +722,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/ViewController.swift"
-            timestampString = "551967467.819097"
+            timestampString = "551978331.376146"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
             landmarkName = "loadEmployeeDetails()"
             landmarkType = "7">
          </BreakpointContent>
@@ -738,11 +738,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/ViewController.swift"
-            timestampString = "551967467.81932"
+            timestampString = "551978331.3764941"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
             landmarkName = "collectionView(_:numberOfItemsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -754,11 +754,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/ViewController.swift"
-            timestampString = "551967467.819538"
+            timestampString = "551978331.376852"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "loadEmployeeDetails()"
             landmarkType = "7">
          </BreakpointContent>
@@ -770,11 +770,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/ViewController.swift"
-            timestampString = "551967467.819761"
+            timestampString = "551978331.377201"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "loadEmployeeDetails()"
             landmarkType = "7">
          </BreakpointContent>
@@ -786,7 +786,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/AppDelegate.swift"
-            timestampString = "551635325.68325"
+            timestampString = "551978331.377593"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "110"
@@ -834,11 +834,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/ViewController.swift"
-            timestampString = "551967467.819993"
+            timestampString = "551978331.377676"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "312"
-            endingLineNumber = "312"
+            startingLineNumber = "325"
+            endingLineNumber = "325"
             landmarkName = "userNotificationCenter(_:didReceive:withCompletionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -850,11 +850,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/ViewController.swift"
-            timestampString = "551967467.820214"
+            timestampString = "551978331.378022"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "317"
-            endingLineNumber = "317">
+            startingLineNumber = "330"
+            endingLineNumber = "330">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -864,11 +864,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/ViewController.swift"
-            timestampString = "551967467.82041"
+            timestampString = "551978331.378336"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "317"
-            endingLineNumber = "317">
+            startingLineNumber = "330"
+            endingLineNumber = "330">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -878,7 +878,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/PreviewViewController.swift"
-            timestampString = "551967467.820604"
+            timestampString = "551978331.378668"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "70"
@@ -894,11 +894,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/ViewController.swift"
-            timestampString = "551967467.820648"
+            timestampString = "551978331.378733"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
+            startingLineNumber = "295"
+            endingLineNumber = "295"
             landmarkName = "createReportAsHTML()"
             landmarkType = "7">
          </BreakpointContent>
@@ -910,7 +910,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/PreviewViewController.swift"
-            timestampString = "551967467.82087"
+            timestampString = "551978331.379088"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "41"
@@ -922,11 +922,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/PreviewViewController.swift"
-            timestampString = "551967467.820914"
+            timestampString = "551978331.379167"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "73"
@@ -942,7 +942,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/PreviewViewController.swift"
-            timestampString = "551967467.820954"
+            timestampString = "551978331.37929"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "93"
@@ -958,7 +958,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/PreviewViewController.swift"
-            timestampString = "551967467.820992"
+            timestampString = "551978331.379425"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "97"
@@ -974,7 +974,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/PreviewViewController.swift"
-            timestampString = "551967467.82103"
+            timestampString = "551978331.379535"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "103"
@@ -990,11 +990,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/PreviewViewController.swift"
-            timestampString = "551967467.821068"
+            timestampString = "551978331.379636"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
             landmarkName = "DropboxbuttonPressed()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1006,7 +1006,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/PreviewViewController.swift"
-            timestampString = "551967467.821106"
+            timestampString = "551978331.37973"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "100"
@@ -1022,13 +1022,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/PreviewViewController.swift"
-            timestampString = "551967467.821143"
+            timestampString = "551978331.379793"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "105"
             endingLineNumber = "105"
             landmarkName = "DropboxbuttonPressed()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AttendanceApp.PreviewViewController.DropboxbuttonPressed() -&gt; ()"
+                  moduleName = "AttendanceApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ziyunhe/Documents/iOSStudy/AttendanceApp/AttendanceApp/Controller/PreviewViewController.swift"
+                  timestampString = "551977467.89914"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "2127">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;SwiftyDropbox.Files.FileMetadata&gt;, Swift.Optional&lt;SwiftyDropbox.CallError&lt;SwiftyDropbox.Files.UploadError&gt;&gt;) -&gt; () in AttendanceApp.PreviewViewController.DropboxbuttonPressed() -&gt; ()"
+                  moduleName = "AttendanceApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ziyunhe/Documents/iOSStudy/AttendanceApp/AttendanceApp/Controller/PreviewViewController.swift"
+                  timestampString = "551977467.901909"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "106"
+                  endingLineNumber = "106"
+                  offsetFromSymbolStart = "34">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1086,28 +1118,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/PreviewViewController.swift"
-            timestampString = "551967467.821216"
+            timestampString = "551978331.3799289"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "99"
             endingLineNumber = "99"
             landmarkName = "DropboxbuttonPressed()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AttendanceApp/Controller/PreviewViewController.swift"
-            timestampString = "551967467.821256"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "webViewDidFinishLoad(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1166,7 +1182,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/SignInViewController.swift"
-            timestampString = "551967467.821329"
+            timestampString = "551978331.38009"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "73"
@@ -1182,7 +1198,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/SignInViewController.swift"
-            timestampString = "551967467.8213741"
+            timestampString = "551978331.3801661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "10"
@@ -1198,13 +1214,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/SignInViewController.swift"
-            timestampString = "551967467.821418"
+            timestampString = "551978331.380246"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "194"
             endingLineNumber = "194"
-            landmarkName = "saveImageToDocumentDirectory(_:)"
-            landmarkType = "7">
+            landmarkName = "SignInViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1214,7 +1230,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/PreviewViewController.swift"
-            timestampString = "551967467.8214591"
+            timestampString = "551978331.380354"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "71"
@@ -1230,7 +1246,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/PreviewViewController.swift"
-            timestampString = "551967467.821497"
+            timestampString = "551978331.380519"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "104"
@@ -1246,7 +1262,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/PreviewViewController.swift"
-            timestampString = "551967467.821535"
+            timestampString = "551978331.380595"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "95"
@@ -1262,7 +1278,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/PreviewViewController.swift"
-            timestampString = "551967467.8215719"
+            timestampString = "551978331.380671"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "123"
@@ -1278,7 +1294,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/PreviewViewController.swift"
-            timestampString = "551967467.8216079"
+            timestampString = "551978331.380753"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "122"
@@ -1294,7 +1310,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/PreviewViewController.swift"
-            timestampString = "551967467.821645"
+            timestampString = "551978331.380824"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "106"
@@ -1310,11 +1326,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/PreviewViewController.swift"
-            timestampString = "551967467.821681"
+            timestampString = "551978331.380903"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "DropboxbuttonPressed()"
             landmarkType = "7">
             <Locations>
@@ -1358,7 +1374,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/SignInViewController.swift"
-            timestampString = "551967467.8217191"
+            timestampString = "551978331.381003"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "133"
@@ -1374,7 +1390,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/SignInViewController.swift"
-            timestampString = "551967467.8217601"
+            timestampString = "551978331.381057"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "133"
@@ -1390,7 +1406,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/SignInViewController.swift"
-            timestampString = "551967467.8218009"
+            timestampString = "551978331.381102"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "111"
@@ -1402,49 +1418,65 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/Controller/PreviewViewController.swift"
-            timestampString = "551967467.821842"
+            timestampString = "551978331.381166"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "webViewDidFinishLoad(_:)"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "DropboxbuttonPressed()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "AttendanceApp.PreviewViewController.webViewDidFinishLoad(__ObjC.UIWebView) -&gt; ()"
-                  moduleName = "AttendanceApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ziyunhe/Documents/iOSStudy/AttendanceApp/AttendanceApp/Controller/PreviewViewController.swift"
-                  timestampString = "551967473.388141"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "75"
-                  endingLineNumber = "75"
-                  offsetFromSymbolStart = "627">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in AttendanceApp.PreviewViewController.webViewDidFinishLoad(__ObjC.UIWebView) -&gt; ()"
-                  moduleName = "AttendanceApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ziyunhe/Documents/iOSStudy/AttendanceApp/AttendanceApp/Controller/PreviewViewController.swift"
-                  timestampString = "551967473.389788"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AttendanceApp/Controller/DropboxViewController.swift"
+            timestampString = "551978331.381251"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AttendanceApp/Controller/PreviewViewController.swift"
+            timestampString = "551978331.381606"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "DropboxbuttonPressed()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AttendanceApp/Controller/PreviewViewController.swift"
+            timestampString = "551978331.381672"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "DropboxbuttonPressed()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

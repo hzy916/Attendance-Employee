@@ -71,7 +71,7 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
         reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
         //after saving the pdf upload to dropbox
         DropboxbuttonPressed()
-       
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
            self.navigationController?.popToRootViewController(animated: true)
         }
@@ -128,8 +128,9 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
                         } catch {
                             print(error)
                         }
-                    
-
+                        
+                        //mark:remove pdf
+                        // Create a FileManager instance
                         
                     } else if let error = error {
                         print(error)

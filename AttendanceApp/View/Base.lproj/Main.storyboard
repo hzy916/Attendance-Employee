@@ -14,7 +14,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -294,6 +294,50 @@
             </objects>
             <point key="canvasLocation" x="1742" y="-549"/>
         </scene>
+        <!--Dropbox View Controller-->
+        <scene sceneID="xWa-p7-Zuj">
+            <objects>
+                <viewController id="83A-yC-Mhs" customClass="DropboxViewController" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="j8D-pK-Tis">
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Please connect to dropbox first" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VMs-tu-dqi">
+                                <rect key="frame" x="453" y="205" width="452" height="59"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dwe-Co-5eZ">
+                                <rect key="frame" x="553" y="352" width="246" height="105"/>
+                                <color key="backgroundColor" red="0.92549019610000005" green="0.4361943338" blue="0.4380558504" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
+                                <state key="normal" title="Link to Dropbox">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="linkButtonPressed:" destination="83A-yC-Mhs" eventType="touchUpInside" id="UqQ-sF-MBO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Lu9-bj-GUh" firstAttribute="trailing" secondItem="VMs-tu-dqi" secondAttribute="trailing" constant="461" id="5j6-A3-qMe"/>
+                            <constraint firstItem="dwe-Co-5eZ" firstAttribute="top" secondItem="VMs-tu-dqi" secondAttribute="bottom" constant="88" id="A1F-6p-PVr"/>
+                            <constraint firstItem="Lu9-bj-GUh" firstAttribute="bottom" secondItem="dwe-Co-5eZ" secondAttribute="bottom" constant="567" id="BbH-yo-eVg"/>
+                            <constraint firstItem="VMs-tu-dqi" firstAttribute="top" secondItem="Lu9-bj-GUh" secondAttribute="top" constant="185" id="GfD-Mi-1Vp"/>
+                            <constraint firstItem="dwe-Co-5eZ" firstAttribute="leading" secondItem="Lu9-bj-GUh" secondAttribute="leading" constant="553" id="Tml-GS-of5"/>
+                            <constraint firstItem="Lu9-bj-GUh" firstAttribute="bottom" secondItem="VMs-tu-dqi" secondAttribute="bottom" constant="760" id="e3i-9X-uGy"/>
+                            <constraint firstItem="VMs-tu-dqi" firstAttribute="leading" secondItem="Lu9-bj-GUh" secondAttribute="leading" constant="453" id="hiS-8v-Kyz"/>
+                            <constraint firstItem="Lu9-bj-GUh" firstAttribute="trailing" secondItem="dwe-Co-5eZ" secondAttribute="trailing" constant="567" id="kJT-sj-WXe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Lu9-bj-GUh"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cNz-nV-adU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="875.84187408491937" y="-549.0234375"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="qzn-Fx-nda">
             <objects>
@@ -311,7 +355,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mYT-gf-gQU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="901.75695461200576" y="104.8828125"/>
+            <point key="canvasLocation" x="855" y="193"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="q3M-CN-FUI">
