@@ -69,6 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidEnterBackground(_ application: UIApplication) {
          print("applicationdidenter background")
+         startBackgroundTask()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
