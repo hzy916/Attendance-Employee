@@ -19,6 +19,7 @@
 		AD322820208F410E00BA179A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD32281E208F410E00BA179A /* LaunchScreen.storyboard */; };
 		AD322828208F42F700BA179A /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD322827208F42F700BA179A /* CustomCollectionViewCell.swift */; };
 		AD32282C208F5B5100BA179A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD32282B208F5B5100BA179A /* SignInViewController.swift */; };
+		AD3E1F7520EA80EE004C1BAE /* UploadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3E1F7420EA80EE004C1BAE /* UploadTask.swift */; };
 		AD529F5120D7BA6F003782C8 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD529F5020D7BA6F003782C8 /* Utility.swift */; };
 		AD8E97702091D08900417E24 /* Employees.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD8E976F2091D08900417E24 /* Employees.plist */; };
 		ADA62C4920C6C6910063F9E1 /* AttitudeTech.png in Resources */ = {isa = PBXBuildFile; fileRef = ADA62C4820C6C6910063F9E1 /* AttitudeTech.png */; };
@@ -47,6 +48,7 @@
 		AD322821208F410E00BA179A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD322827208F42F700BA179A /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		AD32282B208F5B5100BA179A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		AD3E1F7420EA80EE004C1BAE /* UploadTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTask.swift; sourceTree = "<group>"; };
 		AD529F5020D7BA6F003782C8 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		AD8E976F2091D08900417E24 /* Employees.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Employees.plist; sourceTree = "<group>"; };
 		ADA62C4820C6C6910063F9E1 /* AttitudeTech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AttitudeTech.png; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			children = (
 				AD322817208F410500BA179A /* ViewController.swift */,
 				ADF7768420E6779400EEE3BD /* DropboxViewController.swift */,
+				AD3E1F7420EA80EE004C1BAE /* UploadTask.swift */,
 				ADB7050820C947C800606B30 /* CustomPrintPageRenderer.swift */,
 				AD529F5020D7BA6F003782C8 /* Utility.swift */,
 				AD322827208F42F700BA179A /* CustomCollectionViewCell.swift */,
@@ -294,6 +297,7 @@
 				AD529F5120D7BA6F003782C8 /* Utility.swift in Sources */,
 				AD32282C208F5B5100BA179A /* SignInViewController.swift in Sources */,
 				ADB523B120CAD5B500CE2F40 /* PDF.swift in Sources */,
+				AD3E1F7520EA80EE004C1BAE /* UploadTask.swift in Sources */,
 				AD322818208F410500BA179A /* ViewController.swift in Sources */,
 				AD2402BE20C00A53009E99F7 /* PreviewViewController.swift in Sources */,
 				ADF7768520E6779400EEE3BD /* DropboxViewController.swift in Sources */,
