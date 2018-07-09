@@ -246,7 +246,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         
 
         let calendar = Calendar.current
-        let components = DateComponents(hour: 19, minute:30, second: 30) // Set the date here when you want Notification
+        let components = DateComponents(hour: 17, minute:18, second: 30) // Set the date here when you want Notification
         let date = calendar.date(from: components)
         
         let triggerDaily = Calendar.current.dateComponents([.hour, .minute, .second], from: date!)
@@ -294,18 +294,6 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         reportComposer.exportHTMLContentToPDF(HTMLContent: HTMLContent)
     }
     
-    
-    //Mark: schedule delete plist daily after upload to dropbox. and delete signature images weekly
-//    func deleteFile(){
-//        //delete time.plist everyday
-//        do {
-//            if FileManager.default.fileExists(atPath: pathToPlist) {
-//                try FileManager.default.removeItem(atPath: pathToPlist)
-//            }
-//        } catch {
-//            print(error)
-//        }
-//    }
     
 }
 

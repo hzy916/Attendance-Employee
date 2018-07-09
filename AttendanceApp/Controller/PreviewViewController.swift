@@ -27,6 +27,35 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
     }
     
  
+    
+    //Mark: export csv file report
+    @IBAction func exportToCSV(_ sender: Any) {
+       
+        renderCSV(items: reportArray)
+    }
+    
+    
+    func renderCSV(items:[[String: String]]){
+        let fileName = "report.csv"
+        
+        let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
+        
+        var csvText = "EmployeeName,Started, Eneded\n"
+        
+        for i in 0..<items.count {
+            
+            let newLine = "\(String(describing: items[i]["employeeName"])),\(String(describing: items[i]["checkInTime"])),\(String(describing: items[i]["checkOutTime"]))\n"
+             csvText.append(newLine)
+        }
+        
+        do {
+            try csvText.write(to: path!, atomically: true, encoding: String.Encoding.utf8)
+        } catch {
+            print("Failed to create file")
+            print("\(error)")
+        }
+    }
+    
     var reportArray = [[String: String]]()
 
     override func viewDidLoad() {
