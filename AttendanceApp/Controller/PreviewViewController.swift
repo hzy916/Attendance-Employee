@@ -34,17 +34,17 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
         renderCSV(items: reportArray)
     }
     
-    
+    //Mark: function to create csv report
     func renderCSV(items:[[String: String]]){
         let fileName = "report.csv"
         
         let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
         
-        var csvText = "EmployeeName,Started, Eneded\n"
+        var csvText = "Employee Name,Started, Eneded, Working Time\n"
         
         for i in 0..<items.count {
             
-            let newLine = "\(String(describing: items[i]["employeeName"])),\(String(describing: items[i]["checkInTime"])),\(String(describing: items[i]["checkOutTime"]))\n"
+            let newLine = "\(String(describing: items[i]["employeeName"]!)),\(String(describing: items[i]["checkInTime"]!)),\(String(describing: items[i]["checkOutTime"]!)), \(String(describing: items[i]["workTime"]!))\n"
              csvText.append(newLine)
         }
         

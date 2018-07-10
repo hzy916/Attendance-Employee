@@ -14,13 +14,15 @@ class Employee: Codable {
    
     var checkInTime: String
     var checkOutTime: String
+    var workTime : String
     
-    init(name: String, department: String, inTime: String, outTime: String ){
+    init(name: String, department: String, inTime: String, outTime: String,workingHours:String){
         employeeName = name
         departmentName = department
      
         checkInTime = inTime
         checkOutTime = outTime
+        workTime = workingHours
     }
 }
 

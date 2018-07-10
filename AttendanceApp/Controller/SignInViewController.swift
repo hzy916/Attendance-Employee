@@ -111,27 +111,33 @@ class SignInViewController: UIViewController, UIGestureRecognizerDelegate, Touch
             selectedEmployee?.checkOutTime = checkouttime
             
 //
-//            let dateComponentsFormatter = DateComponentsFormatter()
-//            dateComponentsFormatter.unitsStyle = DateComponentsFormatter.UnitsStyle.full
-//
-//            //change date string to date format
-//
-//            let checkIntimeDate = formatter.date(from: (selectedEmployee?.checkInTime)!)
-//
-//            let timeinterval = NSDate().timeIntervalSince(checkIntimeDate!)
-//            print(timeinterval)
-//
-//            let formatterForWorkingTime = DateComponentsFormatter()
-//            formatterForWorkingTime.unitsStyle = .abbreviated
-//            formatterForWorkingTime.string(from: timeinterval)
-//
-//            let workinghours = dateComponentsFormatter.string(from: timeinterval)
-//            print(workinghours)
+            let dateComponentsFormatter = DateComponentsFormatter()
+            dateComponentsFormatter.unitsStyle = DateComponentsFormatter.UnitsStyle.full
+
+            //change date string to date format
+            if (selectedEmployee?.checkOutTime.isEmpty)!{
+                 let workinghours = "no check out"
+                 selectedEmployee?.workTime = workinghours
+                
+            }else{
+                let checkIntimeDate = formatter.date(from: (selectedEmployee?.checkInTime)!)
+                let checkOuttimeDate = formatter.date(from: (selectedEmployee?.checkOutTime)!)
+                
+                let timeinterval = checkOuttimeDate?.timeIntervalSince(checkIntimeDate!)
+                print(timeinterval)
+
+                let formatterForWorkingTime = DateComponentsFormatter()
+                formatterForWorkingTime.unitsStyle = .abbreviated
+                formatterForWorkingTime.string(from: timeinterval!)
+
+                let workinghours = dateComponentsFormatter.string(from: timeinterval!)
+                print(workinghours)
+            // put working hours to workTime property in Employee object
+               selectedEmployee?.workTime = workinghours!
+            }
             
-        
-            
-            saveItems()
-//            updateItems()
+                saveItems()
+
           
         }else{
             //remove from checkin array and add to checkout array

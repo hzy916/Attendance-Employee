@@ -139,7 +139,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         let checkDataPath = NSHomeDirectory()+"/Documents/time.plist"
         if let datafromTimePlist = NSArray(contentsOfFile: checkDataPath) as? [Dictionary<String, Any>] {
             for item in datafromTimePlist {
-                let employee = Employee(name: item["employeeName"] as! String, department: item["departmentName"] as! String, inTime: item["checkInTime"] as! String, outTime: item["checkOutTime"] as! String)
+                let employee = Employee(name: item["employeeName"] as! String, department: item["departmentName"] as! String, inTime: item["checkInTime"] as! String, outTime: item["checkOutTime"] as! String, workingHours: item["workTime"] as! String)
                 checkedInArray.append(employee)
             }
         }
@@ -147,7 +147,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
          if let path = Bundle.main.path(forResource: "Employees", ofType: "plist") {
             if let englishFromPlist = NSArray(contentsOfFile: path) as? [Dictionary<String, Any>] {
                 for item in englishFromPlist {
-                    let employee = Employee(name: item["name"] as! String, department: item["deparment"] as! String, inTime: "", outTime: "")
+                    let employee = Employee(name: item["name"] as! String, department: item["deparment"] as! String, inTime: "", outTime: "", workingHours: "")
                     mainviewArray.append(employee)
                 }
             }
@@ -246,7 +246,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         
 
         let calendar = Calendar.current
-        let components = DateComponents(hour: 17, minute:18, second: 30) // Set the date here when you want Notification
+        let components = DateComponents(hour: 11, minute:33, second: 30) // Set the date here when you want Notification
         let date = calendar.date(from: components)
         
         let triggerDaily = Calendar.current.dateComponents([.hour, .minute, .second], from: date!)

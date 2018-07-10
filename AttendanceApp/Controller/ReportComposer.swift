@@ -91,10 +91,14 @@ class ReportComposer: NSObject {
                     itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#CHECKOUT_TIME#", with: "no check out")
                     //replace the checkout image with no check out text as well
                     itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#OUT_SIGNATURE#", with: "no check out")
+                    
+                    itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#Working Hours#", with: "no check out")
                 } else{
                     itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#CHECKOUT_TIME#", with: items[i]["checkOutTime"]!)
                     
                     itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#OUT_SIGNATURE#", with: out_imageContent)
+                    
+                    itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#Working Hours#", with: items[i]["workTime"]!)
                 }
                 // Replace the employee signatire with the images.
                 itemHTMLContent = itemHTMLContent.replacingOccurrences(of: "#IN_SIGNATURE#", with: in_imageContent)
