@@ -36,7 +36,8 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
     
     //Mark: function to create csv report
     func renderCSV(items:[[String: String]]){
-        let fileName = "report.csv"
+        let reportdate = Utility.getDate()
+        let fileName = "report" + reportdate + ".csv"
         
         let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
         
@@ -68,6 +69,8 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
        reportArray  = readReportdata()
         //create the report and save to pdf format and upload to dropbox
         createReportAsHTML()
+        
+        renderCSV(items: reportArray)
         
     }
    
@@ -126,6 +129,43 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
         let reportDate = Utility.getDate()
 
         let pathforReport = "file://"+NSHomeDirectory()+"/Documents/report" + reportDate + ".pdf"
+        
+        //Upload csv file to Dropbox
+        let pathforCSV = "file://"+NSHomeDirectory()+"/tmp/report" + reportDate + ".csv"
+  
+        //upload report.pdf to dropbox
+        do {
+            let data = try Data(contentsOf: URL(string: pathforCSV)!)
+            // do something with data
+            // if the call fails, the catch block is executed
+            _ = client?.files.upload(path: "/DailyReport/report" + reportDate + ".csv", input: data)
+                .response { response, error in
+                    if let response = response {
+                        print(response)
+ 
+                        //mark: after upload clear all csv
+                        let tempFolderPath = NSHomeDirectory()+"/tmp"
+                        do {
+                            if FileManager.default.fileExists(atPath: tempFolderPath) {
+                                try FileManager.default.removeItem(atPath: tempFolderPath)
+                            }
+                        } catch {
+                            print(error)
+                        }
+
+                    } else if let error = error {
+                        print(error)
+                    }
+                }
+                .progress { progressData in
+                    print(progressData)
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+  
+        
+        //upload report.pdf to dropbox
         do {
             let data = try Data(contentsOf: URL(string: pathforReport)!)
             // do something with data
@@ -171,6 +211,7 @@ class PreviewViewController: UIViewController, MFMailComposeViewControllerDelega
         } catch {
             print(error.localizedDescription)
         }
+        
     }
     
 
