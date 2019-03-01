@@ -152,7 +152,8 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
                 }
             }
         }
-
+//to check if time.plist exists, if not, reset checkedInArray and checkedOutArray
+	if (FileManager.default.fileExists(atPath: checkDataPath)) {
         //filter the people who didn't check in
         for item in checkedInArray {
             let empCheck = item as Employee
@@ -182,6 +183,7 @@ class ViewController: UIViewController, UICollectionViewDelegate,UICollectionVie
         
         self.checkoutArray = checkedOutArray
     }
+  }
     
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
